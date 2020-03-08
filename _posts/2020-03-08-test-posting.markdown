@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Test posting"
+title:  "Test posting for android"
 date:   2020-03-08
-categories: diary
+categories: android
 author: "J-Shine"
 ---
 
-test posting
+test posting for android
