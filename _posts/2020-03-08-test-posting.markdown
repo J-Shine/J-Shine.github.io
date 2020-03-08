@@ -2,7 +2,7 @@
 layout: post
 title:  "Test posting for android"
 date:   2020-03-08
-categories: android
+categories: ["android"]
 author: "J-Shine"
 ---
 
