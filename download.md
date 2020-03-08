@@ -1,10 +1,10 @@
----
-layout: page
-title: Download
-permalink: /download/
+#---
+#layout: page
+#title: Download
+#permalink: /download/
 
-tagline: "Loved it? Download Gravity"
----
+#tagline: "Loved it? Download Gravity"
+#---
 
 <br>
 
@@ -31,3 +31,4 @@ tagline: "Loved it? Download Gravity"
  </p>
 </div>
 
+-->
