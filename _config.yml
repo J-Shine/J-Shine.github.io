@@ -20,5 +20,5 @@ plugins: [jekyll-paginate, kramdown]
 # Build settings
 markdown: kramdown
 
-disqus_url: https://j-shine-1.disqus.com/
-disqus_id: j-shine
+disqus_url: https://j-shine-2.disqus.com/
+disqus_shortname: 'j-shine-2'
