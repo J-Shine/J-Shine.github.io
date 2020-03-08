@@ -5,4 +5,3 @@ permalink: /daily-log/
 category: "daily-log"
 tagline: "Daily log"
 ---
-theme-dark: true
