@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: Diary
-permalink: /diary/
-category: "diary"
-tagline: "A diary"
+title: Daily log
+permalink: /daily-log/
+category: "daily-log"
+tagline: "Daily log"
 ---
