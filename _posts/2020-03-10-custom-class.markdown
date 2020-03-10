@@ -8,17 +8,18 @@ author: "J-Shine"
 
 # Make custom class to pass in to the ArrayAdapter constructor as a parameter.
 
--**public class vs private class**   
+-**public vs class**   
 public class - we can access from anywhere. 
 <pre><code>
-
-
+public class Mainactivity {
+  ~~~
   textView.setText("Hello")
+  }
 </code></pre>
-private class - we can only access when we are in that class. 
+private - we can only access when we are in that class. 
 <pre><code>
 public class TextView {
-  public setText(){
+  private setText(){
     ~~~~
     }
   setText("Hello")
