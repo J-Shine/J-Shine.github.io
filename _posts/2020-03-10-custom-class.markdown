@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Custom class android"
-date:   2020-03-10
+date:   2020-03-10 16:30
 categories: ["android"]
 author: "J-Shine"
 ---
