@@ -28,8 +28,9 @@ public class TextView {
 
 We need to set variables private and make get and set functions to control those variables.    
 Set variable private in order to protect from unexpected value and behavior.    
-Below is the Miwok custom word class.
+Below is the Miwok custom word class.   
 
+Word.java
 ```java
 package com.example.android.miwok;
 
