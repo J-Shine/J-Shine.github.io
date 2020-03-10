@@ -20,8 +20,8 @@ plugins: [jekyll-paginate, kramdown]
 # Build settings
 markdown: kramdown
 kramdown:
-	input: GFM
-	syntax_hightlighter: rouge
+input: GFM
+syntax_hightlighter: rouge
 
 disqus-shortname: j-shine
 disqus_url: https://j-shine.disqus.com/
