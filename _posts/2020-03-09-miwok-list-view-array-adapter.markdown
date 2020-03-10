@@ -232,7 +232,7 @@ public class NumbersActivity extends AppCompatActivity {
 
 activity_numbers.xml
 
-<pre><code>
+'''
 
 <?xml version="1.0" encoding="utf-8"?>
 <ListView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -247,4 +247,4 @@ activity_numbers.xml
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.miwok.NumbersActivity" />
     
-</code></pre>
+'''
