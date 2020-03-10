@@ -10,13 +10,10 @@ author: "J-Shine"
 
 -**public class vs private class**   
 public class - we can access from anywhere. 
-<pre>
-<code>
-( ex) textView.setText("Hello"))
-</code>
-</pre>
+<pre><code>
+ex) textView.setText("Hello")
+</code></pre>
 private class - we can only access when we are in that class. 
-'''
-( ex) setText("Hello"))
-'''
-
+<pre><code>
+ex) setText("Hello")
+</code></pre>
