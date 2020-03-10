@@ -231,7 +231,9 @@ public class NumbersActivity extends AppCompatActivity {
 </code></pre>
 
 activity_numbers.xml
+
 <pre><code>
+
 <?xml version="1.0" encoding="utf-8"?>
 <ListView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
@@ -244,4 +246,5 @@ activity_numbers.xml
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.android.miwok.NumbersActivity" />
+    
 </code></pre>
