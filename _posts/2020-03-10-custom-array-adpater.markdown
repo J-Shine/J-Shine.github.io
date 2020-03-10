@@ -111,7 +111,7 @@ Also change list_item.xml
 </LinearLayout>
 ```
 
-Also need to change ArrayAdpater to -> WordAdpater
+Also need to change ArrayAdapter to -> WordAdapter
 
 ```java
 package com.example.android.miwok;
