@@ -11,7 +11,7 @@ author: "J-Shine"
 -**public vs class**   
 public class - we can access from anywhere. 
 <pre><code>
-public class Mainactivity {
+public class MainActivity {
   ~~~
   textView.setText("Hello")
   }
