@@ -9,7 +9,7 @@ author: "J-Shine"
 # Make ListView using ArrayAdapter.
 
 NumbersActivity.java file.
-<pre><code>
+```java
 package com.example.android.miwok;
 
 import android.content.Intent;
@@ -228,11 +228,11 @@ public class NumbersActivity extends AppCompatActivity {
         // ArrayAdapter is also used with GridList and Spinner
     }
 }
-</code></pre>
+```
 
 activity_numbers.xml
 
-```
+```xml
 
 <?xml version="1.0" encoding="utf-8"?>
 <ListView xmlns:android="http://schemas.android.com/apk/res/android"
