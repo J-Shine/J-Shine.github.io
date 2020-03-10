@@ -27,6 +27,7 @@ public class TextView {
 </code></pre>
 
 We need to set variables private and make get and set functions to control those variables.    
+Set variable private in order to protect from unexpected value and behavior.
 <pre><code>
 /**
  * Displays text to the user.
