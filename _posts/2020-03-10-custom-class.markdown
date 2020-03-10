@@ -29,64 +29,34 @@ public class TextView {
 We need to set variables private and make get and set functions to control those variables.    
 Set variable private in order to protect from unexpected value and behavior.
 <pre><code>
-/**
- * Displays text to the user.
- */
-public class TextView extends View {
- 
-    // String value
-    private String mText;
- 
-    // Text color of the text
-    private int mTextColor;
-    
-    // Context of the app
-    private Context mContext;
- 
-    /**
-     * Constructs a new TextView with initial values for text and text color.
-     */
-    public TextView(Context context) {
-      mText = "";
-      mTextColor = 0;
-      mContext = context;
+package com.example.android.miwok;
+
+// It contains a Miwok translation and a default translation for that word.
+public class Word {
+
+    // Default translation for the word.
+    private String mDefaultTranslation;
+    // 'm' is short for 'private member of class'
+
+    // Miwok translation for the word.
+    private String mMiwokTranslation;
+
+    // Word class constructor.
+    public Word(String defaultTranslation, String miwokTranslation) {
+        mDefaultTranslation = defaultTranslation;
+        mMiwokTranslation = miwokTranslation;
     }
- 
-    /**
-     * Sets the string value in the TextView.
-     *
-     * @param text is the updated string to be displayed.
-     */
-    public void setText(String text) {
-        mText = text;
+
+    // A method that gets default translation of the word
+    public String getDefaultTranslation() {
+        return mDefaultTranslation;
     }
- 
-    /**
-     * Sets the text color of the TextView.
-     *
-     * @param color of text to be displayed.
-     */
-    public void setTextColor(int color) {
-        mTextColor = color;
-    }
- 
-    /**
-     * Gets the string value in the TextView.
-     *
-     * @return current text in the TextView.
-     */
-    public String getText() {
-        return mText;
-    }
- 
-    /**
-     * Gets the text color of the TextView.
-     *
-     * @return current text color.
-     */
-    public int getTextColor() {
-        return mTextColor;
+
+    // A method that gets miwok translation of the word
+    public String getMiwokTranslation() {
+        return mMiwokTranslation;
     }
 }
+
 //source - udacity
 </code></pre>
