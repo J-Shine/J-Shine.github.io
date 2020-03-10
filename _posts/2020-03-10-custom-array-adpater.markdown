@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "[Miwok] Custom ArrayAdapter"
-date:   2020-03-10 16:30
+date:   2020-03-10 18:54
 categories: ["android"]
 author: "J-Shine"
 ---
