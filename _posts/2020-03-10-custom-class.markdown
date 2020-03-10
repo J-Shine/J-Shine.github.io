@@ -10,27 +10,27 @@ author: "J-Shine"
 
 -**public vs private**   
 public - we can access from anywhere. 
-<pre><code>
+```java
 public class MainActivity {
   ~~~
   textView.setText("Hello")
   }
-</code></pre>
+```
 private - we can only access when we are in that class. 
-<pre><code>
+```java
 public class TextView {
   private setText(){
     ~~~~
     }
   setText("Hello")
   }
-</code></pre>
+```
 
 We need to set variables private and make get and set functions to control those variables.    
 Set variable private in order to protect from unexpected value and behavior.    
 Below is the Miwok custom word class.
 
-<pre><code>
+```java
 package com.example.android.miwok;
 
 // It contains a Miwok translation and a default translation for that word.
@@ -61,4 +61,4 @@ public class Word {
 }
 
 //source - udacity
-</code></pre>
+```
