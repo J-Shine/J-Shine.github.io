@@ -1,55 +1,55 @@
-I"®<h1 id="make-custom-class-to-pass-in-to-the-arrayadapter-constructor-as-a-parameter">Make custom class to pass in to the ArrayAdapter constructor as a parameter.</h1>
+I"‡<h1 id="make-custom-class-to-pass-in-to-the-arrayadapter-constructor-as-a-parameter">Make custom class to pass in to the ArrayAdapter constructor as a parameter.</h1>
 
 <p>-<strong>public vs private</strong> <br />
 public - we can access from anywhere.</p>
-<pre><code class="language-java">public class MainActivity {
-  ~~~
-  textView.setText("Hello")
-  }
-</code></pre>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="o">{</span>
+  <span class="o">~~~</span>
+  <span class="n">textView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">)</span>
+  <span class="o">}</span>
+</code></pre></div></div>
 <p>private - we can only access when we are in that class.</p>
-<pre><code class="language-java">public class TextView {
-  private setText(){
-    ~~~~
-    }
-  setText("Hello")
-  }
-</code></pre>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">TextView</span> <span class="o">{</span>
+  <span class="kd">private</span> <span class="nf">setText</span><span class="o">(){</span>
+    <span class="o">~~~~</span>
+    <span class="o">}</span>
+  <span class="n">setText</span><span class="o">(</span><span class="s">"Hello"</span><span class="o">)</span>
+  <span class="o">}</span>
+</code></pre></div></div>
 
 <p>We need to set variables private and make get and set functions to control those variables.  <br />
 Set variable private in order to protect from unexpected value and behavior.  <br />
 Below is the Miwok custom word class.</p>
 
 <p>Word.java</p>
-<pre><code class="language-java">package com.example.android.miwok;
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.android.miwok</span><span class="o">;</span>
 
-// It contains a Miwok translation and a default translation for that word.
-public class Word {
+<span class="c1">// It contains a Miwok translation and a default translation for that word.</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Word</span> <span class="o">{</span>
 
-    // Default translation for the word.
-    private String mDefaultTranslation;
-    // 'm' is short for 'private member of class'
+    <span class="c1">// Default translation for the word.</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">mDefaultTranslation</span><span class="o">;</span>
+    <span class="c1">// 'm' is short for 'private member of class'</span>
 
-    // Miwok translation for the word.
-    private String mMiwokTranslation;
+    <span class="c1">// Miwok translation for the word.</span>
+    <span class="kd">private</span> <span class="nc">String</span> <span class="n">mMiwokTranslation</span><span class="o">;</span>
 
-    // Word class constructor.
-    public Word(String defaultTranslation, String miwokTranslation) {
-        mDefaultTranslation = defaultTranslation;
-        mMiwokTranslation = miwokTranslation;
-    }
+    <span class="c1">// Word class constructor.</span>
+    <span class="kd">public</span> <span class="nf">Word</span><span class="o">(</span><span class="nc">String</span> <span class="n">defaultTranslation</span><span class="o">,</span> <span class="nc">String</span> <span class="n">miwokTranslation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mDefaultTranslation</span> <span class="o">=</span> <span class="n">defaultTranslation</span><span class="o">;</span>
+        <span class="n">mMiwokTranslation</span> <span class="o">=</span> <span class="n">miwokTranslation</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    // A method that gets default translation of the word
-    public String getDefaultTranslation() {
-        return mDefaultTranslation;
-    }
+    <span class="c1">// A method that gets default translation of the word</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getDefaultTranslation</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">mDefaultTranslation</span><span class="o">;</span>
+    <span class="o">}</span>
 
-    // A method that gets miwok translation of the word
-    public String getMiwokTranslation() {
-        return mMiwokTranslation;
-    }
-}
+    <span class="c1">// A method that gets miwok translation of the word</span>
+    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">getMiwokTranslation</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">mMiwokTranslation</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
 
-//source - udacity
-</code></pre>
+<span class="c1">//source - udacity</span>
+</code></pre></div></div>
 :ET
