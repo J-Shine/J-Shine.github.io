@@ -41,11 +41,15 @@ public class WordAdapter extends ArrayAdapter<Word> {
         super(context, 0, words);
     }
 
+    /*
+     * @param convertView is an existing view we can reuse.(recycle)
+     */
     @NonNull
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
-        // Check if the existing view is being reused, otherwise inflate the view
+        // Check if the existing view(convertivew) is being reused, otherwise inflate the view
+        // Such as opening the screen first time.
         View listItemView = convertView;
         if(listItemView == null) {
             listItemView = LayoutInflater.from(getContext()).inflate(
@@ -173,3 +177,8 @@ public class NumbersActivity extends AppCompatActivity {
     }
 }
 ```
+
+**How to create a ListView with an ArrayAdapter**   
+1. Create a way to store custom objects.   
+2. Create a custom Adapter that extends from ArrayAdapter and takes the custom object we created.    
+3. Modify getView method that in the custom Adapter to provide a list item view for your ListView.     
