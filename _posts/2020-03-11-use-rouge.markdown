@@ -16,7 +16,7 @@ Find available rouge syntax-highlighting style
 rougify help style
 ```
 
-To create syntax-highlighting file (monokai style for example)
+Create syntax-highlighting file (monokai style for example)
 ```java
 rougify style monokai > /css/syntax.css
 ```
