@@ -15,4 +15,4 @@ To create syntax-highlighting file (monokai style for example)
 ```java
 rougify style monokai > /css/syntax.css
 ```
-And copy and paste all the codes in the 'syntax.css' file where you think appropriate
+And copy and paste all the codes in the 'syntax.css' file to where you think appropriate
