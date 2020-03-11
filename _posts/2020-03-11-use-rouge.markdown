@@ -15,6 +15,8 @@ Find available rouge syntax-highlighting style
 ```java
 rougify help style
 ```
+Preview for various rouge styles
+https://spsarolkar.github.io/rouge-theme-preview/
 
 Create syntax-highlighting file (monokai style for example)
 ```java
