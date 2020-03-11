@@ -6,8 +6,9 @@ categories: ["daily-log"]
 author: "J-Shine"
 ---
 
+Install kramdown and rouge
 ```
-gem install rouge
+gem install kramdown rouge
 ```
 
 To see available rouge syntax-highlighting style
