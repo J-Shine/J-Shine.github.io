@@ -1,10 +1,14 @@
 ---
 layout: post
-title:  "[Blog] Use rouge"
+title:  "[Blog] Use rouge for syntax-highlighting"
 date:   2020-03-10 18:54
 categories: ["daily-log"]
 author: "J-Shine"
 ---
+
+```
+gem install rouge
+```
 
 To see available rouge syntax-highlighting style
 ```java
