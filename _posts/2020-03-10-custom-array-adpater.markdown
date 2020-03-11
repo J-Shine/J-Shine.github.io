@@ -48,6 +48,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
+        // Use 'Ctrl+O' to generate override method.
         // Check if the existing view(convertivew) is being reused, otherwise inflate the view
         // Such as opening the screen first time.
         View listItemView = convertView;
