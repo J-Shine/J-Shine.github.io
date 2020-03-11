@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "[Blog] Use rouge"
+date:   2020-03-10 18:54
+categories: ["daily-log"]
+author: "J-Shine"
+---
+
+To see available rouge syntax-highlighting style
+```java
+rougify help style
+```
+
+To create syntax-highlighting file
+```java
+rougify style monokai > /css/syntax.css
+```
