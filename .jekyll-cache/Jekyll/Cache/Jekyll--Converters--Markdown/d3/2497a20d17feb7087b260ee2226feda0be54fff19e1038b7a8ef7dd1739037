@@ -1,0 +1,4 @@
+I"ª<p>Install kramdown and rouge</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gem install kramdown rouge
+</code></pre></div></div>
+:ET
