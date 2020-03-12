@@ -669,4 +669,9 @@ pre {
         display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
     }
   } 
+.wrapper{
+    site-category:hover ul{
+        display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+    }
+  }
 }
