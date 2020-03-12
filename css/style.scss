@@ -681,13 +681,13 @@ pre {
   display:inline-block;
   }
 
-  .site-category li{
+  .trigger-site-navigation li{
   float: left;
   display:inline;
 
   }
 
-  .site-category li a{
+  .trigger-site-navigation li a{
   display:block;
   font-weight:normal;
   line-height:50px;
@@ -697,13 +697,13 @@ pre {
   text-decoration:none;
   }
 
-  .site-category li a:hover{
+  .trigger-site-navigation li a:hover{
   background: rgb(71,71,71);
   color:#FFFFFF;
   text-decoration:none;
   }
 
-  .site-category li ul{
+  .trigger-site-navigation li ul{
   background: rgb(109,109,109);
   display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
   height:auto;
@@ -717,11 +717,11 @@ pre {
   /*left:0;*/
   }
 
-  .site-category li:hover ul{
+  .trigger-site-navigation li:hover ul{
   display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
   }
 
-  .site-category li li {
+  .trigger-site-navigation li li {
   display:block;
   float:none;
   margin:0px;
@@ -729,11 +729,11 @@ pre {
   width:200px;
   }
 
-  .site-category li:hover li a{
+  .trigger-site-navigation li:hover li a{
   background:none;
   }
 
-  .site-category li ul a{
+  .trigger-site-navigation li ul a{
   display:block;
   height:50px;
   font-size:12px;
@@ -743,7 +743,7 @@ pre {
   text-align:left;
   }
 
-  .site-category li ul a:hover, .menubar li ul li:hover a{
+  .trigger-site-navigation li ul a:hover, .menubar li ul li:hover a{
   background: rgb(71,71,71);
   border:0px;
   color:#ffffff;
