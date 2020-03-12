@@ -664,7 +664,9 @@ pre {
     .il    { color: #099 } // Literal.Number.Integer.Long
 
     
-.wrapper site-category ul{
-  display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+.wrapper{
+    site-category ul{
+        display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+    }
   } 
 }
