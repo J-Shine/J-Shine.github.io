@@ -662,7 +662,7 @@ pre {
     .vi    { color: #008080 } // Name.Variable.Instance
     .il    { color: #099 } // Literal.Number.Integer.Long
 
-.site-category{
+.trigger-site-navigation{
   border-top: 1px solid;
   margin:auto;
   padding:0;
@@ -671,7 +671,7 @@ pre {
   clear:left;
   }
 
-  .site-category ul{
+  .trigger-site-navigation ul{
   //background: rgb(109,109,109);
   height:50px;
   list-style:none;
@@ -682,9 +682,7 @@ pre {
   }
 
   .trigger-site-navigation li{
-  float: left;
   display:inline;
-
   }
 
   .trigger-site-navigation li a{
