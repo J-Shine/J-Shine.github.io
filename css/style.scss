@@ -661,4 +661,22 @@ pre {
     .vg    { color: #008080 } // Name.Variable.Global
     .vi    { color: #008080 } // Name.Variable.Instance
     .il    { color: #099 } // Literal.Number.Integer.Long
+
+    
+.site-category ul{
+  display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
+  height:auto;
+  padding:0px;
+  margin:0px;
+  border:0px;
+  position:absolute;
+  width:200px;
+  z-index:200;
+  /*top:1em;
+  /*left:0;*/
+  }
+.site-category :hover ul{
+  display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
+  }
+    
 }
