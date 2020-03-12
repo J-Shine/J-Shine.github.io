@@ -5,15 +5,21 @@
 <div class="wrapper site-description">
 <center>  {{site.description}} </center>
 </div>
-<div class="wrapper">
+<div class="site-category">
   <center> <div class="trigger site-navigation"> <center>
-    <a class="page-link" href="{{site.url}}{{site.baseurl}}">HOME</a>
-      <li><a href="/Python/Crawler">Crawler</a></li>
-      <li><a href="/Python/Django">Django</a></li>
-      <li><a href="/Python/Tensorflow">Tensorflow</a></li>
-    </ul>
-  </li>
-
+    <li><a class="page-link" href="{{site.url}}{{site.baseurl}}">HOME</a></li>
+    <li><a href="/">Python</a>
+      <ul>
+            <li><a href="/Python/Crawler">Crawler</a></li>
+            <li><a href="/Python/Django">Django</a></li>
+            <li><a href="/Python/Tensorflow">Tensorflow</a></li>
+        </ul>
+      </li>
     <span class="exclamationMark">/</span><a class="page-link" href="{{sitePage.url | prepend: site.baseurl }}">{{sitePage.title}}</a
+    <li><a href="/">Data Science</a>
+        <ul>
+          <li><a href="/DS/ML">Machine Learning</a></li>
+        </ul>
+      </li>
   </div>
 </div>
