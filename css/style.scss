@@ -663,24 +663,3 @@ pre {
     .vi    { color: #008080 } // Name.Variable.Instance
     .il    { color: #099 } // Literal.Number.Integer.Long
 }
-
-    
-.wrapper{
-    .site-category ul{
-        display:block; /* 평상시에는 드랍메뉴가 안보이게 하기 */
-    }
-  } 
-.wrapper{
-    .site-category:hover ul{
-        display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */
-    }
-  }
-.wrapper{
-    .site-category ul li{
-        display:block;
-        float:none;
-        margin:0px;
-        padding:0px;
-        width:200px;
-    }
-}
