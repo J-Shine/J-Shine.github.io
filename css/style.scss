@@ -677,6 +677,10 @@ pre {
   line-height: 1.5;
   margin:0 auto;
   padding:0;
-  display:inline-block;
+  display:inline;
+  }
+.site-category li{
+  float: left;
+  display:inline;
   }    
 }
