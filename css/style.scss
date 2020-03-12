@@ -663,8 +663,7 @@ pre {
     .il    { color: #099 } // Literal.Number.Integer.Long
 
 .site-category{
-  background: $brand-color;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid;
   margin:auto;
   padding:0;
   font-size:14px;
@@ -689,7 +688,6 @@ pre {
   }
 
   .site-category li a{
-  background: $brand-color;
   display:block;
   font-weight:normal;
   line-height:50px;
@@ -724,7 +722,6 @@ pre {
   }
 
   .site-category li li {
-  background: $brand-color;
   display:block;
   float:none;
   margin:0px;
