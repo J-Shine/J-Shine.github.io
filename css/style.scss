@@ -225,22 +225,22 @@ pre {
 .wrapper ul{
     list-style:none;
 }
-.down-content ul{
+.down-content{
     position:absolute;
     z-index:1;
     display:none;
     background-color:#fdfdfd;
 }
-.ANDROID:hover .down-content ul{
+.ANDROID:hover .down-content{
     display:block;
 }
-.DATA-SCIENCE:hover .down-content ul{
+.DATA-SCIENCE:hover .down-content{
     display:block;
 }
-.GITHUB:hover .down-content ul{
+.GITHUB:hover .down-content{
     display:block;
 }
-.DAILY-LOG:hover .down-content ul{
+.DAILY-LOG:hover .down-content{
     display:block;
 }
 
