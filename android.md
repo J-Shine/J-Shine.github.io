@@ -2,6 +2,6 @@
 layout: archive
 title: Android
 permalink: /android/android
-category: "Android"
+category: "android"
 tagline: "Learning andorid from Udacity."
 ---
