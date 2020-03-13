@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "[Blog] Use rouge for syntax-highlighting"
+title:  "Use rouge for syntax-highlighting in Github blog"
 date:   2020-03-10 18:54
-categories: ["daily-log"]
+categories: ["github-blog"]
 author: "J-Shine"
 ---
 
