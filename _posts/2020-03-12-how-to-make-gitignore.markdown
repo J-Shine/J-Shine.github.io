@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "[Blog] How to set gitignore"
+title:  "How to set gitignore"
 date:   2020-03-10
-categories: ["daily-log"]
+categories: ["github"]
 author: "J-Shine"
 ---
 
