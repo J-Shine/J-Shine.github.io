@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: Android
-permalink: /android/android2
-category: "Android2"
+permalink: /android/android
+category: "Android"
 tagline: "Learning andorid from Udacity."
 ---
