@@ -1,8 +1,6 @@
 ---
 layout: page
-title : About
-permalink: /about/
+title : Data Structures
+permalink: /data-science/data-structures
+tagline: Learning data structures from school.
 ---
-
-<h2>J-Shine</h2>
-<p>Lives in Seoul, South Korea. Learning android.</p>
