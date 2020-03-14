@@ -19,3 +19,7 @@ xxxhdpi(~640dpi)(1dp=4px) -> extra-extra-extra high density device
 We can find dpi of some popular devices from here.    
 https://material.io/resources/devices/     
 
+In AndroidStudio, we should make folders for each dpi.( ex) drawble-hdpi)    
+And put same images of different resolution.
+
+
