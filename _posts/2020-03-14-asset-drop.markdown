@@ -84,10 +84,10 @@ And create constrcutor and getter.
 ```java
 public class Word {
 
-    ...   
-
     // Image resouce id for the word.
     private int mImageResourceId;
+
+    ...   
 
     // 2-input Word class constructor.
     public Word(String defaultTranslation, String miwokTranslation) {
@@ -95,16 +95,12 @@ public class Word {
         mMiwokTranslation = miwokTranslation;
     }
     
-    ...   
-    
     // 3-input Word class constructor.
     public Word(int imageResourceId, String defaultTranslation, String miwokTranslation) {
         mImageResourceId = imageResourceId;
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
     }
-    
-    ...  
 
     // A method that gets resource image id of the word
     public int getmImageResourceId() {
