@@ -110,3 +110,53 @@ public class Word {
     ...   
     
 }
+```
+
+-**Modify NumbersActivity.java, FamilyActivity.java, ColorsActivity.java**   
+
+Modify Activities to call proper constructor.   
+
+NumbersActivity.java   
+```java
+public class NumbersActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+    ...
+
+        // Add words by using 'add' function.
+                words.add(new Word(R.drawable.number_one, "one", "lutti"));
+                words.add(new Word(R.drawable.number_two, "two", "otiiko"));
+                words.add(new Word(R.drawable.number_three, "three", "tolookosu"));
+                words.add(new Word(R.drawable.number_four, "four", "oyyisa"));
+                words.add(new Word(R.drawable.number_five, "five", "massokka"));
+                words.add(new Word(R.drawable.number_six, "six", "temmokka"));
+                words.add(new Word(R.drawable.number_seven, "seven", "kenekaku"));
+                words.add(new Word(R.drawable.number_eight, "eight", "kawinta"));
+                words.add(new Word(R.drawable.number_nine, "nine", "wo'e"));
+                words.add(new Word(R.drawable.number_ten, "ten", "na'aacha"));
+    ...
+    }
+    ...
+}
+```
+Do same thing to other two activities.
+
+
+WordAdapter.java   
+
+```java
+public class WordAdapter extends ArrayAdapter<Word> {
+    ...   
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+    // Find the ImageView in the list_item.xml layout with the ID image
+            ImageView imageView = listItemView.findViewById(R.id.image);
+            // Get the image from the currentWord object and 
+            // set this on the ImageView.
+            imageView.setImageResource(currentWord.getImageResourceId());
+    }
+    ...
+}
+```
