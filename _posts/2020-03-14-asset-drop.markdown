@@ -23,5 +23,5 @@ We can find dpi of some popular devices from [here](https://material.io/resource
 In AndroidStudio, we should make folders for each dpi.( ex) drawble-hdpi)    
 And put same images of different resolution.
 
-![image01](https://user-images.githubusercontent.com/61873510/76682281-0c625d80-663e-11ea-94e0-b96ca3844e4f.png)
+![image01](https://user-images.githubusercontent.com/61873510/76682337-ad511880-663e-11ea-9a1c-207aea438a3a.png)
 
