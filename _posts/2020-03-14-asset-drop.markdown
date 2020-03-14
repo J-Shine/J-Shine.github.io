@@ -140,8 +140,11 @@ public class NumbersActivity extends AppCompatActivity {
     ...
 }
 ```
-Do same thing to other two activities.
+Do same thing to other two activities.   
 
+-**Modify WordAdapter.java**
+
+Get and set images through WordAdapter.
 
 WordAdapter.java   
 
