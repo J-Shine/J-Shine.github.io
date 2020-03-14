@@ -1,4 +1,4 @@
-I"ÿ<h1 id="put-different-resolution-versions-of-same-images">Put different resolution versions of same images.</h1>
+I"<h1 id="put-different-resolution-versions-of-same-images">Put different resolution versions of same images.</h1>
 
 <p>To put images into our app, we need different resolution version of same each image. <br />
 Thatâ€™s because people have different devices and devices have different resolution. <br />
@@ -14,5 +14,5 @@ xxxhdpi(~640dpi)(1dp=4px) -&gt; extra-extra-extra high density device</p>
 <p>In AndroidStudio, we should make folders for each dpi.( ex) drawble-hdpi)  <br />
 And put same images of different resolution.</p>
 
-<p><img src="https://github.com/J-Shine/J-Shine.github.io/blob/master/images/asset-drop-1.png" alt="asset-drop-1" /></p>
+<p><img src="https://user-images.githubusercontent.com/61873510/76682136-d40e4f80-663c-11ea-880c-96583f1f5ea3.png" alt="asset-drop-1" /></p>
 :ET
