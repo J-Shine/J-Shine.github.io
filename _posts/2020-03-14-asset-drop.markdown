@@ -84,6 +84,8 @@ And create constrcutor and getter.
 ```java
 public class Word {
 
+    ...   
+
     // Image resouce id for the word.
     private int mImageResourceId;
 
@@ -104,4 +106,7 @@ public class Word {
     public int getmImageResourceId() {
         return mImageResourceId;
     }
+    
+    ...   
+    
 }
