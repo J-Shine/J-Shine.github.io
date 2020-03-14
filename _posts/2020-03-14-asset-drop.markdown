@@ -6,7 +6,9 @@ categories: ["android"]
 author: "J-Shine"
 ---
 
-# Different resolution versions of same images   
+# Put different resolution versions of same images.    
+
+
 To put images into our app, we need different resolution version of same each image.   
 That's because people have different devices and devices have different resolution.   
 Dpi is dots for inch.   
