@@ -95,12 +95,16 @@ public class Word {
         mMiwokTranslation = miwokTranslation;
     }
     
+    ...   
+    
     // 3-input Word class constructor.
     public Word(int imageResourceId, String defaultTranslation, String miwokTranslation) {
         mImageResourceId = imageResourceId;
         mDefaultTranslation = defaultTranslation;
         mMiwokTranslation = miwokTranslation;
     }
+    
+    ...  
 
     // A method that gets resource image id of the word
     public int getmImageResourceId() {
