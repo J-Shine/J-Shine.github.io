@@ -33,11 +33,6 @@ And put same images of different resolution.
 Wrap the LinearLayout with another horizontal LinearLayout.       
 And put ImageView in there.    
 
-So the hierarchy would be like this.
-
-LinearLayout(horizontal) ㅡ ImageView     
-                         ㅡ LinearLayout(vertical) ㅡ TextView       
-                                                   ㅡ TextView    
 
 list_item.xml
 ```xml
