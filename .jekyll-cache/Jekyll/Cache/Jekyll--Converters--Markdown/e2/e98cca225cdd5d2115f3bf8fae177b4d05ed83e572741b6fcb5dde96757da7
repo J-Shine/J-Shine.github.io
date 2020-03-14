@@ -1,0 +1,177 @@
+I"�E<h1 id="make-custom-arrayadapter-using-custom-word-class-and-custom-arrayadapter">Make custom ArrayAdapter using custom Word class and custom ArrayAdapter.</h1>
+
+<p>-<strong>Create a custom ArrayAdapter</strong></p>
+
+<p>By default, the ArrayAdapter class expects that it’ll be populating a single TextView. <br />
+So we need to create a custom ArrayAdapter and override ‘getView method’.</p>
+
+<p>WordAdapter.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.android.miwok</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.support.annotation.NonNull</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.support.annotation.Nullable</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.LayoutInflater</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.ViewGroup</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.ArrayAdapter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordAdapter</span> <span class="kd">extends</span> <span class="nc">ArrayAdapter</span><span class="o">&lt;</span><span class="nc">Word</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Make constructor of 'WordAdapter' class.
+     * @param context The context.(Where we are)
+     */</span>
+    <span class="kd">public</span> <span class="nf">WordAdapter</span><span class="o">(</span><span class="nc">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Word</span><span class="o">&gt;</span> <span class="n">words</span><span class="o">){</span>
+        <span class="c1">// Initialize WordAdapter using ArrayAdapter's constructor.</span>
+        <span class="c1">// Because second parameter is used to populate single TextView, we don't use it here. We customize.</span>
+        <span class="c1">// So, put the value 0.</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">words</span><span class="o">);</span>
+    <span class="o">}</span>
+
+    <span class="cm">/*
+     * @param convertView is an existing view we can reuse.(recycle)
+     */</span>
+    <span class="nd">@NonNull</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="nc">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Use 'Ctrl+O' to generate override method.</span>
+        <span class="c1">// Check if the existing view(convertivew) is being reused, otherwise inflate the view</span>
+        <span class="c1">// Such as opening the screen first time.</span>
+        <span class="nc">View</span> <span class="n">listItemView</span> <span class="o">=</span> <span class="n">convertView</span><span class="o">;</span>
+        <span class="k">if</span><span class="o">(</span><span class="n">listItemView</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">listItemView</span> <span class="o">=</span> <span class="nc">LayoutInflater</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">getContext</span><span class="o">()).</span><span class="na">inflate</span><span class="o">(</span>
+                    <span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">list_item</span><span class="o">,</span> <span class="n">parent</span><span class="o">,</span> <span class="kc">false</span><span class="o">);</span>
+        <span class="o">}</span>
+
+        <span class="c1">// Get 'Word' object located at this position in the list.</span>
+        <span class="nc">Word</span> <span class="n">currentWord</span> <span class="o">=</span> <span class="n">getItem</span><span class="o">(</span><span class="n">position</span><span class="o">);</span>
+
+        <span class="c1">// Find the TextView in the list_item.xml layout with the ID miwok_text_view</span>
+        <span class="nc">TextView</span> <span class="n">miwokTextView</span> <span class="o">=</span> <span class="o">(</span><span class="nc">TextView</span><span class="o">)</span> <span class="n">listItemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">miwok_text_view</span><span class="o">);</span>
+        <span class="c1">// Get the miwok word from the current Word object and</span>
+        <span class="c1">// set this text on the miwok TextView</span>
+        <span class="n">miwokTextView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">currentWord</span><span class="o">.</span><span class="na">getMiwokTranslation</span><span class="o">());</span>
+
+        <span class="c1">// Find the TextView in the list_item.xml layout with the ID default_text_view</span>
+        <span class="nc">TextView</span> <span class="n">defaultTextView</span> <span class="o">=</span> <span class="o">(</span><span class="nc">TextView</span><span class="o">)</span> <span class="n">listItemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">default_text_view</span><span class="o">);</span>
+        <span class="c1">// Get the default word from the current Word object and</span>
+        <span class="c1">// set this text on the default TextView</span>
+        <span class="n">defaultTextView</span><span class="o">.</span><span class="na">setText</span><span class="o">(</span><span class="n">currentWord</span><span class="o">.</span><span class="na">getDefaultTranslation</span><span class="o">());</span>
+
+        <span class="c1">// Return the whole list item layout (containing 2 TextViews)</span>
+        <span class="c1">// so that it can be shown in the ListView</span>
+        <span class="k">return</span> <span class="n">listItemView</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>Also change list_item.xml</p>
+
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+
+<span class="c">&lt;!--
+    xmlns is short for xml namespace.
+    in tools namespace, we can set texts.
+    Go 'tools.android.com/tech-docs/tools-attributes' and find attributes in tools namespace.
+    Or 'https://developer.android.com/studio/write/tool-attributes'
+    'tools:text' is one of 'Design time attributes'  which are used when the layout is rendered in the tool,
+    but have no impact on the runtime.
+    --&gt;</span>
+
+<span class="nt">&lt;LinearLayout</span>
+    <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">xmlns:tools=</span><span class="s">"http://schemas.android.com/tools"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+    <span class="na">android:orientation=</span><span class="s">"vertical"</span>
+    <span class="na">android:padding=</span><span class="s">"16dp"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/miwok_text_view"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+        <span class="na">tools:text=</span><span class="s">"lutti"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;TextView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/default_text_view"</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+        <span class="na">tools:text=</span><span class="s">"one"</span><span class="nt">/&gt;</span>
+
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div></div>
+
+<p>Also need to change ArrayAdapter to -&gt; WordAdapter</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">package</span> <span class="nn">com.example.android.miwok</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">android.content.Intent</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.support.v7.app.AppCompatActivity</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.util.Log</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.view.View</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.ArrayAdapter</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.GridView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.LinearLayout</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.ListView</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">android.widget.TextView</span><span class="o">;</span>
+
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
+
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumbersActivity</span> <span class="kd">extends</span> <span class="nc">AppCompatActivity</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+        <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+        <span class="n">setContentView</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">layout</span><span class="o">.</span><span class="na">activity_numbers</span><span class="o">);</span>
+
+        <span class="c1">//Create ArrayList of numbers by using Word object.</span>
+        <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Word</span><span class="o">&gt;</span> <span class="n">words</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Word</span><span class="o">&gt;();</span>
+
+        <span class="c1">// Add words by using 'add' function.</span>
+
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"one"</span><span class="o">,</span> <span class="s">"lutti"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"two"</span><span class="o">,</span> <span class="s">"otiiko"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"three"</span><span class="o">,</span> <span class="s">"tolookosu"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"four"</span><span class="o">,</span> <span class="s">"oyyisa"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"five"</span><span class="o">,</span> <span class="s">"massokka"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"six"</span><span class="o">,</span> <span class="s">"temmokka"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"seven"</span><span class="o">,</span> <span class="s">"kenekaku"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"eight"</span><span class="o">,</span> <span class="s">"kawinta"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"nine"</span><span class="o">,</span> <span class="s">"wo'e"</span><span class="o">));</span>
+        <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="s">"ten"</span><span class="o">,</span> <span class="s">"na'aacha"</span><span class="o">));</span>
+
+        <span class="c1">// Create a WordAdapter (custom adapter), using constructor.</span>
+        <span class="nc">WordAdapter</span> <span class="n">itemsAdapter</span> <span class="o">=</span>
+                <span class="k">new</span> <span class="nf">WordAdapter</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">words</span><span class="o">);</span>
+
+        <span class="c1">// Find the ListView object in the view hierarchy of the Activity.</span>
+        <span class="c1">// There should be a ListView with the view ID called list, which is declared in the</span>
+        <span class="c1">// activity_numbers.xml layout file.</span>
+        <span class="nc">ListView</span> <span class="n">listView</span> <span class="o">=</span> <span class="n">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">list</span><span class="o">);</span>
+
+        <span class="c1">// Make the ListView use the ArrayAdapter we created above, so that the</span>
+        <span class="c1">// ListView will display list items for each word in the list of words.</span>
+        <span class="c1">// Do this by calling the setAdapter method on the ListView object and pass in</span>
+        <span class="c1">// 1 argument, which is the ArrayAdapter with the variable name itemsAdapter.</span>
+        <span class="n">listView</span><span class="o">.</span><span class="na">setAdapter</span><span class="o">(</span><span class="n">itemsAdapter</span><span class="o">);</span>
+        <span class="c1">// setAdapter needs ListAdapter as an input parameter.</span>
+        <span class="c1">// ListAdapter is an Interface, BaseAdapter is an Abstract class and lastly ArrayAdapter is a Concrete class.</span>
+        <span class="c1">// ListAdapter -&gt; BaseAdapter -&gt; ArrayAdapter.</span>
+        <span class="c1">// ArrayAdapter is also used with GridList and Spinner</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p><strong>How to create a ListView with an ArrayAdapter</strong></p>
+<ol>
+  <li>Create a way to store custom objects.</li>
+  <li>Create a custom Adapter that extends from ArrayAdapter and takes the custom object we created.</li>
+  <li>Modify getView method that in the custom Adapter to provide a list item view for your ListView.</li>
+</ol>
+:ET
