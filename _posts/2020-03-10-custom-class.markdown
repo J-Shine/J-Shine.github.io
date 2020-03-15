@@ -8,7 +8,7 @@ author: "J-Shine"
 
 # Make custom class to pass in to the ArrayAdapter constructor as a parameter.
 
--**public vs private**   
+-**Access modifier: public vs private**   
 public - we can access from anywhere. 
 ```java
 public class MainActivity {
