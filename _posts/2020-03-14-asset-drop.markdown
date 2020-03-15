@@ -164,6 +164,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
         return listItemView;
     }
 }
+```
 
 -**Check if there is an image resource or not.**
 
