@@ -200,7 +200,7 @@ public class Word {
 
 }
 
-```java
+```
 
 Use if else statement to set ImageView visibility.   
 
