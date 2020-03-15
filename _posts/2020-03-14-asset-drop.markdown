@@ -79,6 +79,7 @@ list_item.xml
 
 Create a variable for an image.    
 Set as 'int' because it will contain image resource id.    
+
 And create constrcutor and getter.    
 
 ```java
@@ -114,7 +115,7 @@ public class Word {
 
 -**Modify NumbersActivity.java, FamilyActivity.java, ColorsActivity.java**   
 
-Modify Activities to call proper constructor.   
+Modify Activities to call proper constructor.  
 
 NumbersActivity.java   
 ```java
@@ -142,20 +143,73 @@ public class NumbersActivity extends AppCompatActivity {
 ```
 Do same thing to other two activities.   
 
--**Modify WordAdapter.java**
 
-Get and set images through WordAdapter.   
-Use if else statement to set ImageView visible or gone.   
+-**Set images to ImageViews.**
 
+Get and set images through WordAdapter.    
 
+WordAdapter.java
 ```java
 public class WordAdapter extends ArrayAdapter<Word> {
     ...
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-
         ...
+        // Find the ImageView in the list_item.xml layout with the ID image
+        ImageView imageView = listItemView.findViewById(R.id.image);
+        // Get the image from the currentWord object and
+        // set this on the ImageView.
+        imageView.setImageResource(currentWord.getImageResourceId());
         
+        return listItemView;
+    }
+}
+
+-**Check if there is an image resource or not.**
+
+To check the existence of the image, set default value for mImageResourceId and create 'hasImage' method.
+
+Go back to the Word.java   
+```java
+public class Word {
+
+    /**
+     * Create a variable for an image resource id
+     * And set default value for no image state.
+     */
+    private int mImageResourceId = NO_IMAGE_PROVIDED;
+
+    /**
+     * Define a constant that indicates no image.
+     * Static is a keyword used to define the class member that can be used independently of any object of that class.
+     * Final keyword is used to declare, a constant variable, a method which can not be overridden and a class that can not be inherited.
+     */
+    private static final int NO_IMAGE_PROVIDED = -1;
+
+    ...
+    
+    /**
+     * Returns whether or not there is an image for this word.
+     */
+    public boolean hasImage(){
+        return mImageResourceId != NO_IMAGE_PROVIDED;
+        // If there is an image provided, it would return true.
+        // And it there is no image provided, it would return false.
+    }
+
+}
+
+```java
+
+Use if else statement to set ImageView visibility.   
+
+Go back to WordAdapter.java
+```java
+
+public class WordAdapter extends ArrayAdapter<Word> {
+    @Override
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
         // Find the ImageView in the list_item.xml layout with the ID image
         ImageView imageView = listItemView.findViewById(R.id.image);
 
@@ -171,7 +225,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
             // Otherwise hide an ImageView.
             imageView.setVisibility(View.GONE);
         }
-        
         return listItemView;
     }
 }
+```
