@@ -151,31 +151,12 @@ public class WordAdapter extends ArrayAdapter<Word> {
     ...
     @Override
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+
+        ...
         
-        View listItemView = convertView;
-        if(listItemView == null) {
-            listItemView = LayoutInflater.from(getContext()).inflate(
-                    R.layout.list_item, parent, false);
-        }
-
-        // Get 'Word' object located at this position in the list.
-        Word currentWord = getItem(position);
-
-        // Find the TextView in the list_item.xml layout with the ID miwok_text_view
-        TextView miwokTextView = (TextView) listItemView.findViewById(R.id.miwok_text_view);
-        // Get the miwok word from the current Word object and
-        // set this text on the miwok TextView
-        miwokTextView.setText(currentWord.getMiwokTranslation());
-
-        // Find the TextView in the list_item.xml layout with the ID default_text_view
-        TextView defaultTextView = (TextView) listItemView.findViewById(R.id.default_text_view);
-        // Get the default word from the current Word object and
-        // set this text on the default TextView
-        defaultTextView.setText(currentWord.getDefaultTranslation());
-
         // Find the ImageView in the list_item.xml layout with the ID image
         ImageView imageView = listItemView.findViewById(R.id.image);
-**
+
         if(currentWord.hasImage()){
             // Get the image from the currentWord object and
             // set this on the ImageView.
@@ -188,10 +169,7 @@ public class WordAdapter extends ArrayAdapter<Word> {
             // Otherwise hide an ImageView.
             imageView.setVisibility(View.GONE);
         }
-        **
-
-        // Return the whole list item layout (containing 2 TextViews)
-        // so that it can be shown in the ListView
+        
         return listItemView;
     }
 }
