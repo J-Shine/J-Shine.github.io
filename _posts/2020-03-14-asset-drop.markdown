@@ -145,7 +145,9 @@ Do same thing to other two activities.
 -**Modify WordAdapter.java**
 
 Get and set images through WordAdapter.   
-Use if else statement to set ImageView visible or gone.    
+Use if else statement to set ImageView visible or gone.   
+
+
 ```java
 public class WordAdapter extends ArrayAdapter<Word> {
     ...
