@@ -14,7 +14,7 @@ we need to use getColor method which is in the ContextCompat class.
 int textcolor = ContextCompat.getColor(context, R.color.textcolor);
 ```
 
-ArrayAdapter.java
+Applying to ArrayAdapter.java
 
 ```java
 public class WordAdapter extends ArrayAdapter<Word> {
