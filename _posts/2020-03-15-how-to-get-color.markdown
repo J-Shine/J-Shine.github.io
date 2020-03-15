@@ -8,7 +8,8 @@ author: "J-Shine"
 
 #Set different background colors for each activity in Miwok.   
 
-We need to use getColor method which is in the ContextCompat class.   
+In order to get integer color from resource id,    
+we need to use getColor method which is in the ContextCompat class.   
 ```java
 int textcolor = ContextCompat.getColor(context, R.color.textcolor);
 ```
