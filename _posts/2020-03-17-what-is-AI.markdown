@@ -6,7 +6,7 @@ categories: ["deep-learning"]
 author: "J-Shine"
 ---
 
-# Make custom ArrayAdapter using custom Word class and custom ArrayAdapter.
+# WHat is an AI and an agent?
 
 -**What is an AI?**   
 Systems that think and act like rationaly.   
