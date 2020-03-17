@@ -13,14 +13,15 @@ Systems that think and act like rationaly.
 Rationality : An abstract 'ideal' of intelligence, rather than whatever humans think or do.    
 For example, 'intelligent' vacuum cleaner would have to **maximize** area cleaned, **minimize** noise and electricity consumption.    
 
--**What is an agent?**
-1. It is situated in some environment.(Doesn't have to be the real world)
-2. It can make observations
-3. It is able to act
-4. It has goals or preferences.
-5. It may have prior knowledge or beliefs, and some way of updating beliefs based on new experiences.
+-**What is an agent?**   
+1. It is situated in some environment.(Doesn't have to be the real world)   
+2. It can make observations.   
+3. It is able to act.   
+4. It has goals or preferences.   
+5. It may have prior knowledge or beliefs, and some way of updating beliefs based on new experiences.   
+
+![612px-Simple_reflex_agent](https://user-images.githubusercontent.com/61873510/76842706-08bd1980-687e-11ea-8c58-7cab433257be.png)   
 
 
-https://ai.stackexchange.com/questions/12991/what-is-an-agent-in-artificial-intelligence
-
-https://en.wikipedia.org/wiki/Intelligent_agent
+[More about an Agent](https://ai.stackexchange.com/questions/12991/what-is-an-agent-in-artificial-intelligence)
+[More About an Agent](https://en.wikipedia.org/wiki/Intelligent_agent)
