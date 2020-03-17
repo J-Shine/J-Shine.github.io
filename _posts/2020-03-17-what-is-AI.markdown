@@ -23,5 +23,5 @@ For example, 'intelligent' vacuum cleaner would have to **maximize** area cleane
 ![612px-Simple_reflex_agent](https://user-images.githubusercontent.com/61873510/76842706-08bd1980-687e-11ea-8c58-7cab433257be.png)   
 
 
-[More about an Agent](https://ai.stackexchange.com/questions/12991/what-is-an-agent-in-artificial-intelligence)
+[More about an Agent](https://ai.stackexchange.com/questions/12991/what-is-an-agent-in-artificial-intelligence)    
 [More About an Agent](https://en.wikipedia.org/wiki/Intelligent_agent)
