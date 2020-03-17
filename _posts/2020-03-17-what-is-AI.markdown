@@ -1,0 +1,26 @@
+---
+layout: post
+title:  "What is an AI?"
+date:   2020-03-10 18:54
+categories: ["deep-learning"]
+author: "J-Shine"
+---
+
+# Make custom ArrayAdapter using custom Word class and custom ArrayAdapter.
+
+-**What is an AI?**   
+Systems that think and act like rationaly.   
+Rationality : An abstract 'ideal' of intelligence, rather than whatever humans think or do.    
+For example, 'intelligent' vacuum cleaner would have to **maximize** area cleaned, **minimize** noise and electricity consumption.    
+
+-**What is an agent?**
+1. It is situated in some environment.(Doesn't have to be the real world)
+2. It can make observations
+3. It is able to act
+4. It has goals or preferences.
+5. It may have prior knowledge or beliefs, and some way of updating beliefs based on new experiences.
+
+
+https://ai.stackexchange.com/questions/12991/what-is-an-agent-in-artificial-intelligence
+
+https://en.wikipedia.org/wiki/Intelligent_agent
