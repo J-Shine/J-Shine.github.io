@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "시간, 공간 복잡도"
+title:  "시간, 공간 복잡도, 정수 자료형"
 date:   2020-03-10 18:54
 categories: ["barkingDog"]
 author: "J-Shine"
@@ -16,5 +16,14 @@ author: "J-Shine"
 ![image](https://user-images.githubusercontent.com/61873510/86477221-f1e5f880-bd82-11ea-9559-e421fb29a02d.png)  
 메모리의 크기가 512MB라면 1.2억개의 int 변수를 선언할 수 있다는 것 기억하기(int 1개가 4byte)  
 
+![image](https://user-images.githubusercontent.com/61873510/86479959-1395ae80-bd88-11ea-8f66-ab4ac409888b.png)  
+char 자료형의 범위: -128~ 127(1byte=8bit)  
 
+![image](https://user-images.githubusercontent.com/61873510/86480202-7dae5380-bd88-11ea-9523-5540fa4c614a.png)  
+int 자료형의 범위: 21억(4byte=32bit)
+
+![image](https://user-images.githubusercontent.com/61873510/86480508-17760080-bd89-11ea-9912-a25bf97d9cf1.png)
+1번은 integer overflow로 127 이후-127이 되어 무한루프에 빠지고,   
+3번은 10^10이 100억이므로 21억을 넘어 integer overflow.   
+해결을 위해서는 long long을 사용한다.
 
