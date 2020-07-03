@@ -2,7 +2,7 @@
 layout: post
 title:  "시간, 공간 복잡도"
 date:   2020-03-10 18:54
-categories: ["algorithm"]
+categories: ["barkingDog"]
 author: "J-Shine"
 ---
 
