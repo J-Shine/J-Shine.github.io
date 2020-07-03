@@ -1,0 +1,21 @@
+---
+layout: post
+title:  "시간, 공간 복잡도"
+date:   2020-03-10 18:54
+categories: ["algorithm"]
+author: "J-Shine"
+---
+
+# 바킹독님의 실전알고리즘 배우기 1강
+[바킹독의 실전 알고리즘 1강](https://blog.encrypted.gg/922).
+
+![image](https://user-images.githubusercontent.com/61873510/86477025-99aef680-bd82-11ea-9e82-2a7bb7429dc8.png)
+![image](https://user-images.githubusercontent.com/61873510/86477108-bc410f80-bd82-11ea-9745-b59bece9660d.png)
+목차
+
+![image](https://user-images.githubusercontent.com/61873510/86475390-89494c80-bd7f-11ea-9b06-df055ab3f8c5.png)
+
+문제에 따른 허용 시간 복잡도 짐작하기
+
+![image](https://user-images.githubusercontent.com/61873510/86477221-f1e5f880-bd82-11ea-9559-e421fb29a02d.png)
+
