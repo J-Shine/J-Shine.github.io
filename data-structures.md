@@ -1,7 +1,7 @@
 ---
 layout: archive
-title: Data Structures
-permalink: /data-science/data-structures
-category: "data-structures"
-tagline: "Learning data structures from school."
+title: Algorithm
+permalink: /algorithm/barkingDog
+category: "barkingDog"
+tagline: "Learning algorithm."
 ---
