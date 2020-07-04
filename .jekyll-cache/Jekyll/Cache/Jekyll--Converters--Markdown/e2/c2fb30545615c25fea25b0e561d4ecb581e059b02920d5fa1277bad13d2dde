@@ -1,0 +1,22 @@
+I"�<h1 id="what-is-an-ai-and-an-agent">WHat is an AI and an agent?</h1>
+
+<p>-<strong>What is an AI?</strong> <br />
+Systems that think and act like rationaly. <br />
+Rationality : An abstract ‘ideal’ of intelligence, rather than whatever humans think or do.  <br />
+For example, ‘intelligent’ vacuum cleaner would have to <strong>maximize</strong> area cleaned, <strong>minimize</strong> noise and electricity consumption.</p>
+
+<p>-<strong>What is an agent?</strong></p>
+<ol>
+  <li>It is situated in some environment.(Doesn’t have to be the real world)</li>
+  <li>It can make observations.</li>
+  <li>It is able to act.</li>
+  <li>It has goals or preferences.</li>
+  <li>It may have prior knowledge or beliefs, and some way of updating beliefs based on new experiences.</li>
+</ol>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/76842706-08bd1980-687e-11ea-8c58-7cab433257be.png" alt="612px-Simple_reflex_agent" />  <br />
+Simple reflex agent</p>
+
+<p><a href="https://ai.stackexchange.com/questions/12991/what-is-an-agent-in-artificial-intelligence">What is an agent in AI?</a>  <br />
+<a href="https://en.wikipedia.org/wiki/Intelligent_agent">Intelligent agent in wikipedia</a></p>
+:ET

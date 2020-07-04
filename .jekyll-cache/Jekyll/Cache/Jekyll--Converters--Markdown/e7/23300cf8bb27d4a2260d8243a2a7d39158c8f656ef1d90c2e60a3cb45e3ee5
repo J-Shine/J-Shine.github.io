@@ -1,6 +1,6 @@
-I"‡<h1 id="make-custom-class-to-pass-in-to-the-arrayadapter-constructor-as-a-parameter">Make custom class to pass in to the ArrayAdapter constructor as a parameter.</h1>
+I"˜<h1 id="make-custom-class-to-pass-in-to-the-arrayadapter-constructor-as-a-parameter">Make custom class to pass in to the ArrayAdapter constructor as a parameter.</h1>
 
-<p>-<strong>public vs private</strong> <br />
+<p>-<strong>Access modifier: public vs private</strong> <br />
 public - we can access from anywhere.</p>
 <div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">MainActivity</span> <span class="o">{</span>
   <span class="o">~~~</span>

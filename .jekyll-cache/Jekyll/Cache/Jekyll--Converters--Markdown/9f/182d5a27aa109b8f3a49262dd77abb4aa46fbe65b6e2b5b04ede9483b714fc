@@ -1,0 +1,215 @@
+I"�L<h1 id="how-to-put-images-for-the-word-list-in-the-miwok-app">How to put images for the word list in the Miwok app.</h1>
+
+<p>-<strong>Put different resolution versions of same images into AndroidStudio.</strong></p>
+
+<p>To put images into our app, we need different resolution version of same each image. <br />
+That’s because people have different devices and devices have different resolution. <br />
+Dpi is dots for inch. <br />
+mdpi(~160dpi)(1dp=1px) -&gt; medium density device <br />
+hdpi(~240dpi)(1dp=1.5px) -&gt; high density device <br />
+xhdpi(~320dpi)(1dp=2px) -&gt; extra high density device <br />
+xxhdpi(~480dpi)(1dp=3px) -&gt; extra-extra high density device <br />
+xxxhdpi(~640dpi)(1dp=4px) -&gt; extra-extra-extra high density device</p>
+
+<p>We can find dpi of some popular devices from <a href="https://material.io/resources/devices/">here</a>.</p>
+
+<p>In AndroidStudio, we should make folders for each dpi.( ex) drawble-hdpi)  <br />
+And put same images of different resolution.</p>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/76682337-ad511880-663e-11ea-9a1c-207aea438a3a.png" alt="image01" /></p>
+
+<p>-<strong>Modify list_item.xml layout</strong></p>
+
+<p>Wrap the LinearLayout with another horizontal LinearLayout.     <br />
+And put ImageView in there.</p>
+
+<p>list_item.xml</p>
+<div class="language-xml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span>
+
+<span class="nt">&lt;LinearLayout</span>
+    <span class="na">xmlns:android=</span><span class="s">"http://schemas.android.com/apk/res/android"</span>
+    <span class="na">xmlns:tools=</span><span class="s">"http://schemas.android.com/tools"</span>
+    <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+    <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+    <span class="na">android:orientation=</span><span class="s">"horizontal"</span>
+    <span class="na">android:padding=</span><span class="s">"16dp"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;ImageView</span>
+        <span class="na">android:id=</span><span class="s">"@+id/image"</span>
+        <span class="na">android:src=</span><span class="s">"@mipmap/ic_launcher"</span>
+        <span class="na">android:layout_width=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span> <span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;LinearLayout</span>
+        <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+        <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+        <span class="na">android:orientation=</span><span class="s">"vertical"</span>
+        <span class="na">android:paddingLeft=</span><span class="s">"16dp"</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;TextView</span>
+            <span class="na">android:id=</span><span class="s">"@+id/miwok_text_view"</span>
+            <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+            <span class="na">tools:text=</span><span class="s">"lutti"</span><span class="nt">/&gt;</span>
+
+        <span class="nt">&lt;TextView</span>
+            <span class="na">android:id=</span><span class="s">"@+id/default_text_view"</span>
+            <span class="na">android:layout_width=</span><span class="s">"match_parent"</span>
+            <span class="na">android:layout_height=</span><span class="s">"wrap_content"</span>
+            <span class="na">tools:text=</span><span class="s">"one"</span><span class="nt">/&gt;</span>
+
+    <span class="nt">&lt;/LinearLayout&gt;</span>
+    
+<span class="nt">&lt;/LinearLayout&gt;</span>
+</code></pre></div></div>
+
+<p>-<strong>Modify Word.java</strong></p>
+
+<p>Create a variable for an image.  <br />
+Set as ‘int’ because it will contain image resource id.</p>
+
+<p>And create constrcutor and getter.</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Word</span> <span class="o">{</span>
+
+    <span class="c1">// Image resouce id for the word.</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">mImageResourceId</span><span class="o">;</span>
+
+    <span class="o">...</span>   
+
+    <span class="c1">// 2-input Word class constructor.</span>
+    <span class="kd">public</span> <span class="nf">Word</span><span class="o">(</span><span class="nc">String</span> <span class="n">defaultTranslation</span><span class="o">,</span> <span class="nc">String</span> <span class="n">miwokTranslation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mDefaultTranslation</span> <span class="o">=</span> <span class="n">defaultTranslation</span><span class="o">;</span>
+        <span class="n">mMiwokTranslation</span> <span class="o">=</span> <span class="n">miwokTranslation</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="c1">// 3-input Word class constructor.</span>
+    <span class="kd">public</span> <span class="nf">Word</span><span class="o">(</span><span class="kt">int</span> <span class="n">imageResourceId</span><span class="o">,</span> <span class="nc">String</span> <span class="n">defaultTranslation</span><span class="o">,</span> <span class="nc">String</span> <span class="n">miwokTranslation</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">mImageResourceId</span> <span class="o">=</span> <span class="n">imageResourceId</span><span class="o">;</span>
+        <span class="n">mDefaultTranslation</span> <span class="o">=</span> <span class="n">defaultTranslation</span><span class="o">;</span>
+        <span class="n">mMiwokTranslation</span> <span class="o">=</span> <span class="n">miwokTranslation</span><span class="o">;</span>
+    <span class="o">}</span>
+
+    <span class="c1">// A method that gets resource image id of the word</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getmImageResourceId</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">return</span> <span class="n">mImageResourceId</span><span class="o">;</span>
+    <span class="o">}</span>
+    
+    <span class="o">...</span>   
+    
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>-<strong>Modify NumbersActivity.java, FamilyActivity.java, ColorsActivity.java</strong></p>
+
+<p>Modify Activities to call proper constructor.</p>
+
+<p>NumbersActivity.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">NumbersActivity</span> <span class="kd">extends</span> <span class="nc">AppCompatActivity</span> <span class="o">{</span>
+
+    <span class="nd">@Override</span>
+    <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="nc">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span> <span class="o">{</span>
+    <span class="o">...</span>
+
+        <span class="c1">// Add words by using 'add' function.</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_one</span><span class="o">,</span> <span class="s">"one"</span><span class="o">,</span> <span class="s">"lutti"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_two</span><span class="o">,</span> <span class="s">"two"</span><span class="o">,</span> <span class="s">"otiiko"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_three</span><span class="o">,</span> <span class="s">"three"</span><span class="o">,</span> <span class="s">"tolookosu"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_four</span><span class="o">,</span> <span class="s">"four"</span><span class="o">,</span> <span class="s">"oyyisa"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_five</span><span class="o">,</span> <span class="s">"five"</span><span class="o">,</span> <span class="s">"massokka"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_six</span><span class="o">,</span> <span class="s">"six"</span><span class="o">,</span> <span class="s">"temmokka"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_seven</span><span class="o">,</span> <span class="s">"seven"</span><span class="o">,</span> <span class="s">"kenekaku"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_eight</span><span class="o">,</span> <span class="s">"eight"</span><span class="o">,</span> <span class="s">"kawinta"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_nine</span><span class="o">,</span> <span class="s">"nine"</span><span class="o">,</span> <span class="s">"wo'e"</span><span class="o">));</span>
+                <span class="n">words</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nc">Word</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">number_ten</span><span class="o">,</span> <span class="s">"ten"</span><span class="o">,</span> <span class="s">"na'aacha"</span><span class="o">));</span>
+    <span class="o">...</span>
+    <span class="o">}</span>
+    <span class="o">...</span>
+<span class="o">}</span>
+</code></pre></div></div>
+<p>Do same thing to other two activities.</p>
+
+<p>-<strong>Set images to ImageViews.</strong></p>
+
+<p>Get and set images through WordAdapter.</p>
+
+<p>WordAdapter.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordAdapter</span> <span class="kd">extends</span> <span class="nc">ArrayAdapter</span><span class="o">&lt;</span><span class="nc">Word</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="o">...</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="nc">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+        <span class="o">...</span>
+        <span class="c1">// Find the ImageView in the list_item.xml layout with the ID image</span>
+        <span class="nc">ImageView</span> <span class="n">imageView</span> <span class="o">=</span> <span class="n">listItemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">image</span><span class="o">);</span>
+        <span class="c1">// Get the image from the currentWord object and</span>
+        <span class="c1">// set this on the ImageView.</span>
+        <span class="n">imageView</span><span class="o">.</span><span class="na">setImageResource</span><span class="o">(</span><span class="n">currentWord</span><span class="o">.</span><span class="na">getImageResourceId</span><span class="o">());</span>
+        
+        <span class="k">return</span> <span class="n">listItemView</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+
+<p>-<strong>Check if there is an image resource or not.</strong></p>
+
+<p>To check the existence of the image, set default value for mImageResourceId and create ‘hasImage’ method.</p>
+
+<p>Go back to the Word.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">Word</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Create a variable for an image resource id
+     * And set default value for no image state.
+     */</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">mImageResourceId</span> <span class="o">=</span> <span class="no">NO_IMAGE_PROVIDED</span><span class="o">;</span>
+
+    <span class="cm">/**
+     * Define a constant that indicates no image.
+     * Static is a keyword used to define the class member that can be used independently of any object of that class.
+     * Final keyword is used to declare, a constant variable, a method which can not be overridden and a class that can not be inherited.
+     */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">int</span> <span class="no">NO_IMAGE_PROVIDED</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="o">;</span>
+
+    <span class="o">...</span>
+    
+    <span class="cm">/**
+     * Returns whether or not there is an image for this word.
+     */</span>
+    <span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">hasImage</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">mImageResourceId</span> <span class="o">!=</span> <span class="no">NO_IMAGE_PROVIDED</span><span class="o">;</span>
+        <span class="c1">// If there is an image provided, it would return true.</span>
+        <span class="c1">// And it there is no image provided, it would return false.</span>
+    <span class="o">}</span>
+
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+<p>Use if else statement to set ImageView visibility.</p>
+
+<p>Go back to WordAdapter.java</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordAdapter</span> <span class="kd">extends</span> <span class="nc">ArrayAdapter</span><span class="o">&lt;</span><span class="nc">Word</span><span class="o">&gt;</span> <span class="o">{</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="nc">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+
+        <span class="c1">// Find the ImageView in the list_item.xml layout with the ID image</span>
+        <span class="nc">ImageView</span> <span class="n">imageView</span> <span class="o">=</span> <span class="n">listItemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">image</span><span class="o">);</span>
+
+        <span class="k">if</span><span class="o">(</span><span class="n">currentWord</span><span class="o">.</span><span class="na">hasImage</span><span class="o">()){</span>
+            <span class="c1">// Get the image from the currentWord object and</span>
+            <span class="c1">// set this on the ImageView.</span>
+            <span class="n">imageView</span><span class="o">.</span><span class="na">setImageResource</span><span class="o">(</span><span class="n">currentWord</span><span class="o">.</span><span class="na">getImageResourceId</span><span class="o">());</span>
+            <span class="c1">// Make sure the ImageVIew is  set visible.</span>
+            <span class="c1">// Because Views are recycled.</span>
+            <span class="n">imageView</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">((</span><span class="nc">View</span><span class="o">.</span><span class="na">VISIBLE</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">else</span><span class="o">{</span>
+            <span class="c1">// Otherwise hide an ImageView.</span>
+            <span class="n">imageView</span><span class="o">.</span><span class="na">setVisibility</span><span class="o">(</span><span class="nc">View</span><span class="o">.</span><span class="na">GONE</span><span class="o">);</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">listItemView</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre></div></div>
+:ET

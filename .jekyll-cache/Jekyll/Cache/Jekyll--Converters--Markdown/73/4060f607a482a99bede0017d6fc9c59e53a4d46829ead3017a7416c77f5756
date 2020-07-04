@@ -1,0 +1,50 @@
+I"ù<p>#Set different background colors for each activity in Miwok.</p>
+
+<p>In order to get integer color from resource id,  <br />
+we need to use getColor method which is in the ContextCompat class.</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">textcolor</span> <span class="o">=</span> <span class="nc">ContextCompat</span><span class="o">.</span><span class="na">getColor</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="no">R</span><span class="o">.</span><span class="na">color</span><span class="o">.</span><span class="na">textcolor</span><span class="o">);</span>
+</code></pre></div></div>
+
+<p>Applying to ArrayAdapter.java</p>
+
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="nc">WordAdapter</span> <span class="kd">extends</span> <span class="nc">ArrayAdapter</span><span class="o">&lt;</span><span class="nc">Word</span><span class="o">&gt;</span> <span class="o">{</span>
+
+    <span class="cm">/**
+     * Create background color variable.
+     */</span>
+    <span class="kd">private</span> <span class="kt">int</span> <span class="n">mBackgroundColor</span><span class="o">;</span>
+    <span class="c1">// Create getter.</span>
+    <span class="kd">public</span> <span class="kt">int</span> <span class="nf">getBackgroundColor</span><span class="o">(){</span>
+        <span class="k">return</span> <span class="n">mBackgroundColor</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="cm">/**
+     * Make constructor of 'WordAdapter' class.
+     * @param context The context.(Where we are)
+     */</span>
+    <span class="kd">public</span> <span class="nf">WordAdapter</span><span class="o">(</span><span class="nc">Activity</span> <span class="n">context</span><span class="o">,</span> <span class="nc">ArrayList</span><span class="o">&lt;</span><span class="nc">Word</span><span class="o">&gt;</span> <span class="n">words</span><span class="o">,</span> <span class="kt">int</span> <span class="n">backgroundColor</span><span class="o">){</span>
+        <span class="c1">// Initialize WordAdapter using ArrayAdapter's constructor.</span>
+        <span class="c1">// Because second parameter is used to populate single TextView, we don't use it here. We customize.</span>
+        <span class="c1">// So, put the value 0.</span>
+        <span class="kd">super</span><span class="o">(</span><span class="n">context</span><span class="o">,</span> <span class="mi">0</span><span class="o">,</span> <span class="n">words</span><span class="o">);</span>
+        <span class="n">mBackgroundColor</span> <span class="o">=</span> <span class="n">backgroundColor</span><span class="o">;</span>
+    <span class="o">}</span>
+    <span class="cm">/*
+     * @param convertView is an existing view we can reuse.(recycle)
+     */</span>
+    <span class="nd">@NonNull</span>
+    <span class="nd">@Override</span>
+    <span class="kd">public</span> <span class="nc">View</span> <span class="nf">getView</span><span class="o">(</span><span class="kt">int</span> <span class="n">position</span><span class="o">,</span> <span class="nd">@Nullable</span> <span class="nc">View</span> <span class="n">convertView</span><span class="o">,</span> <span class="nd">@NonNull</span> <span class="nc">ViewGroup</span> <span class="n">parent</span><span class="o">)</span> <span class="o">{</span>
+        
+        <span class="nc">View</span> <span class="n">listItemView</span> <span class="o">=</span> <span class="n">convertView</span><span class="o">;</span>
+        <span class="o">...</span>
+        <span class="nc">View</span> <span class="n">textContainer</span> <span class="o">=</span> <span class="n">listItemView</span><span class="o">.</span><span class="na">findViewById</span><span class="o">(</span><span class="no">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">text_container</span><span class="o">);</span>
+        <span class="kt">int</span> <span class="n">color</span> <span class="o">=</span> <span class="nc">ContextCompat</span><span class="o">.</span><span class="na">getColor</span><span class="o">(</span><span class="n">getContext</span><span class="o">(),</span> <span class="n">getBackgroundColor</span><span class="o">());</span>
+        <span class="n">textContainer</span><span class="o">.</span><span class="na">setBackgroundColor</span><span class="o">(</span><span class="n">color</span><span class="o">);</span>
+
+        <span class="k">return</span> <span class="n">listItemView</span><span class="o">;</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre></div></div>
+
+:ET
