@@ -15,7 +15,7 @@ author: "J-Shine"
 문제에 따른 허용 시간 복잡도 짐작하기    
 ![image](https://user-images.githubusercontent.com/61873510/86477221-f1e5f880-bd82-11ea-9559-e421fb29a02d.png)   
 메모리의 크기가 512MB라면 1.2억개의 int 변수를 선언할 수 있다는 것 기억하기(int 1개가 4byte)     
-<em>정수 자료형  
+# 정수 자료형  
 
 ![image](https://user-images.githubusercontent.com/61873510/86479959-1395ae80-bd88-11ea-8f66-ab4ac409888b.png)   
 char 자료형의 범위: -128~ 127(1byte=8bit)   
@@ -30,7 +30,7 @@ int 자료형의 범위: 21억(4byte=32bit)
 unsinged long long은 1800경  
 이를 넘어서는 수는 string을 이용해 저장한다.(근데 그러면 python 쓰는게 더 쉽다)<br><br>
 
-<em>실수 자료형  
+# 실수 자료형  
   
 ![image](https://user-images.githubusercontent.com/61873510/86508133-a67e2980-be18-11ea-92d1-a9c52643b8e4.png)<br>
 ![image](https://user-images.githubusercontent.com/61873510/86508222-345a1480-be19-11ea-9a9e-a77a5aec64ba.png)<br>
