@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: BaekJoon-Algorithm
+title: baekJoon-algorithm
 permalink: /algorithm/baekjoon-algorithm
 category: "baekjoon-algorithm"
 tagline: "Learning algorithm."
