@@ -21,6 +21,8 @@ author: "J-Shine"
 
 첫째 줄에 윤년이면 1, 아니면 0을 출력한다.<br>
 
+# 내 풀이
+
 ```c++
 #include <bits/stdc++.h>
 
@@ -41,7 +43,7 @@ int main() {
 	return 0;
 }
 ```
-처음 푼 풀이<br><br>
+# 더 좋은 듯한 풀이
 
 ```c++
 #include <bits/stdc++.h>
@@ -60,4 +62,3 @@ int main() {
 	return 0;
 }
 ```
-더 좋아 보이는 풀이<br><br>
