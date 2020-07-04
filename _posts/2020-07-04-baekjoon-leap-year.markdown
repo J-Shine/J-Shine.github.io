@@ -5,8 +5,7 @@ date:   2020-07-04 21:00
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
-
-# Leap Year Problem
+# 문제
 
 연도가 주어졌을 때, 윤년이면 1, 아니면 0을 출력하는 프로그램을 작성하시오.<br>
 
