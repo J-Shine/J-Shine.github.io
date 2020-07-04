@@ -26,6 +26,8 @@ C++을 사용하고 있고 cin/cout을 사용하고자 한다면, cin.tie(NULL)�
 
 각 테스트케이스마다 A+B를 한 줄에 하나씩 순서대로 출력한다.<br>
 
+# 내가 푼 풀이
+
 ```c++
 #include<bits/stdc++.h>
 
@@ -46,6 +48,5 @@ int main() {
 	return 0;
 }
 ```
-내가 푼 풀이<br>
 빠른 출력을 위해 cin.tie(NULL), ios_base::sync_with_stdio(false)를 쓰고, endl 대신 개행문자(\n)를 쓴다.<br>
 다른 어떤 블로그 설명보다도 [위에 링크 되어있는 글](https://www.acmicpc.net/board/view/22716)이 가장 이해하기 쉬웠다.<br>
