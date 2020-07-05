@@ -6,8 +6,8 @@ categories: ["barkingDog"]
 author: "J-Shine"
 ---
 
-# 바킹독님의 실전알고리즘 배우기 1강
-[바킹독의 실전 알고리즘 1강](https://blog.encrypted.gg/922).  
+# 바킹독님의 실전알고리즘 배우기 1강 듣고 요약
+[바킹독의 실전 알고리즘 1강 링크](https://blog.encrypted.gg/922)  
   
 ![image](https://user-images.githubusercontent.com/61873510/86477025-99aef680-bd82-11ea-9e82-2a7bb7429dc8.png)  
 ![image](https://user-images.githubusercontent.com/61873510/86477108-bc410f80-bd82-11ea-9745-b59bece9660d.png)<br>
