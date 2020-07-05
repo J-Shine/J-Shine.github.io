@@ -6,7 +6,7 @@ categories: ["barkingDog"]
 author: "J-Shine"
 ---
 
-# 바킹독님의 실전알고리즘 배우기 2강 듣고 중요한 부분 요약
+# 바킹독님의 실전알고리즘 배우기 2강 듣고 요약
 [바킹독의 실전 알고리즘 2강 링크](https://blog.encrypted.gg/923)   
   
 ![image](https://user-images.githubusercontent.com/61873510/86534811-72892e00-bf16-11ea-90c3-8e916a2a86ef.png)
