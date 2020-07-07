@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Pointer(*) vs Reference(&) "
-date:   2020-07-05 23:20
+date:   2020-07-07 19:50
 categories: ["etc"]
 author: "J-Shine"
 ---
