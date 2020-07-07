@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "함수 인자 넘기기, 빠른 입출력, 코딩테스트 팁 "
+title:  "Pointer(*) vs Reference(&) "
 date:   2020-07-05 23:20
 categories: ["etc"]
 author: "J-Shine"
