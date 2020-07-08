@@ -77,4 +77,5 @@ int main() {
 ```
 <br><br>
 몇번 출현하는지 숫자를 담을 배열만 준비, <br>
-alphabet의 ASCII코드를 따로 배열로 만들지 않고 입력받은 글자에서 'a'를 빼서 계산한다.<br><br>
+alphabet의 ASCII코드를 따로 배열로 만들지 않고 입력받은 글자에서 'a'를 빼서 계산한다.<br>
+char 대신 string 씀<br><br>
