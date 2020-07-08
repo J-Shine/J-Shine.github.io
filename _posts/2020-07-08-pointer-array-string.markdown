@@ -51,7 +51,7 @@ void passArray(int* arr, int len) {
 }
 ```
 
-##문자열과 포인터
+## 문자열과 포인터
 [참조](http://www.cplusplus.com/forum/general/59834/)   
 
 C에서는 char*를 이용하여 string(문자열)을 저장한다.<br>
