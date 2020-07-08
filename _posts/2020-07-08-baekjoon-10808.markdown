@@ -60,7 +60,7 @@ int main() {
 #include <bits/stdc++.h>
 using namespace std;
 
-int count[26]; // 배열을 전역변수로 선언하면 모두 자동으로 0으로 채워진다.
+int count[26] = { 0 };
 int main() {
 	ios_base::sync_with_stdio(0);
 	cin.tie(0);
