@@ -6,7 +6,7 @@ categories: ["etc"]
 author: "J-Shine"
 ---
 
-##배열과 포인터
+# 배열과 포인터
 # 배열은 포인터와 조금 유사한 면이 있다.
 배열과 포인터는 모두 '주소'를 나타낸다.<br>
 배열과 포인터 모두 '*' 연산과 '[]' 연산이 가능하다.<br>
@@ -51,7 +51,7 @@ void passArray(int* arr, int len) {
 }
 ```
 
-## 문자열과 포인터
+# 문자열과 포인터
 [참조](http://www.cplusplus.com/forum/general/59834/)   
 
 C에서는 char*를 이용하여 string(문자열)을 저장한다.<br>
