@@ -1,0 +1,79 @@
+---
+layout: post
+title:  "[10808번] 알파벳 개수"
+date:   2020-07-08 21:11
+categories: ["baekjoon-algorithm"]
+author: "J-Shine"
+---
+# 문제  
+
+알파벳 소문자로만 이루어진 단어 S가 주어진다. 각 알파벳이 단어에 몇 개가 포함되어 있는지 구하는 프로그램을 작성하시오.<br><br>
+
+# 입력  
+
+첫째 줄에 단어 S가 주어진다. 단어의 길이는 100을 넘지 않으며, 알파벳 소문자로만 이루어져 있다.<br><br>
+
+# 출력  
+
+단어에 포함되어 있는 a의 개수, b의 개수, …, z의 개수를 공백으로 구분해서 출력한다.<br><br>
+
+# 내 풀이
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+  ios_base::sync_with_stdio(0);
+	cin.tie(0);
+
+	char word[105] = { 0 };
+	cin >> word;
+	int alphabet[26];
+	int count[26] = { 0 };
+	alphabet[0] = 'a';
+	for (int i = 0; i < 25; i++) {
+		alphabet[i + 1] = alphabet[0] + i + 1;
+	}
+	int i = 0;
+	while (word[i] != 0 || word[i] != '\0') {
+		for (int j = 0; j < 26; j++) {
+			if (word[i] == alphabet[j]) {
+				count[j] += 1;
+			}
+		}
+		i++;
+	}
+	for (int i = 0; i < 26; i++) {
+		cout << count[i] << ' ';
+	}
+}
+
+```
+<br>
+너무 복잡하게 풀었다..ㅠㅠ<br><br>
+
+# 더 좋은 풀이
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int count[26]; // 배열을 전역변수로 선언하면 모두 자동으로 0으로 채워진다.
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+
+	string s;
+	cin >> s;
+	for (auto c : s) {
+		count[c - 'a']++; // 'a'를 0으로 만들고 'z'는 25로 만듦
+	}
+	for (auto c : count) {
+		cout << c << ' ';
+	}
+}
+```
+<br><br>
+몇번 출현하는지 숫자를 담을 배열만 준비, <br>
+alphabet의 ASCII코드를 따로 배열로 만들지 않고 입력받은 글자에서 'a'를 빼서 계산한다.<br><br>
