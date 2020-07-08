@@ -52,10 +52,11 @@ void passArray(int* arr, int len) {
 ```
 
 # 문자열과 포인터
+## char* 를 이용하여 문자열을 저장한다.
 [참조](http://www.cplusplus.com/forum/general/59834/)   
 
-C에서는 char*를 이용하여 string(문자열)을 저장한다.<br>
-따라서 char 변수에 문자를 저장하고 char*로 출력해도 주소가 출력되지 않고 문자열이 출력된다.<br>
+C에서는 char* 를 이용하여 string(문자열)을 저장한다.<br>
+따라서 char 변수에 문자를 저장하고 char* 로 출력해도 주소가 출력되지 않고 문자열이 출력된다.<br>
 그런데 문자열을 char 배열로 저장할 때 항상 끝의 칸에 문자열의 끝을 알려주는 \0가 있어야 하는데 없으므로 이상한 쓰레기값이 출력된다.<br><br>
 
 ```c++
@@ -67,4 +68,16 @@ int* j = new int;
 
 std::cout << str; // prints the string, not the memory address of the pointer
 std::cout << j; // prints the memory address of the pointer 
+```
+## 문자열을 선언하는 두 가지 방법
+1. 변수 형태의 문자열<br>
+-> 배열의 각 요소에 접근해서 문자열을 수정 가능하다.<br><br>
+```c++
+char str1[] = "Some string";
+```
+
+2. 상수 형태의 문자열
+-> 리터럴로 메모리에 자동 할당된 문자열을 가리키는 **포인터**로, 문자열의 내용을 수정 불가능하다.
+```c++
+char str2 = "Some other string";
 ```
