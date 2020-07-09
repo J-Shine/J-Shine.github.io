@@ -1,0 +1,118 @@
+---
+layout: post
+title:  ""
+date:   2020-07-09 21:50
+categories: ["barkingDog"]
+author: "J-Shine"
+---
+
+# 바킹독님의 실전알고리즘 배우기 3강 듣고 요약
+[바킹독의 실전 알고리즘 3강 링크](https://blog.encrypted.gg/927)   
+  
+![image](https://user-images.githubusercontent.com/61873510/87042100-25ff6480-c22e-11ea-917a-2fb3a8337c75.png)<br>
+![image](https://user-images.githubusercontent.com/61873510/87042144-36174400-c22e-11ea-9ee1-da4789ed2a34.png)<br><br>
+
+# 배열의 성질  
+![image](https://user-images.githubusercontent.com/61873510/87042721-01f05300-c22f-11ea-99ba-432c8224203d.png)<br>
+배열의 공간 지역성 때문에 cache hit rate가 높다.<br><br>
+# insert와 erase 함수의 구현 & 
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+void insert(int idx, int num, int arr[], int& len){
+  for(int i = len; i > idx; i--)
+    arr[i] = arr[i-1];
+  arr[idx] = num;
+  len++;
+}
+
+void erase(int idx, int arr[], int& len){
+  len--;
+  for(int i = idx; i < len; i++)
+    arr[i] = arr[i+1];
+}
+
+void printArr(int arr[], int& len){
+  for(int i = 0; i < len; i++) cout << arr[i] << ' ';
+  cout << "\n\n";
+}
+
+void insert_test(){
+  cout << "***** insert_test *****\n";
+  int arr[10] = {10, 20, 30};
+  int len = 3;
+  insert(3, 40, arr, len); // 10 20 30 40
+  printArr(arr, len);
+  insert(1, 50, arr, len); // 10 50 20 30 40
+  printArr(arr, len);
+  insert(0, 15, arr, len); // 15 10 50 20 30 40
+  printArr(arr, len);
+}
+
+void erase_test(){
+  cout << "***** erase_test *****\n";
+  int arr[10] = {10, 50, 40, 30, 70, 20};
+  int len = 6;
+  erase(4, arr, len); // 10 50 40 30 20
+  printArr(arr, len);
+  erase(1, arr, len); // 10 40 30 20
+  printArr(arr, len);
+  erase(3, arr, len); // 10 40 30
+  printArr(arr, len);
+}
+
+int main(void) {
+  insert_test();
+  erase_test();
+}
+```
+
+# 배열의 멤버를 모두 특정 값으로 초기화시키기
+![image](https://user-images.githubusercontent.com/61873510/87043816-9c04cb00-c230-11ea-97de-2b36f53c7fb8.png)<br>
+2번 for문을 직접 돌리거나,<br>
+3번 fill 함수를 이용하면 좋다.<br>
+(1번은 실수할 여지가 있다.)<br><br>
+# vector 사용하기
+![image](https://user-images.githubusercontent.com/61873510/87044577-b25f5680-c231-11ea-951b-f0c20596a30e.png)<br>
+vector에서는 iterator(v.begin())를 이용하고, <br>
+v.push_back(), v.pop_back() -> O(1)
+v.insert(), v.erase() -> O(N) 등 함수롤 이용하여 데이터를 수정한다.<br><br>
+
+# range-based for loop(C++11 이상) 사용하면 편하다.
+![image](https://user-images.githubusercontent.com/61873510/87045106-74166700-c232-11ea-951b-a9211c28bcb4.png)<br>
+3번처럼 vector를 쓰면 무한루프에 빠지게 된다.<br>
+-> vector는 unsigned int를 반환하기 때문에 0보다 작은 값이 없다.<br>
+   따라서 0 - 1 = 4294967295(2^32-1)가 된다.<br>
+[range-based for loop]()를 쓰면 for문을 돌기 편리하다.<br><br>
+
+# 연습문제 1
+[BOJ 10808번](https://github.com/J-Shine/J-Shine.github.io/blob/master/_posts/2020-07-08-baekjoon-10808.markdown)<br>
+
+# 연습문제 2
+![image](https://user-images.githubusercontent.com/61873510/87046364-1256fc80-c234-11ea-89d9-a847a814de1e.png)<br>
+# 내 풀이
+```c++
+int freq[100] = { 0 };
+int func2(int arr[], int N) {
+	for (int i = 0; i < N; i++) {
+		freq[arr[i] - 1]++;
+	}
+	for (int i = 0; i < N; i++) {
+		if (freq[100 - arr[i] - 1] >= 1) return 1;
+	}
+	return 0;
+}
+```
+# baaaaaaaarkingDog님의 풀이
+```c++
+int func2(int arr[], int N){
+  int occur[101] = {};
+  for(int i = 0; i < N; i++){
+    if(occur[100-arr[i]] == 1)
+      return 1;
+    occur[arr[i]] = 1;
+  }
+  return 0;
+}
+```
