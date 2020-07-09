@@ -76,7 +76,7 @@ int main(void) {
 # vector 사용하기
 ![image](https://user-images.githubusercontent.com/61873510/87044577-b25f5680-c231-11ea-951b-f0c20596a30e.png)<br>
 vector에서는 iterator(v.begin())를 이용하고, <br>
-v.push_back(), v.pop_back() -> O(1)
+v.push_back(), v.pop_back() -> O(1)<br>
 v.insert(), v.erase() -> O(N) 등 함수롤 이용하여 데이터를 수정한다.<br><br>
 
 # range-based for loop(C++11 이상) 사용하면 편하다.
@@ -87,7 +87,7 @@ v.insert(), v.erase() -> O(N) 등 함수롤 이용하여 데이터를 수정한�
 [range-based for loop]()를 쓰면 for문을 돌기 편리하다.<br><br>
 
 # 연습문제 1
-[BOJ 10808번](https://github.com/J-Shine/J-Shine.github.io/blob/master/_posts/2020-07-08-baekjoon-10808.markdown)<br>
+[BOJ 10808번](https://j-shine.github.io//baekjoon-algorithm/2020/07/08/baekjoon-10808.html)<br>
 
 # 연습문제 2
 ![image](https://user-images.githubusercontent.com/61873510/87046364-1256fc80-c234-11ea-89d9-a847a814de1e.png)<br>
