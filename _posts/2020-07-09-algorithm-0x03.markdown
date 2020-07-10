@@ -6,7 +6,7 @@ categories: ["barkingDog"]
 author: "J-Shine"
 ---
 
-# 바킹독님의 실전알고리즘 배우기 3강 듣고 요약
+# array,vector,range-based for loop
 [바킹독의 실전 알고리즘 3강 링크](https://blog.encrypted.gg/927)   
   
 ![image](https://user-images.githubusercontent.com/61873510/87042100-25ff6480-c22e-11ea-917a-2fb3a8337c75.png)<br>
