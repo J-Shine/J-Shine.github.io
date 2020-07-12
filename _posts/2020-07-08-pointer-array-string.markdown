@@ -2,7 +2,7 @@
 layout: post
 title:  "Pointer/Array/String in C/C++"
 date:   2020-07-08 19:20
-categories: ["etc"]
+categories: ["c++"]
 author: "J-Shine"
 ---
 
