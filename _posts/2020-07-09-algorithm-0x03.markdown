@@ -84,7 +84,7 @@ v.insert(), v.erase() -> O(N) 등 함수롤 이용하여 데이터를 수정한�
 3번처럼 vector를 쓰면 무한루프에 빠지게 된다.<br>
 -> vector는 unsigned int를 반환하기 때문에 0보다 작은 값이 없다.<br>
    따라서 0 - 1 = 4294967295(2^32-1)가 된다.<br>
-[range-based for loop](https://j-shine.github.io//etc/2020/07/10/range-based-for-loop-and-auto.html)를 쓰면 for문을 돌기 편리하다.<br><br>
+[range-based for loop](https://j-shine.github.io//c++/2020/07/10/range-based-for-loop-and-auto.html)를 쓰면 for문을 돌기 편리하다.<br><br>
 
 # 연습문제 1
 [BOJ 10808번](https://j-shine.github.io//baekjoon-algorithm/2020/07/08/baekjoon-10808.html)<br>
