@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: Algorithm
-permalink: /algorithm/etc
-category: "etc"
-tagline: "Learning algorithm."
+permalink: /algorithm/c++
+category: "c++"
+tagline: "Learning c++."
 ---
