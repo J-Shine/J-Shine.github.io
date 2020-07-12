@@ -2,7 +2,7 @@
 layout: post
 title:  "Pointer(*) vs Reference(&) "
 date:   2020-07-07 19:50
-categories: ["etc"]
+categories: ["c++"]
 author: "J-Shine"
 ---
 
