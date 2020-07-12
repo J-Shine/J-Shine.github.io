@@ -11,7 +11,7 @@ author: "J-Shine"
 ![image](https://user-images.githubusercontent.com/61873510/87240826-f2a01e00-c457-11ea-9a67-f7fa5986624b.png)<br>
 [전에 작성한 글](https://j-shine.github.io//barkingdog/2020/07/09/algorithm-0x03.html)의 연습문제 2번에서 내가 처음 짠 코드이다(배열 값을 잘 보이게 출력하기 위해 조금 수정함)<br>
 arr[] = {0, 0, 0} 배열이라 할 때 코드를 실제로 돌려보면 위 스샷과 같이 에러없이 배열의 -1번째 index에 값이 3으로 제대로 할당이 되는 것을 알 수 있다.<br>
-게다가 freq[3]은 존재하지 않는 인덱스임에도 불구하고 0이 출력된다.<br>
+게다가 freq[3]도 존재하지 않는 인덱스임에도 불구하고 0이 출력된다.<br>
 반면 arr[-1]과 arr[3]은 예상에 맞게 쓰레기값이 출력된다.<br><br>
 왜??? 그런지 여러가지로 검색해봤는데 전역변수와 지역변수가 할당받는 메모리가 다르다는 것 말고는 딱히 이유를 알 수 없었다.<br>
 지역변수는 stack에 할당되고, 전역변수는 data에 할당된다. [참고글](https://snupi.tistory.com/9)<br>
