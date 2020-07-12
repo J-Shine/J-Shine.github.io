@@ -2,7 +2,7 @@
 layout: post
 title: "Range-based for loop and Auto"
 date: 2020-07-10 15:06
-categories: ["etc"]
+categories: ["c++"]
 author: "J-Shine"
 ---
 
