@@ -60,7 +60,7 @@ int main(void) {
 # STL list
 ![image](https://user-images.githubusercontent.com/61873510/87286727-2ea8b100-c534-11ea-8317-b955cc4000c1.png)<br>
 STL의 list는 이중연결리스트이다.<br>
-[STL list 관련 자세한 포스팅]()<br><br>
+[STL list 관련 자세한 포스팅](https://j-shine.github.io//c++/2020/07/13/stl-list.html)<br><br>
 
 # 연습문제
 [BOJ 1406번]()<br><br>
