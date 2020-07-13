@@ -1,0 +1,72 @@
+---
+layout: post
+title:  ""
+date:   2020-07-13 17:25
+categories: ["barkingDog"]
+author: "J-Shine"
+---
+
+# 바킹독님의 실전알고리즘배우기 4강듣고 요약
+[바킹독의 실전 알고리즘 4강 링크](https://blog.encrypted.gg/932)   
+ 
+![image](https://user-images.githubusercontent.com/61873510/87283103-eab3ad00-c52f-11ea-856f-d56997a3c75f.png)<br>
+![image](https://user-images.githubusercontent.com/61873510/87283178-fe5f1380-c52f-11ea-9bb0-ee0356463ed0.png)<br><br>
+
+# 연결리스트의 성질  
+![image](https://user-images.githubusercontent.com/61873510/87283475-4b42ea00-c530-11ea-9de8-224258aa03c9.png)<br>
+# 연결리스트의 종류
+![image](https://user-images.githubusercontent.com/61873510/87283590-67df2200-c530-11ea-9861-6811ab19476a.png)<br>
+# 배열 vs 연결리스트
+![image](https://user-images.githubusercontent.com/61873510/87283681-834a2d00-c530-11ea-8086-caab3ebe99fe.png)<br>
+
+# 연결리스트의 구현
+[나중에 추가]()
+
+# 야매 연결리스트
+![image](https://user-images.githubusercontent.com/61873510/87286478-dffb1700-c533-11ea-8928-62febfef43f8.png)<br>
+
+``c++
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MX = 1000005;
+int dat[MX], pre[MX], nxt[MX];
+int unused = 1;
+
+void insert(int addr, int num){
+  dat[unused] = num;
+  pre[unused] = addr;
+  nxt[unused] = nxt[addr];
+  if(nxt[addr] != -1) pre[nxt[addr]] = unused;
+  nxt[addr] = unused;
+  unused++;
+}
+
+void erase(int addr){
+  nxt[pre[addr]] = nxt[addr];
+  if(nxt[addr] != -1) pre[nxt[addr]] = pre[addr];
+}
+
+int main(void) {
+  fill(pre, pre+MX, -1);
+  fill(nxt, nxt+MX, -1);
+  //insert_test();
+  //erase_test();
+}
+```
+0번 노드는 시작점을 알리는 dummy node이다.<br>
+실무에선 쓸 수 없고 코테에서만 가능한 방식<br><br>
+
+#STL list
+![image](https://user-images.githubusercontent.com/61873510/87286727-2ea8b100-c534-11ea-8317-b955cc4000c1.png)<br>
+STL의 list는 이중연결리스트이다.<br>
+[STL list 관련 자세한 포스팅]()<br><br>
+
+# 연습문제
+[BOJ 1406번]()<br><br>
+# 손코딩문제 1
+![image](https://user-images.githubusercontent.com/61873510/87287325-eccc3a80-c534-11ea-9424-a20a4e91c1ab.png)<br>
+# 손코딩문제 2
+![image](https://user-images.githubusercontent.com/61873510/87287423-0d949000-c535-11ea-8cb2-70ee03780742.png)<br>
+# 손코딩문제 3
+![image](https://user-images.githubusercontent.com/61873510/87287482-1edd9c80-c535-11ea-95db-2ceecace3d91.png)<br>
