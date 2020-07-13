@@ -5,25 +5,28 @@ date:   2020-07-13 19:00
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# 시간 제한
+2초<br><br>
+
+# 메모리 제한
+256MB<br><br>
 
 # 문제  
-한 줄로 된 간단한 에디터를 구현하려고 한다. 이 편집기는 영어 소문자만을 기록할 수 있는 편집기로, 최대 600,000글자까지 입력할 수 있다.<br>
-이 편집기에는 '커서'라는 것이 있는데, 커서는 문장의 맨 앞(첫 번째 문자의 왼쪽), 문장의 맨 뒤(마지막 문자의 오른쪽), 또는 문장 중간 임의의 곳(모든 연속된 두 문자 사이)에 위치할 수 있다. 즉 길이가 L인 문자열이 현재 편집기에 입력되어 있으면, 커서가 위치할 수 있는 곳은 L+1가지 경우가 있다.<br>
-이 편집기가 지원하는 명령어는 다음과 같다.<br>
-L: 커서를 왼쪽으로 한 칸 옮김 (커서가 문장의 맨 앞이면 무시됨)<br>
-D: 커서를 오른쪽으로 한 칸 옮김 (커서가 문장의 맨 뒤이면 무시됨)<br>
-B: 커서 왼쪽에 있는 문자를 삭제함 (커서가 문장의 맨 앞이면 무시됨) 삭제로 인해 커서는 한 칸 왼쪽으로 이동한 것처럼 나타나지만, 실제로 커서의 오른쪽에 있던 문자는 그대로임<br>
-P $: $라는 문자를 커서 왼쪽에 추가함<br><br>
+요세푸스 문제는 다음과 같다.<br>
+1번부터 N번까지 N명의 사람이 원을 이루면서 앉아있고, 양의 정수 K(≤ N)가 주어진다. 이제 순서대로 K번째 사람을 제거한다. 한 사람이 제거되면 남은 사람들로 이루어진 원을 따라 이 과정을 계속해 나간다. 이 과정은 N명의 사람이 모두 제거될 때까지 계속된다. 원에서 사람들이 제거되는 순서를 (N, K)-요세푸스 순열이라고 한다. 예를 들어 (7, 3)-요세푸스 순열은 <3, 6, 2, 7, 5, 1, 4>이다.<br>
+N과 K가 주어지면 (N, K)-요세푸스 순열을 구하는 프로그램을 작성하시오.<br><br>
 
 # 입력  
-
-첫째 줄에는 초기에 편집기에 입력되어 있는 문자열이 주어진다. 이 문자열은 길이가 N이고, 영어 소문자로만 이루어져 있으며, 길이는 100,000을 넘지 않는다.<br> 
-둘째 줄에는 입력할 명령어의 개수를 나타내는 정수 M(1 ≤ M ≤ 500,000)이 주어진다. 셋째 줄부터 M개의 줄에 걸쳐 입력할 명령어가 순서대로 주어진다.<br>
-명령어는 위의 네 가지 중 하나의 형태로만 주어진다.<br><br>
+첫째 줄에 N과 K가 빈 칸을 사이에 두고 순서대로 주어진다. (1 ≤ K ≤ N ≤ 5,000)<br><br>
 
 # 출력  
+예제와 같이 요세푸스 순열을 출력한다.<br><br>
 
-첫째 줄에 모든 명령어를 수행하고 난 후 편집기에 입력되어 있는 문자열을 출력한다.<br>
+# 예제 입력
+7 3<br><br>
+
+# 예제 출력
+<3, 6, 2, 7, 5, 1, 4><br><br>
 
 # 내 풀이
 
@@ -31,58 +34,117 @@ P $: $라는 문자를 커서 왼쪽에 추가함<br><br>
 #include <bits/stdc++.h>
 using namespace std;
 
-void L(list<char>::iterator& cursorIdx, list<char>& alphabets) {
-	if(cursorIdx != alphabets.begin()) cursorIdx--;
-}
-void D(list<char>::iterator& cursorIdx, list<char>& alphabets) {
-	if(cursorIdx != alphabets.end()) cursorIdx++;
-}
-void B(list<char>::iterator& cursorIdx, list<char>& alphabets) {
-	if (cursorIdx != alphabets.begin()) {
-		cursorIdx--;
-		cursorIdx = alphabets.erase(cursorIdx);
-	}
-}
-void P(list<char>::iterator& cursorIdx, list<char>& alphabets, char c) {
-	cursorIdx = alphabets.insert(cursorIdx, c);
-	cursorIdx++;
-}
-
+list<int> li;
+list<int>::iterator iter;
+int N, K;
 int main() {
     ios_base::sync_with_stdio(0);
+	cin.tie(0);	
+    cin >> N;
+	for (int i = 0; i < N; i++) {
+		li.push_back(i+1);
+	}
+	iter = li.begin();
+	cin >> K;
+	cout << '<';
+	for (int i = 0; i < N; i++) {
+		for(int i = 0; i < K; i++) {
+			iter++;
+			if (iter == li.end()) iter = li.begin();
+		}
+		if(iter != li.begin()) iter--;
+		else {
+			iter = li.end();
+			iter--;
+		}
+		cout << *iter;
+		if (i < N - 1) cout << ", ";
+		iter = li.erase(iter);
+		if (iter == li.end()) iter = li.begin();
+	}
+	cout << '>';
+}
+```
+나는 STL list를 사용하여 풀었는데 list가 원형연결리스트가 아닌 이중연결리스트이다 보니 조금 더 코드가 복잡해졌다.(if문이 많아졌다)<br>
+또한 매번 iterator를 3번 증가시켰다가 다시 한번 감소시키는 뻘짓을 했다.<br>
+그런데 문제를 풀고 구글링을 해보니 아래 코드를 추가하여 이중연결리스트를 간단하게 원형리스트를 바꿀 수 있다!<br>
+```c++
+list<int>::iterator circularNext(list<int> &li, list<int>::iterator &iter)
+{
+	return std::next(iter) == li.end() ? li.begin() : std::next(iter);
+}
+```
+
+이 코드를 추가하고 다시 수정한 코드(더 깔끔하고 잘 돌아간다)<br>
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+void circularNext(list<int> &li, list<int>::iterator &iter)
+{
+	iter =  std::next(iter) == li.end() ? li.begin() : std::next(iter);
+}
+list<int> li;
+list<int>::iterator iter;
+int N, K;
+int main() {
+	ios_base::sync_with_stdio(0);
 	cin.tie(0);
-	// cursor가 iterator의 왼쪽에 있다고 간주함
-	int len(0), M(0);
-	string s;
-	char c, command;
-	list<char> alphabets;
-	list<char>::iterator cursorIdx = alphabets.begin();
-	cin >> s;
-	for (auto e : s) {
-		alphabets.push_back(e);
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		li.push_back(i + 1);
 	}
-	cin >> M;
-	for (int i = 0; i < M; i++) {
-		cin >> command;
-		if (command == 'P') {
-			cin >> c;
-			P(cursorIdx, alphabets, c);
+	iter = li.begin();
+	cin >> K;
+	cout << '<';
+	for (int i = 0; i < N; i++) {
+		for (int i = 0; i < K-1; i++) {
+			circularNext(li, iter);
 		}
-		else if (command == 'L') {
-			L(cursorIdx, alphabets); 	
-		}
-		else if (command == 'D') {
-			D(cursorIdx, alphabets);
-		}
-		else if (command == 'B') {
-			B(cursorIdx, alphabets);
-		}
+		cout << *iter;
+		if (i < N - 1) cout << ", ";
+		iter = li.erase(iter);
+		if (iter == li.end()) iter = li.begin();
 	}
-	for (auto e : alphabets) {
-		cout << e;
+	cout << '>';
+}
+```
+그런데 오히려 조금 더 코드가 느려졌는데 함수를 새로 추가해서 그런듯하다.<br><br>
+
+그리고 다른 사람들 풀이를 보니 STL queue를 이용해서 더 깔끔하게 푼 사람이 더 많았다.<br>
+그래서 queue로도 다시 풀어보았다.<br><br>
+
+# STL queue를 이용한 풀이
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+queue<int> q;
+int N, K;
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+
+	cin >> N;
+	for (int i = 0; i < N; i++) {
+		q.push(i + 1);
+	}
+	cin >> K;
+	cout << '<';
+	while (q.empty() != true) {
+		for (int i = 0; i < K - 1; i++) {
+			q.push(q.front());
+			q.pop();
+		}
+		cout << q.front();
+		q.pop();
+		if (q.empty()) {
+			cout << '>';
+			return 0;
+		}
+		cout << ", ";
 	}
 }
 ```
-STL list를 사용하여 풀었는데 iterator 사용법이 잘 기억이 안나서 애를 먹었다.<br>
-또한 iterator의 특성상 커서가 iterator의 왼쪽에 있다고 생각해야 알맞게 돌아가는 것 같다.
-iterator에 관한 자세한 내용은 [여기로]()<br><br>
+이 문제는 큐를 이용한게 더 짧고 더 빠르다.<br><br>
