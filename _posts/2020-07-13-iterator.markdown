@@ -18,8 +18,10 @@ list<int>::iterator iter;
 list<int>::reverse_iterator iter;
 ```
 ->list<int>의 reverse_iterator 객체 생성<br><br>
-![image](https://user-images.githubusercontent.com/61873510/87305753-f57f3980-c551-11ea-8fa4-dadbbc926404.png)<br>
+![image](https://user-images.githubusercontent.com/61873510/87307228-26f90480-c554-11ea-9f92-66abd2326c91.png)<br>
 # begin(), end()
-iter.begin()은 container의 맨 앞 요소를 가리키지만, **iter.end()는 container의 맨 뒤 요소의 하나 뒤를 가리킨다.**<br><br>
+iter.begin()은 container의 맨 앞 요소를 가리키지만, 
+**iter.end()는 container의 맨 뒤 요소의 하나 뒤를 가리킨다.**<br><br>
 # rbegin(), rend()
-iter.rbegin()은 container의 맨 뒤 요소를 가리키고, **iter.rend()는 container의 맨 앞 요소의 하나 앞을 가리킨다.**<br><br>
+iter.rbegin()은 container의 맨 뒤 요소를 가리키고, 
+**iter.rend()는 container의 맨 앞 요소의 하나 앞을 가리킨다.**<br><br>
