@@ -1,0 +1,60 @@
+---
+layout: post
+title:  "STL list"
+date:   2020-07-13 21:00
+categories: ["c++"]
+author: "J-Shine"
+---
+
+# STL list
+C++ STL에서 지원하는 list<T>는 이중연결리스트이다.<br>
+[iterator]()를 이용한다.<br>
+
+# 사용 가능한 기본적인 함수
+이해를 돕기 위해 T가 int형일 때를 예시로 든다.<br><br>
+
+```c++  
+li.push_front(10);
+```
+-> list의 맨 앞에 10을 추가한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br><br> 
+
+```c++  
+li.push_back(10);
+```
+-> list의 끝에 10을 추가한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br><br> 
+```c++  
+li.pop_front();
+```
+-> list의 맨 앞 원소를 삭제한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br><br> 
+```c++  
+li.pop_back();
+```
+-> list의 맨 끝 원소를 삭제한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br><br> 
+```c++  
+iter = li.insert(iter, 100);
+```
+-> iterator의 위치에 100을 삽입한다. 그리고 삽입된 위치의 iterator가 반환되므로 iter에 다시 넣는다.<br><br>
+```c++  
+iter = li.erase(iter);
+```
+-> iterator 위치에 있는 원소를 삭제한다. 그리고 뒤의 원소가 그 자리로 오고, 그 자리의 iterator를 반환한다.<br><br>
+
+```c++  
+li.front();
+```
+-> list의 맨 앞 원소를 반환한다.<br><br>
+
+```c++  
+li.back();
+```
+-> list의 맨 끝 원소를 반환한다.<br><br>
+
+```c++  
+li.empty();
+```
+-> list가 비어있으면 true를 반환하고, 아니면 false를 반환한다.<br><br>
+
+```c++  
+li.size();
+```
+-> list 원소의 수를 반환한다.<br><br>
