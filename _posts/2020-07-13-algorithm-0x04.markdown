@@ -25,7 +25,7 @@ author: "J-Shine"
 # 야매 연결리스트
 ![image](https://user-images.githubusercontent.com/61873510/87286478-dffb1700-c533-11ea-8928-62febfef43f8.png)<br>
 
-``c++
+```c++
 #include <bits/stdc++.h>
 using namespace std;
 
