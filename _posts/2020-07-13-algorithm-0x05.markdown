@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "Stack"
+date:   2020-07-13 23:55
+categories: ["barkingDog"]
+author: "J-Shine"
+---
+
+# 바킹독님의 실전알고리즘배우기 5강듣고 요약
+[바킹독의 실전 알고리즘 5강 링크](https://blog.encrypted.gg/933)   
+ 
+![image](https://user-images.githubusercontent.com/61873510/87318640-932f3480-c563-11ea-97cb-9ff6499f9984.png)<br>
+![image](https://user-images.githubusercontent.com/61873510/87318667-9e826000-c563-11ea-8056-3c28511ea993.png)<br><br>
+# 스택의 성질
+![image](https://user-images.githubusercontent.com/61873510/87318766-ba860180-c563-11ea-8e86-78815d37d5c2.png)<br><br>
+# 스택의 구현
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+const int MX = 1000005;
+int dat[MX];
+int pos = 0;
+
+void push(int x){
+  dat[pos++] = x;
+}
+
+void pop(){
+  pos--;
+}
+
+int top(){
+  return dat[pos-1];
+}
+
+void test(){
+  push(5); push(4); push(3);
+  cout << top() << '\n'; // 3
+  pop(); pop();
+  cout << top() << '\n'; // 5
+  push(10); push(12);
+  cout << top() << '\n'; // 12
+  pop();
+  cout << top() << '\n'; // 10
+}
+
+int main(void) {
+	test();
+}
+```
+스택은 구현이 쉽다.<br><br>
+# STL stack
+![image](https://user-images.githubusercontent.com/61873510/87319148-3718e000-c564-11ea-84e9-66fbeb24d26b.png)<br>
+STL stack의 기본적인 함수로는 push(), pop(), top(), size(), empty()가 있다.<br>
+**stack이 비어있는데 pop()이나 top()을 호출하면 runtime error가 발생한다.**<br>
+
+# 연습문제
+[BOJ 10828번]()<br><br>
