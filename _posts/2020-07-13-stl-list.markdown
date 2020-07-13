@@ -7,11 +7,11 @@ author: "J-Shine"
 ---
 
 # STL list
-C++ STL에서 지원하는 list<T>는 이중연결리스트이다.<br>
+C++ STL에서 지원하는 list는 이중연결리스트이다.<br>
 [iterator](https://j-shine.github.io//c++/2020/07/13/iterator.html)를 이용한다.<br>
 
 # 사용 가능한 기본적인 함수
-이해를 돕기 위해 T가 int형일 때를 예시로 든다.<br><br>
+이해를 돕기 위해 list가 int형일 때를 예시로 든다.<br><br>
 
 ```c++  
 li.push_front(10);
