@@ -114,7 +114,7 @@ int main() {
 그리고 다른 사람들 풀이를 보니 STL queue를 이용해서 더 깔끔하게 푼 사람이 더 많았다.<br>
 그래서 queue로도 다시 풀어보았다.<br><br>
 
-# STL queue를 이용한 풀이
+# STL queue를 이용한 내 풀이
 
 ```c++
 #include <bits/stdc++.h>
