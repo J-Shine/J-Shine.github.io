@@ -86,4 +86,4 @@ int main() {
 ```
 STL list를 사용하여 풀었는데 iterator 사용법이 잘 기억이 안나서 애를 먹었다.<br>
 또한 iterator의 특성상 커서가 iterator의 왼쪽에 있다고 생각해야 알맞게 돌아가는 것 같다.
-iterator에 관한 자세한 내용은 [여기로]()<br><br>
+iterator에 관한 자세한 내용은 [여기로](https://j-shine.github.io//c++/2020/07/13/iterator.html)<br><br>
