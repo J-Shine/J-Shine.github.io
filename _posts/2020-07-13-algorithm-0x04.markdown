@@ -57,7 +57,7 @@ int main(void) {
 0번 노드는 시작점을 알리는 dummy node이다.<br>
 실무에선 쓸 수 없고 코테에서만 가능한 방식<br><br>
 
-#STL list
+# STL list
 ![image](https://user-images.githubusercontent.com/61873510/87286727-2ea8b100-c534-11ea-8317-b955cc4000c1.png)<br>
 STL의 list는 이중연결리스트이다.<br>
 [STL list 관련 자세한 포스팅]()<br><br>
