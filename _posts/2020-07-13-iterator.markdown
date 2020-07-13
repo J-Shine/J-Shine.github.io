@@ -1,0 +1,25 @@
+---
+layout: post
+title:  "iterator"
+date:   2020-07-13 21:57
+categories: ["c++"]
+author: "J-Shine"
+---
+
+# iterator(반복자)
+배열 등 자료구조의 요소를 순회하는 객체<br><br>
+
+# iterator 사용법
+```c++
+list<int>::iterator iter;
+```
+->list<int>의 iterator 객체 생성<br><br>
+```c++
+list<int>::reverse_iterator iter;
+```
+->list<int>의 reverse_iterator 객체 생성<br><br>
+![image](https://user-images.githubusercontent.com/61873510/87305753-f57f3980-c551-11ea-8fa4-dadbbc926404.png)<br>
+# begin(), end()
+iter.begin()은 container의 맨 앞 요소를 가리키지만, **iter.end()는 container의 맨 뒤 요소의 하나 뒤를 가리킨다.**<br><br>
+# rbegin(), rend()
+iter.rbegin()은 container의 맨 뒤 요소를 가리키고, **iter.rend()는 container의 맨 앞 요소의 하나 앞을 가리킨다.**<br><br>
