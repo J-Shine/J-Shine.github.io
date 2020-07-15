@@ -92,7 +92,7 @@ int main() {
     vector <char> v;
 
     scanf("%d", &n);
-    int arr[100000];
+    int arr[100000]; // 원문에선 arr[n]이지만 visual studio 2017에서 변수 크기의 배열이 컴파일 안돼서 100000으로 바꿈
     
     for (i = 0; i < n; i++) scanf("%d", &arr[i]);
 
