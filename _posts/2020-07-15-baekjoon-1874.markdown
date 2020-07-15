@@ -116,3 +116,4 @@ int main() {
 }
 ```
 vector 2개 쓰는 대신 하나는 array 사용, for문 속에 while문 넣어서 1개의 while문으로 모두 처리 가능<br><br>
+**스택이 비어있을 때 pop(), top()을 하면 runtime error가 발생하므로 항상 empty()로 확인하고 하기!**
