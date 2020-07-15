@@ -92,7 +92,7 @@ int main() {
     vector <char> v;
 
     scanf("%d", &n);
-    int arr[n];
+    int arr[100000];
     
     for (i = 0; i < n; i++) scanf("%d", &arr[i]);
 
