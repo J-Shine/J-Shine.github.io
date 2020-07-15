@@ -1,0 +1,118 @@
+---
+layout: post
+title:  "[1874번] 스택 수열"
+date:   2020-07-15 19:30
+categories: ["baekjoon-algorithm"]
+author: "J-Shine"
+---
+# 시간 제한
+2초<br><br>
+
+# 메모리 제한
+256MB<br><br>
+
+# 문제  
+
+스택 (stack)은 기본적인 자료구조 중 하나로, 컴퓨터 프로그램을 작성할 때 자주 이용되는 개념이다. 
+스택은 자료를 넣는 (push) 입구와 자료를 뽑는 (pop) 입구가 같아 제일 나중에 들어간 자료가 제일 먼저 나오는 (LIFO, Last in First out) 특성을 가지고 있다.<br>
+1부터 n까지의 수를 스택에 넣었다가 뽑아 늘어놓음으로써, 하나의 수열을 만들 수 있다. 
+이때, 스택에 push하는 순서는 반드시 오름차순을 지키도록 한다고 하자. 
+임의의 수열이 주어졌을 때 스택을 이용해 그 수열을 만들 수 있는지 없는지, 있다면 어떤 순서로 push와 pop 연산을 수행해야 하는지를 알아낼 수 있다. 이를 계산하는 프로그램을 작성하라.<br><br>
+
+# 입력  
+
+첫 줄에 n (1 ≤ n ≤ 100,000)이 주어진다. 둘째 줄부터 n개의 줄에는 수열을 이루는 1이상 n이하의 정수가 하나씩 순서대로 주어진다. 물론 같은 정수가 두 번 나오는 일은 없다.<br><br>
+
+# 출력  
+
+입력된 수열을 만들기 위해 필요한 연산을 한 줄에 한 개씩 출력한다. push연산은 +로, pop 연산은 -로 표현하도록 한다. 불가능한 경우 NO를 출력한다.<br><br>
+
+# 내 풀이
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int n(0), m(1), number(0);
+stack<int> stk;
+vector<char> v;
+vector<int> v2;
+vector<int>::iterator iter;
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	// m = 차례대로 넣는 숫자 1~8
+	// v2 = 수열로 들어오는 숫자
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> number;
+		v2.push_back(number);
+	}
+	iter = v2.begin();
+	while (m != n +1 && iter != v2.end()) {
+		if (stk.empty() != 1 && *iter == stk.top()) {
+			v.push_back('-');
+			stk.pop();
+			iter++;
+		}
+		else {
+			v.push_back('+');
+			stk.push(m++);
+		}
+	}
+	while (iter != v2.end() && *iter == stk.top()) {
+		v.push_back('-');
+		stk.pop();
+		iter++;
+	}
+	if (stk.empty()) {
+		for (auto e : v) cout << e << "\n";
+	}
+	else {
+		cout << "NO\n";
+	}
+}
+```
+vector를 두개나 사용한게 좀 찜찜하고, 똑같은 내용의 while문이 2개로 나뉘어 있는게 또 찜찜했는데 <br>
+역시 더 깔끔하게 잘 푸신 분이 계셨다.(밑의 풀이)<br><br>
+
+# 더 좋은 풀이
+[출처](https://sihyungyou.github.io/baekjoon-1874/)
+```c++
+#include <cstdio>
+#include <stack>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int n, i, j = 0;
+    stack <int> s;
+    vector <char> v;
+
+    scanf("%d", &n);
+    int arr[n];
+    
+    for (i = 0; i < n; i++) scanf("%d", &arr[i]);
+
+    for (i = 1; i <= n; i++) {
+        s.push(i);
+        v.push_back('+');
+
+        while(!s.empty() && s.top() == arr[j]) {
+            s.pop();
+            v.push_back('-');
+            j++;
+        }
+    }
+
+    if (!s.empty()) printf("NO\n");
+    else {
+        for (i = 0; i < v.size(); i++) printf("%c\n", v[i]);
+    }
+
+    return 0;
+}
+```
+vector 2개 쓰는 대신 하나는 array 사용, for문 속에 while문 넣어서 1개의 while문으로 모두 처리 가능<br><br>
