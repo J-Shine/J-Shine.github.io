@@ -79,7 +79,7 @@ int main() {
 queue를 사용하여보았다.<br><br>
 
 # queue를 구현한 내 풀이
-```
+```c++
 #include <bits/stdc++.h>
 using namespace std;
 
