@@ -64,4 +64,4 @@ STL queue의 기본적인 함수로는 push(), pop(), front(), back() size(), em
 **queue가 비어있는데 pop()이나 front(), back()을 호출하면 runtime error가 발생한다.**<br>
 
 # 연습문제
-[BOJ 10845번]()<br><br>
+[BOJ 10845번](https://j-shine.github.io//baekjoon-algorithm/2020/07/16/baekjoon-10845.html)<br><br>
