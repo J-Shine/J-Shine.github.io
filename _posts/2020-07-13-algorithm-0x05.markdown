@@ -57,4 +57,4 @@ STL stack의 기본적인 함수로는 push(), pop(), top(), size(), empty()가 
 **stack이 비어있는데 pop()이나 top()을 호출하면 runtime error가 발생한다.**<br>
 
 # 연습문제
-[BOJ 10828번]()<br><br>
+[BOJ 10828번](https://j-shine.github.io//baekjoon-algorithm/2020/07/16/baekjoon-10828.html)<br><br>
