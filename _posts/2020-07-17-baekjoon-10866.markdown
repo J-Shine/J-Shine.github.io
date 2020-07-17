@@ -1,0 +1,145 @@
+---
+layout: post
+title:  "[10866번] 덱"
+date:   2020-07-17 18:25
+categories: ["baekjoon-algorithm"]
+author: "J-Shine"
+---
+# 시간 제한
+0.5초<br><br>
+
+# 메모리 제한
+256MB<br><br>
+
+# 문제  
+정수를 저장하는 덱(Deque)를 구현한 다음, 입력으로 주어지는 명령을 처리하는 프로그램을 작성하시오.<br>
+명령은 총 여덟 가지이다.<br>
+push_front X: 정수 X를 덱의 앞에 넣는다.<br>
+push_back X: 정수 X를 덱의 뒤에 넣는다.<br>
+pop_front: 덱의 가장 앞에 있는 수를 빼고, 그 수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.<br>
+pop_back: 덱의 가장 뒤에 있는 수를 빼고, 그 수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.<br>
+size: 덱에 들어있는 정수의 개수를 출력한다.<br>
+empty: 덱이 비어있으면 1, 아니면 0을 출력한다.<br>
+front: 덱의 가장 앞에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.<br>
+back: 덱의 가장 뒤에 있는 정수를 출력한다. 만약 덱에 들어있는 정수가 없는 경우에는 -1을 출력한다.<br><br>
+
+# 입력  
+
+첫째 줄에 주어지는 명령의 수 N (1 ≤ N ≤ 10,000)이 주어진다. 둘째 줄부터 N개의 줄에는 명령이 하나씩 주어진다.<br>
+주어지는 정수는 1보다 크거나 같고, 100,000보다 작거나 같다. 문제에 나와있지 않은 명령이 주어지는 경우는 없다.<br><br>
+# 출력  
+
+출력해야하는 명령이 주어질 때마다, 한 줄에 하나씩 출력한다.<br><br>
+
+# STL deque 이용한 내 풀이
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	
+	deque<int> dq;
+	int n(0), m(0);
+	string command;
+
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> command;
+		if (command == "push_front") {
+			cin >> m;
+			dq.push_front(m);
+		}
+		else if (command == "push_back") {
+			cin >> m;
+			dq.push_back(m);
+		}
+		else if (command == "pop_front") {
+			if (!dq.empty()) {
+				cout << dq.front() << "\n";
+				dq.pop_front();
+			}
+			else
+				cout << "-1" << "\n";
+		}
+		else if (command == "pop_back") {
+			if (!dq.empty()) {
+				cout << dq.back() << "\n";
+				dq.pop_back();
+			}
+			else
+				cout << "-1" << "\n";
+		}
+		else if (command == "size") {
+			cout << dq.size() << "\n";
+		}
+		else if (command == "empty") {
+			if (!dq.empty()) cout << 0 << "\n";
+			else cout << 1 << "\n";
+		}
+		else if (command == "front") {
+			if (!dq.empty()) cout << dq.front() << "\n";
+			else cout << "-1" << "\n";
+		}
+		else if (command == "back") {
+			if (!dq.empty()) cout << dq.back() << "\n";
+			else cout << "-1" << "\n";
+		}
+	}
+}
+```
+STL deque을 사용하여보았다.<br><br>
+
+# deque을 구현한 내 풀이
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+
+	const int MX = 10000;
+	int dq[2 * MX + 1] = { 0 };
+	int n(0), head(MX), tail(MX);
+	string command;
+	
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		cin >> command;
+		if (command == "push_front") {
+			cin >> dq[--head];
+		}
+		else if (command == "push_back") {
+			cin >> dq[tail++];
+		}
+		else if (command == "pop_front") {
+			if (head != tail) cout << dq[head++] << '\n';
+			else cout << "-1\n";
+		}
+		else if (command == "pop_back") {
+			if (head != tail) cout << dq[--tail] << '\n';
+			else cout << "-1\n";
+		}
+		else if (command == "size") {
+			cout << tail - head << '\n';
+		}
+		else if (command == "empty") {
+			if (head != tail) cout << "0\n";
+			else cout << "1\n";
+		}
+		else if (command == "front") {
+			if (head != tail) cout << dq[head] << '\n';
+			else cout << "-1\n";
+		}
+		else if (command == "back") {
+			if (head != tail) cout << dq[tail - 1] << '\n';
+			else cout << "-1\n";
+		}
+	}
+
+}
+```
+head와 tail은 중간에서부터 시작하는 것 유의하기<br><br>
