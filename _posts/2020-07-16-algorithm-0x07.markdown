@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Deque"
-date:   2020-07-16 22:55
+date:   2020-07-17 18:25
 categories: ["barkingDog"]
 author: "J-Shine"
 ---
