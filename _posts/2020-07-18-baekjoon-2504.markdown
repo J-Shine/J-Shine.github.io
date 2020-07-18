@@ -1,0 +1,171 @@
+---
+layout: post
+title:  "[2504번] 괄호의 값"
+date:   2020-07-18 22:45
+categories: ["baekjoon-algorithm"]
+author: "J-Shine"
+---
+# 시간 제한
+1초<br><br>
+
+# 메모리 제한
+128MB<br><br>
+
+# 문제  
+4개의 기호 ‘(’, ‘)’, ‘[’, ‘]’를 이용해서 만들어지는 괄호열 중에서 올바른 괄호열이란 다음과 같이 정의된다.<br>
+1. 한 쌍의 괄호로만 이루어진 ‘()’와 ‘[]’는 올바른 괄호열이다. <br>
+2. 만일 X가 올바른 괄호열이면 ‘(X)’이나 ‘[X]’도 모두 올바른 괄호열이 된다.<br> 
+3. X와 Y 모두 올바른 괄호열이라면 이들을 결합한 XY도 올바른 괄호열이 된다.<br><br>
+예를 들어 ‘(()[[]])’나 ‘(())[][]’ 는 올바른 괄호열이지만 ‘([)]’ 나 ‘(()()[]’ 은 모두 올바른 괄호열이 아니다.<br>
+우리는 어떤 올바른 괄호열 X에 대하여 그 괄호열의 값(괄호값)을 아래와 같이 정의하고 값(X)로 표시한다.<br><br>
+
+1. ‘()’ 인 괄호열의 값은 2이다.<br>
+2. ‘[]’ 인 괄호열의 값은 3이다.<br>
+3. ‘(X)’ 의 괄호값은 2×값(X) 으로 계산된다.<br>
+4. ‘[X]’ 의 괄호값은 3×값(X) 으로 계산된다.<br><br>
+5. 올바른 괄호열 X와 Y가 결합된 XY의 괄호값은 값(XY)= 값(X)+값(Y) 로 계산된다.<br>
+예를 들어 ‘(()[[]])([])’ 의 괄호값을 구해보자.  ‘()[[]]’ 의 괄호값이 2 + 3×3=11 이므로  ‘(()[[ ]])’의 괄호값은 2×11=22 이다. 그리고  ‘([])’의 값은 2×3=6 이므로 전체 괄호열의 값은 22 + 6 = 28 이다.<br>
+여러분이 풀어야 할 문제는 주어진 괄호열을 읽고 그 괄호값을 앞에서 정의한대로 계산하여 출력하는 것이다. <br><br>
+
+# 입력  
+첫째 줄에 괄호열을 나타내는 문자열(스트링)이 주어진다. 단 그 길이는 1 이상, 30 이하이다.<br><br>
+
+# 출력  
+첫째 줄에 그 괄호열의 값을 나타내는 정수를 출력한다. 만일 입력이 올바르지 못한 괄호열이면 반드시 0을 출력해야 한다.<br><br>
+
+# 내 풀이([jaimemin님 코드 참고](https://jaimemin.tistory.com/820))
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	/*
+	( () [[]] ) ([])
+	   2+3*3 *2 + 3*2
+	 2*2 + 2*3*3 + 2*3
+temp:
+	*/
+	stack<char> stk;
+	int temp(1), result(0);
+	string s;
+	getline(cin, s);
+	
+	for (int i = 0; i < s.length(); i++) {
+		if (s[i] == '(') {
+			stk.push(s[i]);
+			temp *= 2;
+		}
+		else if (s[i] == '[') {
+			stk.push(s[i]);
+			temp *= 3;
+		}
+		else if (
+			(stk.empty() && (s[i] == ')' || s[i] == ']')) ||
+			(stk.top() == '[' && s[i] == ')') ||
+			(stk.top() == '(' && s[i] == ']')) {
+			cout << 0 << "\n";
+			return 0;
+		}
+		else if (s[i] == ')') {
+			if(s[i - 1] == '(') result += temp;
+			stk.pop();
+			temp /= 2;
+		}
+		else if (s[i] == ']') {
+			if (s[i - 1] == '[') result += temp;
+			stk.pop();
+			temp /= 3;
+		}
+	}
+	if (!stk.empty()) {
+		cout << 0 << "\n";
+		return 0;
+	}
+	else cout << result << "\n";
+}
+```
+처음에 보통 손으로 푸는 방식으로 괄호 안부터 계산하고 뭐 그런식으로 하다가 너무 복잡해지고 계속 틀리고 해서 그냥 답봤다(..)<br>
+그러다가 찾은게 저 분의 코드인데 너무나도 깔끔해서 감동했따<br>
+그리고 그걸 보고나서 다시 구현하였는데 이건 역시 그냥 베낀 수준이다..ㅎㅎ<br>
+근데 풀고 보니 [10799: 쇠막대기]()문제와 너무나도 풀이방법이 같아서 충격..허거덩<br>
+10799번은 답 안보고 풀었는데 2504번은 몇시간동안 고민하고 계속 틀렸는뎅 왜?!<br>
+왜냐면 2504번에서는 분배법칙을 이용해서 식을 쪼개야 훨씬 풀이가 잘보이기 때문이었따<br>
+예를 들어 (()[[]])([])는 (2 + 3 * 3) * 2 + 2 * 3 = 28 이런식으로 풀면 코딩이 너무 복잡해진당<br>
+근데 분배법칙을 이용하여 2 * 2 + 2 * 3 * 3 + 2 * 3 이런식으로 항 3개를 더한다고 생각하면 풀이가 엄청 쉬워진당<br>
+**보이지 않으면 쪼개라!**는 말이 떠오르는 날이었따<br><br>
+
+# jaimemin님 풀이
+[출처](https://jaimemin.tistory.com/820)
+```c++
+#include <iostream>
+#include <stack>
+#include <string>
+#include <cmath>
+
+using namespace std;
+
+string input;
+stack<char> s;
+
+int main(void){
+
+        ios_base::sync_with_stdio(0);
+        cin.tie(0); //cin 실행속도 향상
+        cin >> input;
+
+
+        long long result = 0;
+        int temp = 1;
+        bool impossible = false;
+
+ 
+
+        for (int i = 0; i < input.size(); i++)
+        {
+                 if (input[i] == '(')
+                 {
+                         temp *= 2;
+                         s.push('(');
+                 }
+                 else if (input[i] == '[')
+                 {
+                         temp *= 3;
+                         s.push('[');
+                 }
+                 //불가능한 경우
+                 else if (input[i] == ')' && (s.empty() || s.top() != '('))
+                 {
+                         impossible = true;
+                         break;
+                 }
+                 else if (input[i] == ']' && (s.empty() || s.top() != '['))
+                 {
+                         impossible = true;
+                         break;
+                 }
+                 else if (input[i] == ')')
+                 {
+                         if (input[i - 1] == '(')
+                                 result += temp;
+                         s.pop();
+                         temp /= 2;
+                 }
+                 else if (input[i] == ']')
+                 {
+                         if (input[i - 1] == '[')
+                                 result += temp;
+                         s.pop();
+                         temp /= 3;
+                 }
+        }
+ 
+        if (impossible || !s.empty())
+                 cout << 0 << "\n";
+        else
+                 cout << result << "\n";
+        return 0;
+}
+```
