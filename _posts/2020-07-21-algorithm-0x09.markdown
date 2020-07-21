@@ -75,3 +75,6 @@ BFS를 돌릴 때는 보통 n과 x가 행이고, m과 y가 열이다.<br>
 
 # BFS 응용 3 - 시작점이 두 종류일 때
 [BOJ 4179번: 불!](https://j-shine.github.io//baekjoon-algorithm/2020/07/21/baekjoon-4179.html)<br><br>
+
+# BFS 응용 4 - 1차원에서의 BFS
+[BOJ 1697번: 숨바꼭질](https://j-shine.github.io//baekjoon-algorithm/2020/07/21/baekjoon-1697.html)<br><br>
