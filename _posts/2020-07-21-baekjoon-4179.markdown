@@ -1,0 +1,124 @@
+---
+layout: post
+title:  "[4179번] 불!"
+date:   2020-07-21 23:00
+categories: ["baekjoon-algorithm"]
+author: "J-Shine"
+---
+# 시간 제한
+1초<br><br>
+
+# 메모리 제한
+256MB<br><br>
+
+# 문제  
+지훈이는 미로에서 일을 한다. 지훈이를 미로에서 탈출하도록 도와주자!<br>
+미로에서의 지훈이의 위치와 불이 붙은 위치를 감안해서 지훈이가 불에 타기전에 탈출할 수 있는지의 여부, 그리고 얼마나 빨리 탈출할 수 있는지를 결정해야한다.<br>
+지훈이와 불은 매 분마다 한칸씩 수평또는 수직으로(비스듬하게 이동하지 않는다) 이동한다.<br>
+불은 각 지점에서 네 방향으로 확산된다.<br>
+지훈이는 미로의 가장자리에 접한 공간에서 탈출할 수 있다.<br>
+지훈이와 불은 벽이 있는 공간은 통과하지 못한다.<br><br>
+
+# 입력  
+입력의 첫째 줄에는 공백으로 구분된 두 정수 R과 C가 주어진다. 단, 1 ≤ R, C ≤ 1000 이다. R은 미로 행의 개수, C는 열의 개수이다.<br>
+다음 입력으로 R줄동안 각각의 미로 행이 주어진다.<br>
+각각의 문자들은 다음을 뜻한다.<br><br>
+
+#: 벽<br>
+.: 지나갈 수 있는 공간<br>
+J: 지훈이의 미로에서의 초기위치 (지나갈 수 있는 공간)<br>
+F: 불이난 공간<br>
+J는 입력에서 하나만 주어진다.<br><br>
+
+# 출력  
+지훈이가 불이 도달하기 전에 미로를 탈출 할 수 없는경우 IMPOSSIBLE 을 출력한다.<br>
+지훈이가 미로를 탈출할 수 있는 경우에는 가장 빠른 탈출시간을 출력한다.<br><br>
+
+# 내 풀이
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int fire[1005][1005]; // 불이 없으면 -1
+int maze[1005][1005]; // 벽이 1, 지나갈 수 있는 길이 0
+int jihun[1005][1005]; // 지훈이 없으면 -1
+int n(0), m(0);
+int minTime(2000);
+int dx[4] = { 1, 0, -1, 0 };
+int dy[4] = { 0, 1, 0, -1 };
+queue<pair<int, int>> q_fire;
+queue<pair<int, int>> q_jihun;
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+
+	cin >> n >> m;
+
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			fire[i][j] = -1; // 불이 없을 땐 -1 초기화
+			jihun[i][j] = -1; // 지훈이 없는 곳도 -1로 초기화
+		}
+	}
+
+	string st;
+	getline(cin, st);
+	for (int i = 0; i < n; i++) {
+		string s;
+		getline(cin, s);
+		for (int j = 0; j < m; j++) {
+			if (s[j] == '#') maze[i][j] = 1;
+			else if (s[j] == '.') maze[i][j] = 0;
+			else if (s[j] == 'F') {
+				maze[i][j] = 0;
+				fire[i][j] = 0;
+				q_fire.push({ i, j });
+			}
+			else if (s[j] == 'J') {
+				maze[i][j] = 0;
+				jihun[i][j] = 0;
+				q_jihun.push({ i, j });
+			}
+		}
+	}
+	while (!q_fire.empty()) {
+		pair<int, int> cur = q_fire.front();
+		q_fire.pop();
+		for (int dir = 0; dir < 4; dir++) {
+			int nx = cur.first + dx[dir];
+			int ny = cur.second + dy[dir];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+			if (fire[nx][ny] != -1 || maze[nx][ny] == 1) continue;
+			fire[nx][ny] = fire[cur.first][cur.second] + 1;
+			q_fire.push({ nx, ny });
+		}
+	}
+	while (!q_jihun.empty()) {
+		pair<int, int> cur = q_jihun.front();
+		q_jihun.pop();
+		for (int dir = 0; dir < 4; dir++) {
+			int nx = cur.first + dx[dir];
+			int ny = cur.second + dy[dir];
+			if (nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+			if (jihun[nx][ny] != -1 || maze[nx][ny] == 1) continue;
+			if (fire[nx][ny] != -1 && fire[nx][ny] <= jihun[cur.first][cur.second] + 1) continue; 
+			jihun[nx][ny] = jihun[cur.first][cur.second] + 1;
+			q_jihun.push({ nx, ny });
+		}
+	}
+	for (int i = 0; i < n; i++) {
+		for (int j = 0; j < m; j++) {
+			if (jihun[i][j] != -1 && (i == 0 || i == n - 1 || j == 0 || j == m - 1)) {
+				if (minTime > jihun[i][j]) minTime = jihun[i][j];
+			}
+		}
+	}
+	if (minTime == 2000) cout << "IMPOSSIBLE\n";
+	else cout << minTime + 1;
+}
+```
+불과 지훈이의 BFS를 각각 돌리면 된다. 이 때 불의 확산 경로와 시간은 정해져있으므로 불의 BFS를 먼저 돌리고, 지훈이의 BFS를 돌릴 때 불의 BFS 결과를 반영한다.<br>
+이 문제는 불의 확산경로가 정해져있고, 지훈이와 불이 만나면 그냥 게임 끝이라서 지훈이는 불만 피해가면 된다.<br>
+하지만 불과 물이 만나거나 하는 등 둘이 만났을 때 무언가 상호작용을 하는 경우 이런식으로 풀면 안된다. 그 땐 둘의 BFS를 시간에 따라 동시에 돌려야 한다.<br>
+
