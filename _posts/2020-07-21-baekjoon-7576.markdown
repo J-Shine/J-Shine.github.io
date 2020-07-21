@@ -1,0 +1,204 @@
+---
+layout: post
+title:  "[7576번] 토마토"
+date:   2020-07-21 18:00
+categories: ["baekjoon-algorithm"]
+author: "J-Shine"
+---
+# 시간 제한
+1초<br><br>
+
+# 메모리 제한
+256MB<br><br>
+
+# 문제  
+철수의 토마토 농장에서는 토마토를 보관하는 큰 창고를 가지고 있다. 토마토는 아래의 그림과 같이 격자 모양 상자의 칸에 하나씩 넣어서 창고에 보관한다.<br>
+창고에 보관되는 토마토들 중에는 잘 익은 것도 있지만, 아직 익지 않은 토마토들도 있을 수 있다. 보관 후 하루가 지나면, 익은 토마토들의 인접한 곳에 있는 익지 않은 토마토들은 익은 토마토의 영향을 받아 익게 된다. 하나의 토마토의 인접한 곳은 왼쪽, 오른쪽, 앞, 뒤 네 방향에 있는 토마토를 의미한다. 대각선 방향에 있는 토마토들에게는 영향을 주지 못하며, 토마토가 혼자 저절로 익는 경우는 없다고 가정한다.<br> 
+철수는 창고에 보관된 토마토들이 며칠이 지나면 다 익게 되는지, 그 최소 일수를 알고 싶어 한다.<br>
+토마토를 창고에 보관하는 격자모양의 상자들의 크기와 익은 토마토들과 익지 않은 토마토들의 정보가 주어졌을 때, 며칠이 지나면 토마토들이 모두 익는지, 그 최소 일수를 구하는 프로그램을 작성하라. 단, 상자의 일부 칸에는 토마토가 들어있지 않을 수도 있다.<br><br>
+
+# 입력  
+첫 줄에는 상자의 크기를 나타내는 두 정수 M,N이 주어진다. M은 상자의 가로 칸의 수, N은 상자의 세로 칸의 수를 나타낸다. 단, 2 ≤ M,N ≤ 1,000 이다. 둘째 줄부터는 하나의 상자에 저장된 토마토들의 정보가 주어진다. 즉, 둘째 줄부터 N개의 줄에는 상자에 담긴 토마토의 정보가 주어진다.<br>
+하나의 줄에는 상자 가로줄에 들어있는 토마토의 상태가 M개의 정수로 주어진다. 정수 1은 익은 토마토, 정수 0은 익지 않은 토마토, 정수 -1은 토마토가 들어있지 않은 칸을 나타낸다.<br><br>
+
+# 출력  
+여러분은 토마토가 모두 익을 때까지의 최소 날짜를 출력해야 한다. 만약, 저장될 때부터 모든 토마토가 익어있는 상태이면 0을 출력해야 하고, 토마토가 모두 익지는 못하는 상황이면 -1을 출력해야 한다.<br><br>
+
+# 내 **틀린 풀이**
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+#define X first;
+#define Y second;
+int ripeness[1005][1005];
+int days[1005][1005];
+int minDays = 0;
+int N(0), M(0);
+int dx[4] = { 1, 0, -1, 0 };
+int dy[4] = { 0, 1, 0, -1 };
+queue<pair<int, int>> q;
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+
+	cin >> M >> N;
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			cin >> ripeness[i][j];
+		}
+	}
+	for (int i = 0; i < N; i++) fill(days[i], days[i] + M, -1); // days를 -1로 초기화
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			if (ripeness[i][j] == 1 && days[i][j] == -1) {
+				days[i][j]++;
+				q.push(make_pair(i, j));
+				while (!q.empty()) {
+					pair<int, int> cur = q.front();
+					q.pop();
+					for (int dir = 0; dir < 4; dir++) {
+						int x = cur.X; int y = cur.Y;
+						int nx = x + dx[dir]; int ny = y + dy[dir];
+						if (nx < 0 || nx > N || ny < 0 || ny > M) continue;
+						if (days[nx][ny] != -1 && days[x][y] + 1 >= days[nx][ny]) continue; // 방문 했고 더 짧은 일수가 들어있는 경우 방문x
+						else if (days[nx][ny] == -1 && ripeness[nx][ny] == 1) continue; // 방문 안했고 익은 경우 방문x(나중에 또다른 시작점)
+						else if (ripeness[nx][ny] == -1) continue; // 토마토가 없으면 방문 x
+						// 방문 했지만 더 긴 일수가 들어있는 경우 재방문 후 일수 짧게 바꾸고 큐에 push
+						// 방문 안했고 안 익은 경우 방문 후 일수 설정 후 큐에 push -> 위의 둘은 코드가 같다.
+						ripeness[nx][ny] = 1;
+						days[nx][ny] = days[x][y] + 1;
+						q.push(make_pair(nx, ny));
+					}
+				}
+			}
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			if (ripeness[i][j] == 0) {
+				cout << -1 << "\n";
+				return 0;
+			}
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			if (minDays < days[i][j]) {
+				minDays = days[i][j];
+			}
+		}
+	}
+	cout << minDays << "\n";
+}
+```
+위 풀이는 **시간 초과**로 틀린 풀이이다.<br>
+BFS를 사용해서 익는 날짜를 계산하는 것까진 알겠는데 처음에 익은 토마토가 여러개인 걸로 시작하면 여러개의 시작점에서부터 토마토들이 익다가, 익은 토마토들의 중간지점에서 최대로 익는 날짜가 나와야 한다.<br>
+그것을 어떻게 구현하느냐..?를 생각하다가 얻은 결론이 <br>
+익은 토마토 A에 대해 BFS를 **끝까지** 돌린다음, 익은 토마토 B에 대해 또 처음부터 BFS를 돌리다가 B에 의해 익는 날짜가 A에 의해 익는 날짜보다 작으면 그 날짜를 고치고,<br>
+B에 의해 익는 날짜가 A에 의해 익는 날짜보다 같거나 커지기 시작하면 BFS를 멈춘다.<br>
+이 것을 C, D, E 등 나머지 토마토에 대해서도 계속 반복한다.<br>
+결국 하나의 안익은 토마토가 **여러번 중복하여 큐에 들어가는** 일이 생기다 보니 시간초과로 틀리는 풀이이다.<br><br>
+
+# 내 맞은 풀이**
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+#define X first;
+#define Y second;
+int ripeness[1005][1005];
+int days[1005][1005];
+int minDays = 0;
+int N(0), M(0);
+int dx[4] = { 1, 0, -1, 0 };
+int dy[4] = { 0, 1, 0, -1 };
+queue<pair<int, int>> q;
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+
+	cin >> M >> N;
+	for (int i = 0; i < N; i++) fill(days[i], days[i] + M, -1); // days를 -1로 초기화(방문 안 한 상태)
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			cin >> ripeness[i][j];
+			if (ripeness[i][j] == 1) {
+				q.push(make_pair(i, j));
+				days[i][j]++;
+			}
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			while (!q.empty()) {
+				pair<int, int> cur = q.front();
+				q.pop();
+				for (int dir = 0; dir < 4; dir++) {
+					int x = cur.X; int y = cur.Y;
+					int nx = x + dx[dir]; int ny = y + dy[dir];
+					if (nx < 0 || nx > N || ny < 0 || ny > M) continue;
+					if (ripeness[nx][ny] != 0 || days[nx][ny] != -1) continue;
+					ripeness[nx][ny] = 1;
+					days[nx][ny] = days[x][y] + 1;
+					if (minDays < days[nx][ny]) minDays = days[nx][ny];
+					q.push(make_pair(nx, ny));
+				}
+			}
+		}
+	}
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			if (ripeness[i][j] == 0) {
+				cout << -1 << "\n";
+				return 0;
+			}
+		}
+	}
+	cout << minDays << "\n";
+}
+```
+**BFS를 본격적으로 돌리기 전에 익은 토마토들을 모두 큐에 넣는다(처음부터 익어있던 토마토를 시작점으로 설정).**<br>
+이 토마토들이 0일로 설정되고, 이 토마토들에 인접하고 안익은 토마토들은 다음으로 큐에 push되면서 1일로 설정이 된다. 그리고 그 작업을 반복한다.<br>
+이렇게 하면 매일매일 어느 범위까지의 토마토들이 익는지를 알 수 있다.<br>
+그리고 여기서도 #define 뒤에 세미콜론(;)을 붙이는 우를 범했다(..)<br><br>
+
+# 바킹독님 풀이([출처](http://boj.kr/cd14bec9ecff461ab840f853ed0eb87f))
+
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+#define X first
+#define Y second
+string board[102];
+int dist[102][102];
+int n,m;
+int dx[4] = {1,0,-1,0};
+int dy[4] = {0,1,0,-1};
+int main(void){
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  cin >> n >> m;
+  for(int i = 0; i < n; i++)
+    cin >> board[i];
+  for(int i = 0; i < n; i++) fill(dist[i],dist[i]+m,-1);
+  queue<pair<int,int> > Q;
+  Q.push({0,0});
+  dist[0][0] = 0;
+  while(!Q.empty()){
+    auto cur = Q.front(); Q.pop();
+    for(int dir = 0; dir < 4; dir++){
+      int nx = cur.X + dx[dir];
+      int ny = cur.Y + dy[dir];
+      if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue;
+      if(dist[nx][ny] >= 0 || board[nx][ny] != '1') continue;
+      dist[nx][ny] = dist[cur.X][cur.Y]+1;
+      Q.push({nx,ny});
+    }
+  }
+  cout << dist[n-1][m-1]+1; // 문제의 특성상 거리+1이 정답
+}
+```
+
