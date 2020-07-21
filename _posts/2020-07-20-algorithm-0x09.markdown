@@ -1,0 +1,82 @@
+---
+layout: post
+title: "BFS"
+date:   2020-07-21 16:53
+categories: ["barkingDog"]
+author: "J-Shine"
+---
+
+# 바킹독님의 실전알고리즘배우기 9강듣고 요약
+[바킹독의 실전 알고리즘 9강 링크](https://blog.encrypted.gg/941)   
+ 
+![image](https://user-images.githubusercontent.com/61873510/87948598-e19e7f00-cadf-11ea-846b-381cdfc8a24d.png)<br>
+![image](https://user-images.githubusercontent.com/61873510/87949251-c4b67b80-cae0-11ea-8073-7c6a592f6b0a.png)<br><br>
+
+# BFS 과정
+![image](https://user-images.githubusercontent.com/61873510/87951719-e2391480-cae3-11ea-8f4d-460d0c0b1638.png)<br>
+![image](https://user-images.githubusercontent.com/61873510/87950482-4c50ba00-cae2-11ea-8dd5-ae3007d34603.png)<br><br>
+BFS는 너비우선탐색 알고리즘으로, **큐**를 이용하며 시작점에서 점점 퍼져나가는 문제 해결에 잘 쓰인다.<br>
+깊이가 1인 노드를 모두 탐색 하면서 깊이가 2인 노드를 차례로 큐에 넣고, 깊이가 1인 노드 방문이 모두 끝나면 큐에서 하나씩 꺼내서 방문하며 깊이가 3인 노드를 큐에 넣고.. 큐가 빌 때까지 반복<br>
+깊이는 시간, 거리, 단계 등으로 치환하여 생각할 수 있다.<br>
+1차원일 때 시간복잡도가 O(N)이고, 2차원일 때는 행이 R개, 열이 C개라고 하면 시간복잡도가 O(RC)이다.(컴퓨터는 1초에 1억번의 연산을 할 수 있음을 참고)<br><br>
+
+# BFS 코드 예시
+![image](https://user-images.githubusercontent.com/61873510/87953441-03026980-cae6-11ea-9237-ca37cc4df254.png)<br>
+위 그림의 파란색 칸을 BFS로 모두 탐색하는 코드<br><br>
+```c++
+#include <bits/stdc++.h>
+using namespace std;
+#define X first
+#define Y second // pair에서 first, second를 줄여서 쓰기 위해서 사용
+int board[502][502] = // 보통 이건 문제에서 입력받음
+{{1,1,1,0,1,0,0,0,0,0},
+ {1,0,0,0,1,0,0,0,0,0},
+ {1,1,1,0,1,0,0,0,0,0},
+ {1,1,0,0,1,0,0,0,0,0},
+ {0,1,0,0,0,0,0,0,0,0},
+ {0,0,0,0,0,0,0,0,0,0},
+ {0,0,0,0,0,0,0,0,0,0} }; // 1이 파란 칸, 0이 빨간 칸에 대응
+bool vis[502][502]; // 해당 칸을 방문했는지 여부를 저장
+int n = 7, m = 10; // n = 행의 수, m = 열의 수
+int dx[4] = {1,0,-1,0};
+int dy[4] = {0,1,0,-1}; // 상하좌우 네 방향을 의미
+int main(void){
+  ios::sync_with_stdio(0);
+  cin.tie(0);
+  queue<pair<int,int> > Q;
+  vis[0][0] = 1; // (0, 0)을 방문했다고 명시
+  Q.push({0,0}); // 큐에 시작점인 (0, 0)을 삽입.
+  while(!Q.empty()){
+    pair<int,int> cur = Q.front(); Q.pop();
+    cout << '(' << cur.X << ", " << cur.Y << ") -> ";
+    for(int dir = 0; dir < 4; dir++){ // 상하좌우 칸을 살펴볼 것이다.
+      int nx = cur.X + dx[dir];
+      int ny = cur.Y + dy[dir]; // nx, ny에 dir에서 정한 방향의 인접한 칸의 좌표가 들어감
+      if(nx < 0 || nx >= n || ny < 0 || ny >= m) continue; // 범위 밖일 경우 방문 안 함
+      if(vis[nx][ny] || board[nx][ny] != 1) continue; // 이미 방문한 칸이거나 파란 칸이 아닐 경우도 방문 안 함
+      vis[nx][ny] = 1; // (nx, ny)를 방문했다고 명시
+      Q.push({nx,ny});
+    }
+  }
+}
+```
+자세한건 주석에 설명<br>
+BFS를 돌릴 때는 보통 n과 x가 행이고, m과 y가 열이다.<br>
+**그리고 위의 #define X first, #define Y second를 할 때 끝에 세미콜론이 붙지 않는다!!**<br>
+세미콜론을 붙이면 define한 X, Y 사용시 에러가 나므로 주의<br><br>
+
+# BFS 구현시 실수하기 쉬운 것들
+![image](https://user-images.githubusercontent.com/61873510/87955249-6d1c0e00-cae8-11ea-9f29-1e95c248c174.png)<br><br>
+
+
+# BFS 예시
+[BOJ 1926번: 그림](https://j-shine.github.io//baekjoon-algorithm/2020/07/21/baekjoon-1926.html)<br><br>
+
+# BFS 응용 1 - 거리 측정
+[BOJ 2178번: 미로 탐색](https://j-shine.github.io//baekjoon-algorithm/2020/07/21/baekjoon-2178.html)<br><br>
+
+# BFS 응용 2 - 시작점이 여러 개일 때
+[BOJ 7576번: 토마토](https://j-shine.github.io//baekjoon-algorithm/2020/07/21/baekjoon-7576.html)<br><br>
+
+# BFS 응용 3 - 시작점이 두 종류일 때
+[BOJ 4179번: 불!](https://j-shine.github.io//baekjoon-algorithm/2020/07/21/baekjoon-4179.html)<br><br>
