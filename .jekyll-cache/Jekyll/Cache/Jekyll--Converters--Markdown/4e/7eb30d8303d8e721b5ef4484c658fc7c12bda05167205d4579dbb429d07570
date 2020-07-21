@@ -1,0 +1,10 @@
+I"�<h1 id="바킹독님의-실전알고리즘배우기-7강듣고-요약">바킹독님의 실전알고리즘배우기 7강듣고 요약</h1>
+<p><a href="https://blog.encrypted.gg/935">바킹독의 실전 알고리즘 7강 링크</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/87678158-928ddc80-c7b5-11ea-9a26-ebbb2a25f194.png" alt="image" /><br />
+<img src="https://user-images.githubusercontent.com/61873510/87678204-a0dbf880-c7b5-11ea-9429-8737999b3d88.png" alt="image" /><br /><br /></p>
+<h1 id="덱의-성질">덱의 성질</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/87678451-ea2c4800-c7b5-11ea-8c54-f7ce5959b766.png" alt="image" /><br />
+덱은 double-ended queue로, 큐인데 양끝에서 삽입과 삭제가 가능한 자료구조이다.<br />
+양 끝의 원소 이외의 원소들은 원칙적으로 확인이 불가능하지만, STL deque에서는 가능하다.<br /><br /></p>
+:ET

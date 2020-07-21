@@ -1,0 +1,71 @@
+I"�'<h1 id="배열과-포인터">배열과 포인터</h1>
+<h2 id="배열은-포인터와-조금-유사한-면이-있다">배열은 포인터와 조금 유사한 면이 있다.</h2>
+<p>배열과 포인터는 모두 ‘주소’를 나타낸다.<br />
+배열과 포인터 모두 ‘*’ 연산과 ‘[]’ 연산이 가능하다.<br /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">parr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">;</span>
+<span class="c1">// 5 5 5 5 를 출력</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">arr</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="n">parr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="n">parr</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span>
+</code></pre></div></div>
+<h2 id="배열과-포인터의-차이점">배열과 포인터의 차이점</h2>
+<p>arr에 다른값을 넣을 수 없다.
+arr == &amp;arr == &amp;arr[0]이다.</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">arr</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="c1">// 모두 같은 주소값을 출력</span>
+</code></pre></div></div>
+<h2 id="배열과-포인터는-sizeof-연산-결과가-다르다">배열과 포인터는 sizeof() 연산 결과가 다르다.</h2>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">parr</span> <span class="o">=</span> <span class="n">arr</span><span class="p">;</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"sizeof(arr): "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="c1">// 12(배열 전체의 메모리 크기)</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"sizeof(parr): "</span> <span class="o">&lt;&lt;</span> <span class="k">sizeof</span><span class="p">(</span><span class="n">parr</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="c1">// 4(포인터 변수의 메모리 크기)</span>
+</code></pre></div></div>
+
+<h2 id="포인터의-증가감소-연산과-배열의--연산">포인터의 증가/감소 연산과 배열의 [] 연산</h2>
+<p>포인터와 배열 모두에서 arr[i] == *(arr+i) 성립</p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">15</span> <span class="p">};</span>
+<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span> <span class="o">&lt;&lt;</span> <span class="o">*</span><span class="p">(</span><span class="n">arr</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;&lt;</span> <span class="s">"</span><span class="se">\n</span><span class="s">"</span><span class="p">;</span> <span class="c1">// 10 10 출력</span>
+</code></pre></div></div>
+
+<h2 id="함수의-인자로-배열을-전달하는-방법">함수의 인자로 배열을 전달하는 방법</h2>
+<p>포인터로 배열의 시작 주소를 전달한다.
+배열의 길이도 함께 인자로 전달한다.
+<strong>배열을 함수의 인자로 전달할 땐 call-by-value(값전달)가 아닌 call-by-reference(주소전달)를 해야 한다.</strong></p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">void</span> <span class="nf">passArray</span><span class="p">(</span><span class="kt">int</span><span class="o">*</span> <span class="n">arr</span><span class="p">,</span> <span class="kt">int</span> <span class="n">len</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">len</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="sc">' '</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h1 id="문자열과-포인터">문자열과 포인터</h1>
+<h2 id="char-를-이용하여-문자열을-저장한다">char* 를 이용하여 문자열을 저장한다.</h2>
+<p><a href="http://www.cplusplus.com/forum/general/59834/">참조</a></p>
+
+<p>C에서는 char* 를 이용하여 string(문자열)을 저장한다.<br />
+따라서 char 변수에 문자를 저장하고 char* 로 출력해도 주소가 출력되지 않고 문자열이 출력된다.<br />
+그런데 문자열을 char 배열로 저장할 때 항상 끝의 칸에 문자열의 끝을 알려주는 \0가 있어야 하는데 없으므로 이상한 쓰레기값이 출력된다.<br /><br /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span><span class="o">*</span> <span class="n">str</span> <span class="o">=</span> <span class="s">"some string"</span><span class="p">;</span> <span class="c1">// this is valid</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span> <span class="c1">// this not...</span>
+<span class="c1">// you must allocate memory for the int* like so</span>
+<span class="kt">int</span><span class="o">*</span> <span class="n">j</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">int</span><span class="p">;</span>
+<span class="o">*</span><span class="n">j</span> <span class="o">=</span> <span class="mi">1234</span><span class="p">;</span>
+
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">str</span><span class="p">;</span> <span class="c1">// prints the string, not the memory address of the pointer</span>
+<span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">j</span><span class="p">;</span> <span class="c1">// prints the memory address of the pointer </span>
+</code></pre></div></div>
+<h2 id="문자열을-선언하는-두-가지-방법">문자열을 선언하는 두 가지 방법</h2>
+<ol>
+  <li>변수 형태의 문자열<br />
+-&gt; 배열의 각 요소에 접근해서 문자열을 수정 가능하다.<br />
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">str1</span><span class="p">[]</span> <span class="o">=</span> <span class="s">"Some string"</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+  <li>상수 형태의 문자열<br />
+-&gt; 리터럴로 메모리에 자동 할당된 문자열을 가리키는 <strong>포인터</strong>로, 문자열의 내용을 수정 불가능하다.<br />
+    <div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kt">char</span> <span class="n">str2</span> <span class="o">=</span> <span class="s">"Some other string"</span><span class="p">;</span>
+</code></pre></div>    </div>
+  </li>
+</ol>
+:ET

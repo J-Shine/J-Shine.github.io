@@ -1,0 +1,13 @@
+I"Y<h1 id="바킹독님의-실전알고리즘-배우기-1강-듣고-요약">바킹독님의 실전알고리즘 배우기 1강 듣고 요약</h1>
+<p><a href="https://blog.encrypted.gg/922">바킹독의 실전 알고리즘 1강 링크</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/86477025-99aef680-bd82-11ea-9e82-2a7bb7429dc8.png" alt="image" /><br />
+<img src="https://user-images.githubusercontent.com/61873510/86477108-bc410f80-bd82-11ea-9745-b59bece9660d.png" alt="image" /><br /></p>
+<h1 id="시간-복잡도">시간 복잡도</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/86475390-89494c80-bd7f-11ea-9b06-df055ab3f8c5.png" alt="image" /><br />
+문제에 따른 허용 시간 복잡도 짐작하기</p>
+<h1 id="공간-복잡도">공간 복잡도</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/86477221-f1e5f880-bd82-11ea-9559-e421fb29a02d.png" alt="image" /> <br />
+메모리의 크기가 512MB라면 1.2억개의 int 변수를 선언할 수 있다는 것 기억하기(int 1개가 4byte)</p>
+<h1 id="정수-자료형">정수 자료형</h1>
+:ET

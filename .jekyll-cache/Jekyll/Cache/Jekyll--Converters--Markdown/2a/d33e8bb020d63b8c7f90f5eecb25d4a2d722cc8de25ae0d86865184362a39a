@@ -1,0 +1,20 @@
+I"<h1 id="iterator반복자">iterator(반복자)</h1>
+<p>배열 등 자료구조의 요소를 순회하는 객체<br /><br /></p>
+
+<h1 id="iterator-사용법">iterator 사용법</h1>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">iter</span><span class="p">;</span>
+</code></pre></div></div>
+<p>-&gt;list<int>의 iterator 객체 생성<br /><br /></int></p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">list</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;::</span><span class="n">reverse_iterator</span> <span class="n">iter</span><span class="p">;</span>
+</code></pre></div></div>
+<p>-&gt;list<int>의 reverse_iterator 객체 생성<br /><br /></int></p>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/87308058-9fac9080-c555-11ea-8d4a-8acc27394d34.png" alt="image" /><br /></p>
+
+<h1 id="begin-end">begin(), end()</h1>
+<p>iter.begin()은 container의 맨 앞 요소를 가리키지만,<br />
+<strong>iter.end()는 container의 맨 뒤 요소의 하나 뒤를 가리킨다.</strong><br /><br /></p>
+<h1 id="rbegin-rend">rbegin(), rend()</h1>
+<p>iter.rbegin()은 container의 맨 뒤 요소를 가리키고,<br />
+<strong>iter.rend()는 container의 맨 앞 요소의 하나 앞을 가리킨다.</strong><br /><br /></p>
+:ET

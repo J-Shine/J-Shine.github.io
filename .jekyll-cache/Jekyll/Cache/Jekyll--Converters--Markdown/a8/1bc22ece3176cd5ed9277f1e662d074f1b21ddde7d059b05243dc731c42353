@@ -1,0 +1,80 @@
+I"+<h1 id="문제">문제</h1>
+<p>한 줄로 된 간단한 에디터를 구현하려고 한다. 이 편집기는 영어 소문자만을 기록할 수 있는 편집기로, 최대 600,000글자까지 입력할 수 있다.<br />
+이 편집기에는 ‘커서’라는 것이 있는데, 커서는 문장의 맨 앞(첫 번째 문자의 왼쪽), 문장의 맨 뒤(마지막 문자의 오른쪽), 또는 문장 중간 임의의 곳(모든 연속된 두 문자 사이)에 위치할 수 있다. 즉 길이가 L인 문자열이 현재 편집기에 입력되어 있으면, 커서가 위치할 수 있는 곳은 L+1가지 경우가 있다.<br />
+이 편집기가 지원하는 명령어는 다음과 같다.<br />
+L: 커서를 왼쪽으로 한 칸 옮김 (커서가 문장의 맨 앞이면 무시됨)<br />
+D: 커서를 오른쪽으로 한 칸 옮김 (커서가 문장의 맨 뒤이면 무시됨)<br />
+B: 커서 왼쪽에 있는 문자를 삭제함 (커서가 문장의 맨 앞이면 무시됨) 삭제로 인해 커서는 한 칸 왼쪽으로 이동한 것처럼 나타나지만, 실제로 커서의 오른쪽에 있던 문자는 그대로임<br />
+P $: $라는 문자를 커서 왼쪽에 추가함<br /><br /></p>
+
+<h1 id="입력">입력</h1>
+
+<p>첫째 줄에는 초기에 편집기에 입력되어 있는 문자열이 주어진다. 이 문자열은 길이가 N이고, 영어 소문자로만 이루어져 있으며, 길이는 100,000을 넘지 않는다.<br /> 
+둘째 줄에는 입력할 명령어의 개수를 나타내는 정수 M(1 ≤ M ≤ 500,000)이 주어진다. 셋째 줄부터 M개의 줄에 걸쳐 입력할 명령어가 순서대로 주어진다.<br />
+명령어는 위의 네 가지 중 하나의 형태로만 주어진다.<br /><br /></p>
+
+<h1 id="출력">출력</h1>
+
+<p>첫째 줄에 모든 명령어를 수행하고 난 후 편집기에 입력되어 있는 문자열을 출력한다.<br /></p>
+
+<h1 id="내-풀이">내 풀이</h1>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;bits/stdc++.h&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+
+<span class="kt">void</span> <span class="nf">L</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="o">&amp;</span> <span class="n">cursorIdx</span><span class="p">,</span> <span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span> <span class="n">alphabets</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">cursorIdx</span> <span class="o">!=</span> <span class="n">alphabets</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="n">cursorIdx</span><span class="o">--</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">D</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="o">&amp;</span> <span class="n">cursorIdx</span><span class="p">,</span> <span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span> <span class="n">alphabets</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="n">cursorIdx</span> <span class="o">!=</span> <span class="n">alphabets</span><span class="p">.</span><span class="n">end</span><span class="p">())</span> <span class="n">cursorIdx</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">B</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="o">&amp;</span> <span class="n">cursorIdx</span><span class="p">,</span> <span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span> <span class="n">alphabets</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">cursorIdx</span> <span class="o">!=</span> <span class="n">alphabets</span><span class="p">.</span><span class="n">begin</span><span class="p">())</span> <span class="p">{</span>
+		<span class="n">cursorIdx</span><span class="o">--</span><span class="p">;</span>
+		<span class="n">cursorIdx</span> <span class="o">=</span> <span class="n">alphabets</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">cursorIdx</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+<span class="kt">void</span> <span class="nf">P</span><span class="p">(</span><span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">iterator</span><span class="o">&amp;</span> <span class="n">cursorIdx</span><span class="p">,</span> <span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;&amp;</span> <span class="n">alphabets</span><span class="p">,</span> <span class="kt">char</span> <span class="n">c</span><span class="p">)</span> <span class="p">{</span>
+	<span class="n">cursorIdx</span> <span class="o">=</span> <span class="n">alphabets</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">cursorIdx</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+	<span class="n">cursorIdx</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="c1">// cursor가 iterator의 왼쪽에 있다고 간주함</span>
+	<span class="kt">int</span> <span class="n">len</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">M</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">string</span> <span class="n">s</span><span class="p">;</span>
+	<span class="kt">char</span> <span class="n">c</span><span class="p">,</span> <span class="n">command</span><span class="p">;</span>
+	<span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;</span> <span class="n">alphabets</span><span class="p">;</span>
+	<span class="n">list</span><span class="o">&lt;</span><span class="kt">char</span><span class="o">&gt;::</span><span class="n">iterator</span> <span class="n">cursorIdx</span> <span class="o">=</span> <span class="n">alphabets</span><span class="p">.</span><span class="n">begin</span><span class="p">();</span>
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">e</span> <span class="o">:</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">alphabets</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="n">e</span><span class="p">);</span>
+	<span class="p">}</span>
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">M</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">M</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">command</span><span class="p">;</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">command</span> <span class="o">==</span> <span class="sc">'P'</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">c</span><span class="p">;</span>
+			<span class="n">P</span><span class="p">(</span><span class="n">cursorIdx</span><span class="p">,</span> <span class="n">alphabets</span><span class="p">,</span> <span class="n">c</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">command</span> <span class="o">==</span> <span class="sc">'L'</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">L</span><span class="p">(</span><span class="n">cursorIdx</span><span class="p">,</span> <span class="n">alphabets</span><span class="p">);</span> 	
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">command</span> <span class="o">==</span> <span class="sc">'D'</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">D</span><span class="p">(</span><span class="n">cursorIdx</span><span class="p">,</span> <span class="n">alphabets</span><span class="p">);</span>
+		<span class="p">}</span>
+		<span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">command</span> <span class="o">==</span> <span class="sc">'B'</span><span class="p">)</span> <span class="p">{</span>
+			<span class="n">B</span><span class="p">(</span><span class="n">cursorIdx</span><span class="p">,</span> <span class="n">alphabets</span><span class="p">);</span>
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">e</span> <span class="o">:</span> <span class="n">alphabets</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">e</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>STL list를 사용하여 풀었는데 iterator 사용법이 잘 기억이 안나서 애를 먹었다.<br />
+또한 iterator의 특성상 커서가 iterator의 왼쪽에 있다고 생각해야 알맞게 돌아가는 것 같다.
+iterator에 관한 자세한 내용은 <a href="https://j-shine.github.io//c++/2020/07/13/iterator.html">여기로</a><br /><br /></p>
+:ET

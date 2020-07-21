@@ -1,0 +1,80 @@
+I"j(<h1 id="문제">문제</h1>
+
+<p>다솜이는 은진이의 옆집에 새로 이사왔다. 다솜이는 자기 방 번호를 예쁜 플라스틱 숫자로 문에 붙이려고 한다.<br />
+다솜이의 옆집에서는 플라스틱 숫자를 한 세트로 판다. 한 세트에는 0번부터 9번까지 숫자가 하나씩 들어있다. <br />
+다솜이의 방 번호가 주어졌을 때, 필요한 세트의 개수의 최솟값을 출력하시오. (6은 9를 뒤집어서 이용할 수 있고, 9는 6을 뒤집어서 이용할 수 있다.)<br /><br /></p>
+<h1 id="입력">입력</h1>
+
+<p>첫째 줄에 다솜이의 방 번호 N이 주어진다. N은 1,000,000보다 작거나 같은 자연수 또는 0이다.<br /><br /></p>
+
+<h1 id="출력">출력</h1>
+
+<p>첫째 줄에 필요한 세트의 개수를 출력한다.<br /><br /></p>
+
+<h1 id="내-풀이">내 풀이</h1>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;bits/stdc++.h&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="kt">int</span> <span class="n">N</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span> 
+	<span class="kt">int</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+	<span class="kt">int</span> <span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">N</span><span class="p">;</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">while</span> <span class="p">(</span><span class="n">N</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">numArr</span><span class="p">[</span><span class="n">N</span> <span class="o">%</span> <span class="mi">10</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+		<span class="n">N</span> <span class="o">/=</span> <span class="mi">10</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">+=</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">max</span> <span class="o">=</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">max</span> <span class="o">&lt;</span> <span class="n">numArr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">max</span> <span class="o">=</span> <span class="n">numArr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">else</span> <span class="n">max</span> <span class="o">=</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">max</span><span class="p">;</span>
+<span class="p">}</span>
+
+</code></pre></div></div>
+<p>나누기를 이용할 땐 0을 나누는 경우를 예외처리 해주어야 한다.<br /><br /></p>
+
+<h1 id="더-좋은-풀이">더 좋은 풀이</h1>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;bits/stdc++.h&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="n">ios_base</span><span class="o">::</span><span class="n">sync_with_stdio</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+	<span class="n">cin</span><span class="p">.</span><span class="n">tie</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="n">string</span> <span class="n">s</span><span class="p">;</span> 
+	<span class="kt">int</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">10</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">0</span> <span class="p">};</span>
+	<span class="kt">int</span> <span class="n">max</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+
+	<span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">s</span><span class="p">;</span>
+	<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">e</span> <span class="o">:</span> <span class="n">s</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">numArr</span><span class="p">[</span><span class="n">e</span> <span class="o">-</span> <span class="sc">'0'</span><span class="p">]</span><span class="o">++</span><span class="p">;</span>
+	<span class="p">}</span>
+	
+	<span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">+=</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">6</span><span class="p">];</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+	<span class="n">max</span> <span class="o">=</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">0</span><span class="p">];</span>
+	<span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="mi">9</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">max</span> <span class="o">&lt;</span> <span class="n">numArr</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="n">max</span> <span class="o">=</span> <span class="n">numArr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+	<span class="p">}</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">&gt;=</span> <span class="n">max</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="n">max</span> <span class="o">=</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+		<span class="k">else</span> <span class="n">max</span> <span class="o">=</span> <span class="n">numArr</span><span class="p">[</span><span class="mi">9</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">max</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<p>string은 문자열로서 배열 + ‘\0’이므로 string으로 받으면 바로 배열로 받은 것과 마찬가지이다.<br /><br /></p>
+:ET

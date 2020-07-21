@@ -1,0 +1,12 @@
+I"6<h1 id="바킹독님의-실전알고리즘배우기-5강듣고-요약">바킹독님의 실전알고리즘배우기 5강듣고 요약</h1>
+<p><a href="https://blog.encrypted.gg/933">바킹독의 실전 알고리즘 5강 링크</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/87318640-932f3480-c563-11ea-97cb-9ff6499f9984.png" alt="image" /><br />
+<img src="https://user-images.githubusercontent.com/61873510/87318667-9e826000-c563-11ea-8056-3c28511ea993.png" alt="image" /><br /><br /></p>
+<h1 id="스택의-성질">스택의 성질</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/87318766-ba860180-c563-11ea-8e86-78815d37d5c2.png" alt="image" /><br /><br /></p>
+<h1 id="스택의-구현">스택의 구현</h1>
+<p>```c++
+#include &lt;bits/stdc++.h&gt;
+using namespace std;</p>
+:ET

@@ -1,0 +1,43 @@
+I",<h1 id="stl-list">STL list</h1>
+<p>C++ STL에서 지원하는 list는 이중연결리스트이다.<br />
+<a href="https://j-shine.github.io//c++/2020/07/13/iterator.html">iterator</a>를 이용한다.<br /></p>
+
+<h1 id="사용-가능한-기본적인-함수">사용 가능한 기본적인 함수</h1>
+<p>이해를 돕기 위해 list가 int형일 때를 예시로 든다.<br /><br /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span><span class="p">.</span><span class="n">push_front</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+<p>-&gt; list의 맨 앞에 10을 추가한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br /><br /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span><span class="p">.</span><span class="n">push_back</span><span class="p">(</span><span class="mi">10</span><span class="p">);</span>
+</code></pre></div></div>
+<p>-&gt; list의 끝에 10을 추가한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br /><br /></p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span><span class="p">.</span><span class="n">pop_front</span><span class="p">();</span>
+</code></pre></div></div>
+<p>-&gt; list의 맨 앞 원소를 삭제한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br /><br /></p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span><span class="p">.</span><span class="n">pop_back</span><span class="p">();</span>
+</code></pre></div></div>
+<p>-&gt; list의 맨 끝 원소를 삭제한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br /><br /></p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iter</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">iter</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+</code></pre></div></div>
+<p>-&gt; iterator의 위치에 100을 삽입한다. 그리고 삽입된 위치의 iterator가 반환되므로 iter에 다시 넣는다.<br /><br /></p>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">iter</span> <span class="o">=</span> <span class="n">li</span><span class="p">.</span><span class="n">erase</span><span class="p">(</span><span class="n">iter</span><span class="p">);</span>
+</code></pre></div></div>
+<p>-&gt; iterator 위치에 있는 원소를 삭제한다. 그리고 뒤의 원소가 그 자리로 오고, 그 자리의 iterator를 반환한다.<br /><br /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span><span class="p">.</span><span class="n">front</span><span class="p">();</span>
+</code></pre></div></div>
+<p>-&gt; list의 맨 앞 원소를 반환한다.<br /><br /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span><span class="p">.</span><span class="n">back</span><span class="p">();</span>
+</code></pre></div></div>
+<p>-&gt; list의 맨 끝 원소를 반환한다.<br /><br /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span><span class="p">.</span><span class="n">empty</span><span class="p">();</span>
+</code></pre></div></div>
+<p>-&gt; list가 비어있으면 true를 반환하고, 아니면 false를 반환한다.<br /><br /></p>
+
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">li</span><span class="p">.</span><span class="n">size</span><span class="p">();</span>
+</code></pre></div></div>
+<p>-&gt; list 원소의 수를 반환한다.<br /><br /></p>
+:ET

@@ -1,0 +1,16 @@
+I"^<h1 id="바킹독님의-실전알고리즘배우기-6강듣고-요약">바킹독님의 실전알고리즘배우기 6강듣고 요약</h1>
+<p><a href="https://blog.encrypted.gg/934">바킹독의 실전 알고리즘 6강 링크</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/87649812-bc320e00-c78b-11ea-8762-1cf1bbb81891.png" alt="image" /><br />
+<img src="https://user-images.githubusercontent.com/61873510/87649899-d8ce4600-c78b-11ea-8b9a-30c5a3a6dad7.png" alt="image" /><br /><br /></p>
+<h1 id="큐의-성질">큐의 성질</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/87649957-ec79ac80-c78b-11ea-863f-d88db1c3eed6.png" alt="image" /><br /><br /></p>
+<h1 id="큐의-구현">큐의 구현</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/87650107-1fbc3b80-c78c-11ea-95e1-876a0b7b183e.png" alt="image" /><br />
+큐는 배열로 구현하면 점점 원소들이 뒤로 밀리기 때문에 큐를 구현할 땐 위 그림처럼 tail과 head가 연결되는 <strong>원형 큐로 구현하는게 좋다.</strong><br /><br />
+하지만 코딩테스트에서는 입출력의 수가 정해져있기 때문에 충분히 배열의 크기를 크게 만들기만 하면 된다.<br />
+따라서 밑의 큐 구현 코드는 선형 큐이다.<br /><br />
+```c++
+#include &lt;bits/stdc++.h&gt;
+using namespace std;</p>
+:ET

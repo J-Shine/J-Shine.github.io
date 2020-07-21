@@ -1,0 +1,18 @@
+I"[<h1 id="range-based-for-loopc11-이상에서-지원">Range-based for loop(C++11 이상에서 지원)</h1>
+<div class="language-c++ highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;bits/stdc++.h&gt;
+</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kt">int</span> <span class="n">arr</span><span class="p">[]</span> <span class="o">=</span> <span class="p">{</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span> <span class="p">};</span>
+	<span class="k">for</span> <span class="p">(</span><span class="k">auto</span> <span class="n">e</span> <span class="o">:</span> <span class="n">arr</span><span class="p">)</span> <span class="p">{</span>
+		<span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="s">"e: "</span> <span class="o">&lt;&lt;</span> <span class="n">e</span> <span class="o">&lt;&lt;</span> <span class="s">" "</span><span class="p">;</span>
+	<span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<h2 id="범위-기반-for문이-기존-for문과-다른-점">범위 기반 for문이 기존 for문과 다른 점</h2>
+<ol>
+  <li>범위 기반 for문은 <em>배열과 vector 등 순회가 가능한 데이터타입</em>을 <em>처음부터 끝까지</em> 순회하는 연산을 한다.<br />
+-&gt; 섬세한 조절이 힘들다.<br /></li>
+  <li>범위 기반 for문은 순회할 때 element에 배열의 값을 복사한다(deep copy).<br />
+-&gt; O(N)의 시간복잡도를 가진다.<br /><br /></li>
+</ol>
+:ET

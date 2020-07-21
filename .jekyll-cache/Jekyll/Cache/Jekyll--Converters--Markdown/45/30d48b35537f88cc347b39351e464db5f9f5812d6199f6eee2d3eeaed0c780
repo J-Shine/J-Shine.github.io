@@ -1,0 +1,23 @@
+I"<h1 id="바킹독님의-실전알고리즘배우기-8강듣고-요약">바킹독님의 실전알고리즘배우기 8강듣고 요약</h1>
+<p><a href="https://blog.encrypted.gg/936">바킹독의 실전 알고리즘 8강 링크</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/87847566-3d1c1180-c914-11ea-9428-3a576a404172.png" alt="image" /><br />
+<img src="https://user-images.githubusercontent.com/61873510/87847571-4c02c400-c914-11ea-9b38-110bb7b5796b.png" alt="image" /><br /><br /></p>
+
+<h1 id="스택의-괄호-쌍-문제-해결을-위한-관찰">스택의 괄호 쌍 문제 해결을 위한 관찰</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/87847877-2d053180-c916-11ea-87d3-747da06b5186.png" alt="image" /><br />
+닫는 괄호는 짝을 맞추는 명령이다.<br /><br /></p>
+
+<h1 id="수식의-괄호-쌍-문제-해결-방법">수식의 괄호 쌍 문제 해결 방법</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/87847682-14e0e280-c915-11ea-938b-feec5e8d9c89.png" alt="image" /><br />
+여는 괄호 나오면 그냥 스택에 push하고, 닫는 괄호 나오면 top()과 비교한다. 마지막으로 다 끝낸 후 스택이 비어있는지 확인한다.<br /><br /></p>
+
+<h1 id="연습문제1">연습문제1</h1>
+<p><a href="https://j-shine.github.io//baekjoon-algorithm/2020/07/18/baekjoon-4949.html">BOJ 4949번: 균형잡힌 세상</a><br /><br /></p>
+
+<h1 id="연습문제2">연습문제2</h1>
+<p><a href="https://j-shine.github.io//baekjoon-algorithm/2020/07/18/baekjoon-10799.html">BOJ 10799번: 쇠막대기</a><br /><br /></p>
+
+<h1 id="연습문제3">연습문제3</h1>
+<p><a href="https://j-shine.github.io//baekjoon-algorithm/2020/07/18/baekjoon-2504.html">BOJ 2504번: 괄호의 값</a><br /><br /></p>
+:ET

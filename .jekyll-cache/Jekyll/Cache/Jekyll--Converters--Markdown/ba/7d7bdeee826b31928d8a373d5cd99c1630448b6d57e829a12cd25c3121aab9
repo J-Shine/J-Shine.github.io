@@ -1,0 +1,18 @@
+I"!<h1 id="바킹독님의-실전알고리즘-배우기-2강-듣고-요약">바킹독님의 실전알고리즘 배우기 2강 듣고 요약</h1>
+<p><a href="https://blog.encrypted.gg/923">바킹독의 실전 알고리즘 2강 링크</a></p>
+
+<p><img src="https://user-images.githubusercontent.com/61873510/86534811-72892e00-bf16-11ea-90c3-8e916a2a86ef.png" alt="image" />
+<img src="https://user-images.githubusercontent.com/61873510/86534827-9187c000-bf16-11ea-9316-6698f80c1215.png" alt="image" /><br /></p>
+<h1 id="함수-인자-넘기기">함수 인자 넘기기</h1>
+<p><img src="https://user-images.githubusercontent.com/61873510/86534845-c7c53f80-bf16-11ea-8a75-3d50f49a64df.png" alt="image" /><br />
+답은 0, 10, 0이다.<br />
+int나 struct는 함수에 인자를 보낼 때 복사를 해서 보내기 때문이고, 배열은 주소를 보내기 때문이다.<br />
+(나는 2번을 틀려서 맴찢이었다.. 배열과 포인터에 관하여 다시 공부를 해야겠다.)<br />
+<img src="https://user-images.githubusercontent.com/61873510/86534924-9436e500-bf17-11ea-88f0-159d37510e93.png" alt="image" /><br />
+참조자(&amp;)를 사용하면 더 깔끔하다.(참조자 복습하기)<br />
+<img src="https://user-images.githubusercontent.com/61873510/86534958-cfd1af00-bf17-11ea-9ee2-02a8e8f43a63.png" alt="image" /><br />
+vector 등 STL을 함수에 인자로 전달해도 복사가 되므로 주의한다.<br />
+위와 같은 경우는 vector의 원소를 전부 복사해야 하므로 시간 복잡도가 O(N)이 된다. 따라서 이 때도 참조자(&amp;)를 이용하여 전달한다.<br />
+<img src="https://user-images.githubusercontent.com/61873510/86535061-8df53880-bf18-11ea-8683-d4a6f1388418.png" alt="image" /><br />
+한 줄을 전부 입력받고 싶을 땐 getline()을 쓰는게 좋다.<br /></p>
+:ET
