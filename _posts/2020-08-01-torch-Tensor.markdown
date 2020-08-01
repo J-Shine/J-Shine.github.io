@@ -36,25 +36,25 @@ tensor([[ 0.1000,  1.2000],
         [ 2.2000,  3.1000],
         [ 4.9000,  5.2000]])
 
-&#62;&#62;&#62; torch.tensor([0, 1])  # dtype을 지정하지 않았으므로 자동으로 유추해서 정해진다.
+>>> torch.tensor([0, 1])  # dtype을 지정하지 않았으므로 자동으로 유추해서 정해진다.
 tensor([ 0,  1])
 
-&#62;&#62;&#62; torch.tensor([[0.11111, 0.222222, 0.3333333]],
+>>> torch.tensor([[0.11111, 0.222222, 0.3333333]],
                  dtype=torch.float64,
                  device=torch.device('cuda:0'))  # torch.cuda.DoubleTensor 생성
 tensor([[ 0.1111,  0.2222,  0.3333]], dtype=torch.float64, device='cuda:0')
 
-&#62;&#62;&#62; torch.tensor(3.14159)  # 스칼라 텐서 생성(0차원 텐서)
+>>> torch.tensor(3.14159)  # 스칼라 텐서 생성(0차원 텐서)
 tensor(3.1416)
 
-&#62;&#62;&#62; torch.tensor([])  # 빈 텐서 생성 torch.Size([0])
+>>> torch.tensor([])  # 빈 텐서 생성 torch.Size([0])
 tensor([])
 ```
 <br><br>
 2.**torch.zeros(\*size)** - 0으로 이루어진 torch.Tensor 생성 <br>
   **torch.ones(\*size)** - 1로 이루어진 torch.Tensor 생성 <br><br>
 ```python
-&#62;&#62;&#62; torch.zeros(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 0인 torch.FloatTensor 생성
+>>> torch.zeros(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 0인 torch.FloatTensor 생성
 tensor([[[0., 0., 0., 0.],
          [0., 0., 0., 0.],
          [0., 0., 0., 0.]],
@@ -63,7 +63,7 @@ tensor([[[0., 0., 0., 0.],
          [0., 0., 0., 0.],
          [0., 0., 0., 0.]]])
          
-&#62;&#62;&#62; torch.ones(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 1인 torch.FloatTensor 생성
+>>> torch.ones(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 1인 torch.FloatTensor 생성
 tensor([[[1., 1., 1., 1.],
          [1., 1., 1., 1.],
          [1., 1., 1., 1.]],
