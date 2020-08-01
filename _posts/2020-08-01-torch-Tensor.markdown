@@ -19,7 +19,7 @@ device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 �
 **정수 자료형** - torch.ByteTensor, torch.CharTensor, torch.ShortTensor, torch.IntTensor, torch.LongTensor<br>
 (ByteTensor와 CharTensor는 모두 8bit(1바이트)짜리로, 전자는 unsigned, 후자는 signed이다.)<br><br>
 **논리 자료형** - torch.BoolTensor<br>
-(BoolTensor도 8bit(1바이트)이지만 bool 타입이다)<br><br>
+(BoolTensor도 8bit(1바이트)이지만 int가 아니라 bool 타입이다)<br><br>
 
 ```c++  
 li.push_front(10);
