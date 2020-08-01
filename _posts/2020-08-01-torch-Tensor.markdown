@@ -17,7 +17,7 @@ device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 �
 실수 자료형 - torch.Tensor, torch.DoubleTensor, torch.HalfTensor, torch.BFloat16Tensor<br>
 (HalfTensor와 BFloat16Tensor는 Tensor(float32)의 절반인 16bit짜리로, 전자는 담을 수 있는 숫자의 범위가 작지만 정확도가 높고, 후자는 정확도가 낮은 대신 담을 수 있는 숫자의 범위가 넓다.)<br>
 정수 자료형 - torch.ByteTensor, torch.CharTensor, torch.ShortTensor, torch.IntTensor, torch.LongTensor<br>
-(ByteTensor와 CharTensor는 모두 8bit(1바이트)짜리로, 전자는 unsigned, 후자는 signed이다.)
+(ByteTensor와 CharTensor는 모두 8bit(1바이트)짜리로, 전자는 unsigned, 후자는 signed이다.)<br>
 논리 자료형 - torch.BoolTensor<br>
 (BoolTensor도 8bit(1바이트)이지만 bool 타입이다)<br><br>
 
