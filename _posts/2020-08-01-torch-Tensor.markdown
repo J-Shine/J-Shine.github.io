@@ -21,7 +21,7 @@ device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 �
 **논리 자료형** - torch.BoolTensor<br>
 (BoolTensor도 8bit(1바이트)이지만 int가 아니라 bool 타입이다)<br><br>
 
-## **생성**
+## **생성(copy 방식)**
 # torch.tensor() 사용<br>
 python에서의 list 등 sequence 자료형을 Tensor자료형으로 바꿀 수 있다.<br>
 데이터가 copy방식으로 생성된다.<br>
@@ -53,6 +53,7 @@ tensor(3.1416)
 tensor([])
 ```
 <br><br>
+
 # torch.zeros(\*size) 사용 
 0으로 이루어진 torch.Tensor 생성<br>
 # torch.ones(\*size) 사용
@@ -75,4 +76,30 @@ tensor([[[1., 1., 1., 1.],
         [[1., 1., 1., 1.],
          [1., 1., 1., 1.],
          [1., 1., 1., 1.]]])
+```
+
+## **생성(reference 방식)**
+# torch.as_tensor() 사용<br>
+torch.Tensor같은 텐서나 ndarray를 인자로 받으면 copy 없이 reference방식으로 torch.Tensor를 만들어 리턴한다.<br>
+이외에 다른 인자를 받으면 torch.tensor()와 같이 동작한다. 단, torch.tensor()와 달리 dtype, device만 지정가능하다.<br>
+
+```python  
+>>> a = np.array([[1, 2, 3], # array a 생성
+                  [4, 5, 6],
+                  [7, 8, 9]])
+array([[1, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+       
+>>> b = torch.as_tensor(a) # torch.IntTensor b 생성
+tensor([[1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]], dtype=torch.int32)
+
+>>> b[0, 0] = 0            # b의 [0, 0]을 0으로 바꾸었더니
+>>> a                      # a의 [0, 0]도 0으로 변함
+array([[0, 2, 3],
+       [4, 5, 6],
+       [7, 8, 9]])
+
 ```
