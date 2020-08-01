@@ -31,15 +31,15 @@ Parameter
   pin_memory(bool) - dataset이 CPU에 있는데 training은 GPU에서 할 경우 이 변수를 True로 바꿈으로써 속도를 향상시킬 수 있다.[설명](https://discuss.pytorch.org/t/when-to-set-pin- 
   memory-to-true/19723/3)(default=False)<br><br>
 ```python  
->>> torch.tensor([[0.1, 1.2], [2.2, 3.1], [4.9, 5.2]])
+&#62;&#62;&#62; torch.tensor([[0.1, 1.2], [2.2, 3.1], [4.9, 5.2]])
 tensor([[ 0.1000,  1.2000],
         [ 2.2000,  3.1000],
         [ 4.9000,  5.2000]])
 
->>> torch.tensor([0, 1])  # dtype을 지정하지 않았으므로 자동으로 유추해서 정해진다.
+&#62;&#62;&#62; torch.tensor([0, 1])  # dtype을 지정하지 않았으므로 자동으로 유추해서 정해진다.
 tensor([ 0,  1])
 
->>> torch.tensor([[0.11111, 0.222222, 0.3333333]],
+\>\>\> torch.tensor([[0.11111, 0.222222, 0.3333333]],
                  dtype=torch.float64,
                  device=torch.device('cuda:0'))  # torch.cuda.DoubleTensor 생성
 tensor([[ 0.1111,  0.2222,  0.3333]], dtype=torch.float64, device='cuda:0')
