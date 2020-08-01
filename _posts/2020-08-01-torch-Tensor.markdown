@@ -22,7 +22,7 @@ device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 �
 (BoolTensor도 8bit(1바이트)이지만 int가 아니라 bool 타입이다)<br><br>
 
 # 생성
-**torch.tensor()**: python에서의 list 등 sequence 자료형을 Tensor자료형으로 바꿀 수 있다.<br>
+**torch.tensor() 사용**<br> python에서의 list 등 sequence 자료형을 Tensor자료형으로 바꿀 수 있다.<br>
 데이터가 copy방식으로 생성된다.<br>
 **torch.Tensor()와는 다르다**(torch.Tensor()는 항상 torch.FloatTensor를 만든다.)<br><br>
 Parameter<br>
@@ -52,8 +52,8 @@ tensor(3.1416)
 tensor([])
 ```
 <br><br>
-**torch.zeros(\*size)** - 0으로 이루어진 torch.Tensor 생성 <br>
-**torch.ones(\*size)** - 1로 이루어진 torch.Tensor 생성 <br><br>
+**torch.zeros(\*size) 사용**<br> - 0으로 이루어진 torch.Tensor 생성 <br>
+**torch.ones(\*size) 사용**<br> - 1로 이루어진 torch.Tensor 생성 <br><br>
 ```python
 >>> torch.zeros(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 0인 torch.FloatTensor 생성
 tensor([[[0., 0., 0., 0.],
