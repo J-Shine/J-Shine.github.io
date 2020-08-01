@@ -21,7 +21,7 @@ device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 �
 **논리 자료형** - torch.BoolTensor<br>
 (BoolTensor도 8bit(1바이트)이지만 int가 아니라 bool 타입이다)<br><br>
 
-## *생성*
+## **생성**
 # torch.tensor() 사용<br>
 python에서의 list 등 sequence 자료형을 Tensor자료형으로 바꿀 수 있다.<br>
 데이터가 copy방식으로 생성된다.<br>
