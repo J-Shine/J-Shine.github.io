@@ -6,12 +6,12 @@ categories: ["pytorch"]
 author: "J-Shine"
 ---
 
-# torch.Tensor
+## torch.Tensor
 torch.Tensor는 pytorch에서 지원하는 다차원 행렬([Tensor]()) 자료형이다.<br>
 Tensor의 원소들은 모두 한 가지의 자료형으로 통일된다.(boolean, int, float 등)<br>
 pytorch를 돌릴 때는 항상 torch.Tensor 자료형을 쓰므로 이 자료형을 자유자재로 다룰 수 있어야 한다.<br><br>
 
-# 종류
+## 종류
 device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 같은 경우 노트북에 내장그래픽카드밖에 없기 때문에 항상 CPU 자료형을 사용하고 있다.<br>
 자료형을 확인했을 때 torch.Tensor라고 표기되는 기본 자료형은 torch.FloatTensor이다.<br><br>
 **실수 자료형** - torch.Tensor, torch.DoubleTensor, torch.HalfTensor, torch.BFloat16Tensor<br>
@@ -21,8 +21,8 @@ device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 �
 **논리 자료형** - torch.BoolTensor<br>
 (BoolTensor도 8bit(1바이트)이지만 int가 아니라 bool 타입이다)<br><br>
 
-# 생성
-## torch.tensor() 사용<br>
+## 생성
+# torch.tensor() 사용<br>
 python에서의 list 등 sequence 자료형을 Tensor자료형으로 바꿀 수 있다.<br>
 데이터가 copy방식으로 생성된다.<br>
 **torch.Tensor()와는 다르다**(torch.Tensor()는 항상 torch.FloatTensor를 만든다.)<br><br>
@@ -53,9 +53,9 @@ tensor(3.1416)
 tensor([])
 ```
 <br><br>
-## torch.zeros(\*size) 사용<br>
+# torch.zeros(\*size) 사용<br>
 0으로 이루어진 torch.Tensor 생성<br>
-## torch.ones(\*size) 사용<br>
+# torch.ones(\*size) 사용<br>
 1로 이루어진 torch.Tensor 생성<br><br>
 ```python
 >>> torch.zeros(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 0인 torch.FloatTensor 생성
