@@ -31,7 +31,7 @@ Parameter
   pin_memory(bool) - dataset이 CPU에 있는데 training은 GPU에서 할 경우 이 변수를 True로 바꿈으로써 속도를 향상시킬 수 있다.[설명](https://discuss.pytorch.org/t/when-to-set-pin- 
   memory-to-true/19723/3)(default=False)<br><br>
 ```python  
-&#62;&#62;&#62; torch.tensor([[0.1, 1.2], [2.2, 3.1], [4.9, 5.2]])
+&#62; &#62; &#62; torch.tensor([[0.1, 1.2], [2.2, 3.1], [4.9, 5.2]])
 tensor([[ 0.1000,  1.2000],
         [ 2.2000,  3.1000],
         [ 4.9000,  5.2000]])
