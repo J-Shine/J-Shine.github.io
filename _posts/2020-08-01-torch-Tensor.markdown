@@ -53,10 +53,10 @@ tensor(3.1416)
 tensor([])
 ```
 <br><br>
-# torch.zeros(\*size) 사용<br>
-0으로 이루어진 torch.Tensor 생성<br>
-# torch.ones(\*size) 사용<br>
-1로 이루어진 torch.Tensor 생성<br><br>
+# torch.zeros(\*size) 사용 
+- 0으로 이루어진 torch.Tensor 생성<br>
+# torch.ones(\*size) 사용
+- 1로 이루어진 torch.Tensor 생성<br><br>
 ```python
 >>> torch.zeros(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 0인 torch.FloatTensor 생성
 tensor([[[0., 0., 0., 0.],
