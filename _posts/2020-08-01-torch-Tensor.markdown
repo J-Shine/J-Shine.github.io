@@ -22,8 +22,7 @@ device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 �
 (BoolTensor도 8bit(1바이트)이지만 int가 아니라 bool 타입이다)<br><br>
 
 # 생성
-**torch.tensor()** - python에서의 list 등 sequence 자료형을 Tensor자료형으로 바꿀 수 있다. 데이터가 copy방식으로 생성된다.<br>
-**torch.Tensor()와는 다르다(torch.Tensor()는 항상 torch.FloatTensor를 만든다.)**<br><br>
+**torch.tensor()** - python에서의 list 등 sequence 자료형을 Tensor자료형으로 바꿀 수 있다. 데이터가 copy방식으로 생성된다.**torch.Tensor()와는 다르다(torch.Tensor()는 항상 torch.FloatTensor를 만든다.)**<br><br>
 Parameter
   dtype(torch.dtype) - 데이터타입(선언하지 않으면 알아서 유추해서 정해짐)<br>
   device(torch.device) - cpu, cuda, mkldnn 등..(default=None으로 현재 device를 사용)<br>
