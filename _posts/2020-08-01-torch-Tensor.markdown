@@ -21,7 +21,54 @@ device에 따라 CPU와 GPU Tensor로 구분하여 사용하여야 한다. 나 �
 **논리 자료형** - torch.BoolTensor<br>
 (BoolTensor도 8bit(1바이트)이지만 int가 아니라 bool 타입이다)<br><br>
 
-```c++  
-li.push_front(10);
+# 생성
+1. **torch.tensor()** - python에서의 list 등 sequence 자료형을 Tensor자료형으로 바꿀 수 있다. 데이터가 copy방식으로 생성된다.<br>
+*torch.Tensor()와는 다르다(torch.Tensor()는 항상 torch.FloatTensor를 만든다.)*<br><br>
+Parameter
+  dtype(torch.dtype) - 데이터타입(선언하지 않으면 알아서 유추해서 정해짐)<br>
+  device(torch.device) - cpu, cuda, mkldnn 등..(default=None으로 현재 device를 사용)<br>
+  requires_grad(bool) - Tensor의 연산 기록 여부(torch.autograd 패키지에서 필요하다. default=False)<br>
+  pin_memory(bool) - dataset이 CPU에 있는데 training은 GPU에서 할 경우 이 변수를 True로 바꿈으로써 속도를 향상시킬 수 있다.[설명](https://discuss.pytorch.org/t/when-to-set-pin- 
+  memory-to-true/19723/3)(default=False)<br><br>
+```python  
+>>> torch.tensor([[0.1, 1.2], [2.2, 3.1], [4.9, 5.2]])
+tensor([[ 0.1000,  1.2000],
+        [ 2.2000,  3.1000],
+        [ 4.9000,  5.2000]])
+
+>>> torch.tensor([0, 1])  # dtype을 지정하지 않았으므로 자동으로 유추해서 정해진다.
+tensor([ 0,  1])
+
+>>> torch.tensor([[0.11111, 0.222222, 0.3333333]],
+                 dtype=torch.float64,
+                 device=torch.device('cuda:0'))  # torch.cuda.DoubleTensor 생성
+tensor([[ 0.1111,  0.2222,  0.3333]], dtype=torch.float64, device='cuda:0')
+
+>>> torch.tensor(3.14159)  # 스칼라 텐서 생성(0차원 텐서)
+tensor(3.1416)
+
+>>> torch.tensor([])  # 빈 텐서 생성 torch.Size([0])
+tensor([])
 ```
--> list의 맨 앞에 10을 추가한다.이 때 iterator가 가리키는 원소는 변하지 않는다.<br><br> 
+<br><br>
+2. **torch.zeros(\*size)** - 0으로 이루어진 torch.Tensor 생성 <br>
+   **torch.ones(\*size)** - 1로 이루어진 torch.Tensor 생성 <br><br>
+```python
+>>> torch.zeros(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 0인 torch.FloatTensor 생성
+tensor([[[0., 0., 0., 0.],
+         [0., 0., 0., 0.],
+         [0., 0., 0., 0.]],
+
+        [[0., 0., 0., 0.],
+         [0., 0., 0., 0.],
+         [0., 0., 0., 0.]]])
+         
+>>> torch.ones(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 1인 torch.FloatTensor 생성
+tensor([[[1., 1., 1., 1.],
+         [1., 1., 1., 1.],
+         [1., 1., 1., 1.]],
+
+        [[1., 1., 1., 1.],
+         [1., 1., 1., 1.],
+         [1., 1., 1., 1.]]])
+```
