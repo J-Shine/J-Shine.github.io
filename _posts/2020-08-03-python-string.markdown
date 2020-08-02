@@ -65,8 +65,7 @@ C:\some\name
 # +와 \* 사용
 +를 이용하면 두 문자열을 합칠 수 있고, \*를 이용하면 문자열을 반복할 수 있다.<br>
 ```python
->>> # 3 times 'un', followed by 'ium'
->>> 3 * 'un' + 'ium'
+>>> 3 * 'un' + 'ium'   # 'un' 3번 반복 후 'ium'
 'unununium'
 ```
 
