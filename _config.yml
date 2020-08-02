@@ -10,7 +10,7 @@ title: J-Log
 email: jshine1111@gmail.com
 description: Learning Diary
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://j-shine.github.io/" # the base hostname & protocol for your site
+url: "https://j-shine.github.io" # the base hostname & protocol for your site
 twitter_username: 
 github_username: J-Shine
 paginate: 10
