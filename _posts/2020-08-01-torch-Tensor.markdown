@@ -117,4 +117,4 @@ array([[0, 2, 3],
 # 기존 파이썬의 방식
 [자르고 붙이기]()
 
-[출처](pytorch.org)
+[출처](https://pytorch.org/)
