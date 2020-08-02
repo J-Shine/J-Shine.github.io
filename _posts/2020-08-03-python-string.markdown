@@ -60,5 +60,14 @@ ame
 >>> print(r'C:\some\name')  # print()함수에서 ' '앞에 r을 붙이면 raw string을 의미해서 \n이 그대로 나온다.
 C:\some\name
 ```
+<br>
+## **조작**
+# +와 * 사용
++를 이용하면 두 문자열을 합칠 수 있고, \*를 이용하면 문자열을 반복할 수 있다.<br>
+```python
+>>> # 3 times 'un', followed by 'ium'
+>>> 3 * 'un' + 'ium'
+'unununium'
+```
 
 [출처](https://docs.python.org/3/tutorial/)
