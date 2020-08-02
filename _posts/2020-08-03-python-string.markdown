@@ -76,11 +76,16 @@ print(a + 'thon')
 # 출력
 'Python'
 ```
+<br>
 # 인접한 문자열
 서로 인접한 문자열들은 그냥 합쳐진다.
-```
+```python
+>>> 'Py' 'thon'
 'Python'
-
+```
+<br>
 # 인덱스 사용
+
+
 
 [출처](https://docs.python.org/3/tutorial/)
