@@ -68,5 +68,19 @@ C:\some\name
 >>> 3 * 'un' + 'ium'   # 'un' 3번 반복 후 'ium'
 'unununium'
 ```
+변수와도 합칠 수 있다.<br>
+```python
+# 입력
+a = 'Py'
+print(a + 'thon')
+# 출력
+'Python'
+```
+# 인접한 문자열
+서로 인접한 문자열들은 그냥 합쳐진다.
+```
+'Python'
+
+# 인덱스 사용
 
 [출처](https://docs.python.org/3/tutorial/)
