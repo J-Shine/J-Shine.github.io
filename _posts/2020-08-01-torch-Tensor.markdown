@@ -54,10 +54,17 @@ tensor([])
 ```
 <br><br>
 
-# torch.zeros(\*size) 사용 
+# torch.zeros() 사용 
 0으로 이루어진 torch.Tensor 생성<br>
-# torch.ones(\*size) 사용
-1로 이루어진 torch.Tensor 생성<br><br>
+# torch.ones() 사용
+1로 이루어진 torch.Tensor 생성<br>
+Parameter<br>
+  size(int...) - 텐서의 모양(shape) 설정. 그냥 (1, 2) 이런식으로 해도 되고 list나 tuple도 가능<br>
+  out(Tensor) - output을 어느 객체에 집어넣을 것인지 정함(a = torch.ones(\*size)와 같은 효과)<br>
+  dtype(torch.dtype) - 데이터타입(선언하지 않으면 알아서 유추해서 정해짐)<br>
+  layout(torch.layout) - sparse한 텐서를 만들 때 지정해준다.(선언하지 않으면 기본적인 dense 텐서로 간주하여 default=torch.strided)
+  device(torch.device) - cpu, cuda, mkldnn 등..(default=None으로 현재 device를 사용)<br>
+  requires_grad(bool) - Tensor의 연산 기록 여부(torch.autograd 패키지에서 필요하다. default=False)<br><br>
 ```python
 >>> torch.zeros(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 0인 torch.FloatTensor 생성
 tensor([[[0., 0., 0., 0.],
@@ -67,15 +74,17 @@ tensor([[[0., 0., 0., 0.],
         [[0., 0., 0., 0.],
          [0., 0., 0., 0.],
          [0., 0., 0., 0.]]])
+>>>
          
->>> torch.ones(2, 3, 4)  # 크기가 2 X 3 X 4의 원소가 1인 torch.FloatTensor 생성
-tensor([[[1., 1., 1., 1.],
-         [1., 1., 1., 1.],
-         [1., 1., 1., 1.]],
+>>> torch.ones((2, 3, 4), out=a, dtype=torch.int64, device=torch.device('cpu'))  # 크기가 2 X 3 X 4의 원소가 1인 torch.LongTensor를 cpu에 있는 a라는 텐서에 생성
+tensor([[[1, 1, 1, 1],
+         [1, 1, 1, 1],
+         [1, 1, 1, 1]],
 
-        [[1., 1., 1., 1.],
-         [1., 1., 1., 1.],
-         [1., 1., 1., 1.]]])
+        [[1, 1, 1, 1],
+         [1, 1, 1, 1],
+         [1, 1, 1, 1]]])
+
 ```
 
 ## **생성(reference 방식)**
@@ -103,3 +112,8 @@ array([[0, 2, 3],
        [7, 8, 9]])
 
 ```
+
+## **조작**
+# 기존 파이썬의 방식
+[자르고 붙이기]()
+
