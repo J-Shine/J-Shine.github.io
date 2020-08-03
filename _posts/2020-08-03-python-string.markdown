@@ -135,7 +135,6 @@ a[0] = 'J'
 TypeError                                
 Traceback (most recent call last)
 
-<ipython-input-194-750b7345e304> in <module>
       1 a = 'Python'
 ----> 2 a[0] = 'J'
       3 
