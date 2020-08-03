@@ -18,9 +18,9 @@ author: "J-Shine"
 >>> a
 [1, 4, 9, 16, 25]
 ```
-<br><br>
+<br>
 
-반드시 하나의 자료형으로 통일할 필요가 없고, 서로 달라도 된다.<br><br>
+반드시 하나의 자료형으로 통일할 필요가 없고, 서로 달라도 된다.<br>
 ```python
 # 입력
 a = [1, 1.23, 'Python', True] # 여러가지 데이터 타입으로 list 생성
@@ -50,6 +50,10 @@ IndexError: list index out of range
 <br><br>
 
 list 안에 list를 넣을 수도 있다.<br>
+
+
+
+
 
 ## **조작**
 
