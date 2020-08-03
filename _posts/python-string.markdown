@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "str in python"
-date:   2020-08-02 22:00
+date:   2020-08-03 18:00
 categories: ["python"]
 author: "J-Shine"
 ---
