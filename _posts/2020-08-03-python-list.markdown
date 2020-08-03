@@ -10,7 +10,7 @@ author: "J-Shine"
 파이썬에서 list는 여러가지 자료형의 객체를 차례로 담을 수 있다.<br>
 
 ## **생성**
-
+<br><br>
 **[]**를 이용하면 list가 생성된다. 각 객체들은 ,로 구분한다.<br>
 
 ```python
@@ -18,7 +18,6 @@ author: "J-Shine"
 >>> a
 [1, 4, 9, 16, 25]
 ```
-<br>
 
 반드시 하나의 자료형으로 통일할 필요가 없고, 서로 달라도 된다.<br>
 ```python
@@ -47,13 +46,19 @@ Traceback (most recent call last)
 
 IndexError: list index out of range
 ```
-<br><br>
 
 list 안에 list를 넣을 수도 있다.<br>
+```python
+# 입력
+x = [['a', 'b', 'c'], [1, 2, 3]]
+print(x[1])
+print(x[1][1])
 
-
-
-
+#출력
+[1, 2, 3]
+2
+```
+<br><br>
 
 ## **조작**
 
