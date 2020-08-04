@@ -108,6 +108,30 @@ print(letters)
 ```
 <br><br>
 
+# del 이용
+del과 인덱싱, 슬라이싱을 이용하여 원소를 삭제할 수 있다.<br>
+```python
+>>> a = [-1, 1, 66.25, 333, 333, 1234.5]
+>>> del a[0]
+>>> a
+[1, 66.25, 333, 333, 1234.5]
+>>> del a[2:4]
+>>> a
+[1, 66.25, 1234.5]
+>>> del a[:]
+>>> a
+[]
+>>> del a
+>>> a
+NameError                                 
+Traceback (most recent call last)
+
+      1 del a
+----> 2 a
+
+NameError: name 'a' is not defined
+```
+
 # 함수 이용
 **list.append(x)**<br>
 list의 끝에 객체 x를 저장한다. a\[len(a):] = \[x]와 같다.<br>
