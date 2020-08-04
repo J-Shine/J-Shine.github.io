@@ -252,7 +252,7 @@ list 원소들의 위치를 정반대로 만든다.<br>
 [4, 8, 3, 5, 1]
 ```
 
-**list.copy()**
+**list.copy()**<br>
 list의 shallow copy를 반환한다.<br>
 a\[:]와 같다.<br>
 ```python
