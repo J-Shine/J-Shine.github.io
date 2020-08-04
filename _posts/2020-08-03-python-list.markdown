@@ -64,9 +64,10 @@ print(x[1][1])
 ```python
 >>> list()
 []
->>> list([1, 2, 3]
+>>> list([1, 2, 3])
 [1, 2, 3]
 ```
+<br>
 **for문**을 이용하여 list를 생성할 수도 있다.<br>
 \[x for y in iterable] 형태로 사용 <br>
 iterable한 객체를 순서대로 y라고 했을 때 그 자리에 x를 넣는다.<br>
@@ -82,7 +83,6 @@ print(type(b[0]))
 [[1, 1.23, 'Python', True], [1, 1.23, 'Python', True], [1, 1.23, 'Python', True]]
 <class 'list'>
 ```
-
 <br><br>
 
 ## **조작**
@@ -112,47 +112,147 @@ print(letters)
 **list.append(x)**<br>
 list의 끝에 객체 x를 저장한다. a\[len(a):] = \[x]와 같다.<br>
 ```python
->>> a = list([1, 2, 3])
+>>> a = list((1, 2, 3))
 >>> a.append(4)
 [1, 2, 3, 4]
+>>> a[len(a):] = [5]
+[1, 2, 3, 4, 5]
 ```
 
-list.extend(iterable)
-Extend the list by appending all the items from the iterable. Equivalent to a[len(a):] = iterable.
+**list.extend(iterable)**<br>
+list의 끝에 iterable한 객체의 원소들을 차례로 추가한다. a[len(a):] = iterable과 같다.<br>
+```python
+>>> a = list([1, 2, 3])
+>>> a.extend([4, 5])
+[1, 2, 3, 4, 5]
+```
+**list.insert(i, x)**<br>
+i는 list의 index, x는 삽입할 객체이다.<br>
+i 자리에 x 객체를 삽입한다.<br>
+```python
+>>> a = list([1, 2, 3])
+>>> a.insert(1, [4, 5])
+>>> a
+[1, [4, 5], 2, 3]
+```
+**list.remove(x)**<br>
+list를 0부터 차례로 훑어가며 가장 처음 만나는 x를 삭제한다.<br>
+list에 x가 존재하지 않을 경우 ValueError가 발생한다.<br>
+```python
+>>> a = [1, [4, 5], 2, 3]
+>>> a.remove(2)
+>>> a
+[1, [4, 5], 3]
+```
+**list.pop(i)**<br>
+i번째에 있는 원소를 삭제하고 반환한다.<br>
+index를 지정하지 않을 경우 가장 끝의 원소를 삭제하고 반환한다.<br>
+```python
+>>> a = [1, [4, 5], 2, 3]
+>>> a.pop()
+3
+>>> a
+[1, [4, 5], 2]
+>>> a.pop(1)
+[4, 5]
+>>> a
+[1, 2]
+```
+**list.clear()**<Br>
+list의 모든 원소를 제거한다. a\[:]와 같다.<br>
+```python
+>>> a = [1, [4, 5], 2, 3]
+>>> a.clear()
+>>> a
+[]
+>>> a = [1, [4, 5], 2, 3]
+>>> a[:] = []
+>>> a
+[]
+```
 
-list.insert(i, x)
-Insert an item at a given position. The first argument is the index of the element before which to insert, so a.insert(0, x) inserts at the front of the list, and a.insert(len(a), x) is equivalent to a.append(x).
+**list.index(x, start, end)**<br>
+list를 처음부터 끝까지 훑으면서 가장 처음 만나는 x의 index를 반환한다.<br>
+start나 end를 설정할 경우 슬라이싱처럼 탐색 범위를 제한한다.<br>
 
-list.remove(x)
-Remove the first item from the list whose value is equal to x. It raises a ValueError if there is no such item.
+**list.count(x)**<br>
+list에 x가 몇 개 있는지 반환한다.<br>
 
-list.pop([i])
-Remove the item at the given position in the list, and return it. If no index is specified, a.pop() removes and returns the last item in the list. (The square brackets around the i in the method signature denote that the parameter is optional, not that you should type square brackets at that position. You will see this notation frequently in the Python Library Reference.)
+**list.sort(key=None, reverse=False)**<br>
+list를 정렬한다.<br>
+Parameter<br>
+    key - 정렬하는 기준을 정한다. default=None(첫 원소부터 차례대로)<br>
+    reverse - True일 땐 내림차순, False일 땐 오름차순이다. default=False<br>
+```python
+# 입력
+l = [
+    ['john', 'A', 15],
+    ['jane', 'B', 12],
+    ['dave', 'B', 10],
+    ['dave', 'A', 10]
+]
+l.sort()
+print(l)
 
-list.clear()
-Remove all items from the list. Equivalent to del a[:].
+# 출력
+[['dave', 'A', 10], ['dave', 'B', 10], ['jane', 'B', 12], ['john', 'A', 15]]
+```
+operator 모듈의 itemgetter(), attrgetter(), methodcaller()를 이용하면 key를 사용하기 편리하다.<br>
+```python
+# 입력
+from operator import itemgetter
+l = [
+    ['john', 'A', 15],
+    ['jane', 'B', 12],
+    ['dave', 'B', 10],
+    ['dave', 'A', 10]
+]
+l.sort(key=itemgetter(2,1))        # 3번째 열 기준으로 배열, 만약 같으면 2번째 열이 다음 기준
+print(l)
 
-list.index(x[, start[, end]])
-Return zero-based index in the list of the first item whose value is equal to x. Raises a ValueError if there is no such item.
+# 출력
+[['dave', 'A', 10], ['dave', 'B', 10], ['jane', 'B', 12], ['john', 'A', 15]]
 
-The optional arguments start and end are interpreted as in the slice notation and are used to limit the search to a particular subsequence of the list. The returned index is computed relative to the beginning of the full sequence rather than the start argument.
+# 입력
+class Student:
+    def __init__(self, name, grade, age):
+        self.name = name
+        self.grade = grade
+        self.age = age
+    def __repr__(self):
+        return repr([self.name, self.grade, self.age])
+student_objects = [
+    Student('john', 'A', 15),
+    Student('jane', 'B', 12),
+    Student('sam', 'B', 10),
+    Student('dave', 'B', 10)
+]
+student_objects.sort(key=attrgetter('age','name'))  # age를 첫 번째 기준, name을 두 번째 기준으로 정렬.
+print(student_objects)
 
-list.count(x)
-Return the number of times x appears in the list.
+# 출력
+[['dave', 'B', 10], ['sam', 'B', 10], ['jane', 'B', 12], ['john', 'A', 15]]
 
-list.sort(key=None, reverse=False)
-Sort the items of the list in place (the arguments can be used for sort customization, see sorted() for their explanation).
+```
 
-list.reverse()
-Reverse the elements of the list in place.
+**list.reverse()**<br>
+list 원소들의 위치를 정반대로 만든다.<br>
+```python
+>>> l = [1, 5, 3, 8, 4]
+>>> l.reverse()
+>>> l
+[4, 8, 3, 5, 1]
+```
 
-list.copy()
-Return a shallow copy of the list. Equivalent to a[:].
-
-
-
-
-
+**list.copy()**
+list의 shallow copy를 반환한다.<br>
+a\[:]와 같다.<br>
+```python
+>>> l = [1, 5, 3, 8, 4]
+>>> l2= l.copy()
+>>> l2
+[1, 5, 3, 8, 4]
+```
 
 
 
