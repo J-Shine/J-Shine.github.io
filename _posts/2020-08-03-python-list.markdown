@@ -8,6 +8,7 @@ author: "J-Shine"
 
 ## **list**
 파이썬에서 list는 여러가지 자료형의 객체를 차례로 담을 수 있다.<br>
+tuple또는 numpy와 비슷하지만 tuple과 달리 mutable하고 numpy와 달리 heterogeneous한 원소들을 허용한다.<br>
 
 ## **생성**
 **[]**를 이용하면 list가 생성된다. 각 객체들은 ,로 구분한다.<br>
