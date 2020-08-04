@@ -219,7 +219,8 @@ print(l)
 
 # 출력
 [['dave', 'A', 10], ['dave', 'B', 10], ['jane', 'B', 12], ['john', 'A', 15]]
-
+```
+```python
 # 입력
 class Student:
     def __init__(self, name, grade, age):
