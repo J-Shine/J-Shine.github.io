@@ -174,10 +174,18 @@ list의 모든 원소를 제거한다. a\[:]와 같다.<br>
 **list.index(x, start, end)**<br>
 list를 처음부터 끝까지 훑으면서 가장 처음 만나는 x의 index를 반환한다.<br>
 start나 end를 설정할 경우 슬라이싱처럼 탐색 범위를 제한한다.<br>
-
+```python
+>>> a = [2, 3, 1, 1, 1]
+>>> a.index(1, 3, 5)    # 3~4에 있는 index 중 처음 만나는 1의 index 반환
+3
+```
 **list.count(x)**<br>
 list에 x가 몇 개 있는지 반환한다.<br>
-
+```python
+>>> a = [2, 3, 1, 1, 1]
+>>> a.count(1)
+3
+```
 **list.sort(key=None, reverse=False)**<br>
 list를 정렬한다.<br>
 Parameter<br>
