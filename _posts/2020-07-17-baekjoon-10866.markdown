@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[10866번] 덱"
+title:  "[백준 10866번] 덱"
 date:   2020-07-17 18:25
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 10866번] 덱 C++ 풀이
 # 시간 제한
 0.5초<br><br>
 
