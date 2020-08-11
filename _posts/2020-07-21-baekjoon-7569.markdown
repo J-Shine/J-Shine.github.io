@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[7569번] 토마토"
+title:  "[백준 7569번] 토마토"
 date:   2020-07-21 21:40
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 7569번] 토마토 C++ 풀이
 # 시간 제한
 1초<br><br>
 
