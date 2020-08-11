@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[1874번] 스택 수열"
+title:  "[백준 1874번] 스택 수열"
 date:   2020-07-15 19:30
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 1874번] 스택 수열 C++ 풀이
 # 시간 제한
 2초<br><br>
 
