@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[1158번] 요세푸스 문제"
+title:  "[백준 1158번] 요세푸스 문제"
 date:   2020-07-13 19:00
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 1158번] 요세푸스 문제 C++ 풀이
 # 시간 제한
 2초<br><br>
 
