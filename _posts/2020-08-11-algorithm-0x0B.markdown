@@ -28,7 +28,7 @@ author: "J-Shine"
 # 재귀함수의 조건
 ![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FbvspRF%2FbtqENZiCNVb%2FKwu0ixB2aL1aAmWAr0FKPk%2Fimg.png)<br>
 재귀함수에서는 반드시 특정 입력에 대해서는 자기 자신을 호출하지 않고 종료되어야 한다.(base condition)<br>
-또한 모든 입력은 base condition으로 **수렴**해야 한다.<br><br>
+또한 **모든 입력은 base condition으로 수렴**해야 한다.<br><br>
 
 # 재귀함수에 대한 정보
 ![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Flm5gG%2FbtqEP4ITBlr%2F7qMbW1vj3zwDL7XmUxUxu0%2Fimg.png)<br>
