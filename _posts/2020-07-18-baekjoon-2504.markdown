@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[2504번] 괄호의 값"
+title:  "[백준 2504번] 괄호의 값"
 date:   2020-07-18 22:45
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 2504번] 괄호의 값 C++ 풀이
 # 시간 제한
 1초<br><br>
 
