@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[10093번] 숫자"
+title:  "[백준 10093번] 숫자"
 date:   2020-07-06 01:20
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 10093번] 숫자 C++ 풀이
 # 문제  
 
 두 양의 정수가 주어졌을 때, 두 수 사이에 있는 정수를 모두 출력하는 프로그램을작성하시오.<br><br>
