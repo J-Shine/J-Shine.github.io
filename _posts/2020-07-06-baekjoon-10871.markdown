@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[10871번] X보다 작은 수"
+title:  "[백준 10871번] X보다 작은 수"
 date:   2020-07-06 00:41
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 10871번] X보다 작은 수 C++ 풀이
 # 문제  
 
 정수 N개로 이루어진 수열 A와 정수 X가 주어진다. 이때, A에서 X보다 작은 수를 모두 출력하는 프로그램을 작성하시오.<br><br>
