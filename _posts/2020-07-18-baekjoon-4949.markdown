@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[4949번] 균형잡힌 세상"
+title:  "[백준 4949번] 균형잡힌 세상"
 date:   2020-07-18 22:05
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 4949번] 균형잡힌 세상 C++ 풀이
 # 시간 제한
 1초<br><br>
 
