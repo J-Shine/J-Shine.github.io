@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[10828번] 스택"
+title:  "[백준 10828번] 스택"
 date:   2020-07-16 22:35
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 10828번] 스택 C++ 풀이
 # 시간 제한
 0.5초<br><br>
 
