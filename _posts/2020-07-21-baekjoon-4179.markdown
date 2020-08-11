@@ -1,10 +1,11 @@
 ---
 layout: post
-title:  "[4179번] 불!"
+title:  "[백준 4179번] 불!"
 date:   2020-07-21 23:00
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
+# \[백준 4179번] 불! C++ 풀이
 # 시간 제한
 1초<br><br>
 
