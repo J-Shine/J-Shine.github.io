@@ -1,11 +1,11 @@
 ---
 layout: post
-title:  "[15552번] 빠른 A+B"
+title:  "[백준 15552번] 빠른 A+B"
 date:   2020-07-05 00:11
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
-
+# \[백준 15552번] 빠른 A+B C++ 풀이
 # 문제
 
 본격적으로 for문 문제를 풀기 전에 주의해야 할 점이 있다. 입출력 방식이 느리면 여러 줄을 입력받거나 출력할 때 시간초과가 날 수 있다는 점이다.<br>
