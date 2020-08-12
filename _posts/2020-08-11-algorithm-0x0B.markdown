@@ -90,7 +90,7 @@ n개의 원판을 옮기는 법은 위와 같이 3단계로 나누어 생각할 
 n개의 원판을 옮길 수 있으면 n-1개의 원판도 옮길 수 있으므로 결국 f(n)을 f(n-1)로 표현 하면 된다.<br>
 이를 구체화하기 위해선 아래처럼 함수의 정의 base condition, 재귀 식을 생각해준다.<br>
 ![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FvrZfm%2FbtqEOaqORJL%2F3sFJWQ4KxakszOpavndg10%2Fimg.png)<br>
-
+아래는 바킹독님 풀이<br>
 ```c++
 // http://boj.kr/f2440915dca04aaa9aec759080516973
 #include <bits/stdc++.h>
@@ -129,7 +129,7 @@ func 함수가 n개의 원판을 1번에서 3번으로 모두 옮기는 함수�
 3번째 작은 사각형은 첫번째와 두번째 작은 사각형을 모두 돌고나서 시작되므로 앞의 사각형 값을 모두 더해주고 나서 func(n-1)을 다시 부르는 방식으로 재귀함수를 만든다.<br>
 ![image](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2Fr315x%2FbtqEPgxcyOL%2Fz3AKdgjKKcczoPaFjgoB61%2Fimg.png)<br>
 따라서 위 슬라이드처럼 재귀식이 나온다.<br>
-
+아래는 바킹독님 풀이<br>
 ```c++
 #include <bits/stdc++.h>
 using namespace std;
