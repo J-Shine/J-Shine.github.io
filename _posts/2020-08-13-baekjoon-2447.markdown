@@ -1,0 +1,114 @@
+---
+layout: post
+title:  "[백준 2447번] 별 찍기 - 10"
+date:   2020-08-13 21:01
+categories: ["baekjoon-algorithm"]
+author: "J-Shine"
+---
+# \[백준 2447번] 별 찍기 - 10 C++ 풀이
+# 시간 제한
+1초<br><br>
+
+# 메모리 제한
+256MB<br><br>
+
+# 문제  
+재귀적인 패턴으로 별을 찍어 보자. N이 3의 거듭제곱(3, 9, 27, ...)이라고 할 때, 크기 N의 패턴은 N×N 정사각형 모양이다.<br>
+크기 3의 패턴은 가운데에 공백이 있고, 가운데를 제외한 모든 칸에 별이 하나씩 있는 패턴이다.<br>
+```
+***
+* *
+***
+```
+N이 3보다 클 경우, 크기 N의 패턴은 공백으로 채워진 가운데의 (N/3)×(N/3) 정사각형을 크기 N/3의 패턴으로 둘러싼 형태이다. 예를 들어 크기 27의 패턴은 예제 출력 1과 같다.<br><br>
+
+# 입력  
+첫째 줄에 N이 주어진다. N은 3의 거듭제곱이다. 즉 어떤 정수 k에 대해 N=3k이며, 이때 1 ≤ k < 8이다.<br><br>
+
+# 출력  
+첫째 줄부터 N번째 줄까지 별을 출력한다.<br><br>
+
+# 내 맞은 풀이**
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int N(0);
+char board[2200][2200] = {};
+
+// x가 행, y가 열
+void blanks(int n, int x, int y) {
+	if (n == 3) {
+		board[x + 1][y + 1] = ' ';                    // 한 변이 3인 정사각형의 가운데 부분을 ' ' 를 이용하여 구멍을 뚫음
+		return;
+	}
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (i == 1 && j == 1) {                     // 한 변이 n일 때 가운데 부분을 ' '를 이용하여 구멍 뚫음
+				for (int k = x + n / 3; k < x + 2 * (n / 3); k++) {
+					for (int l = y + n / 3; l < y + 2 * (n / 3); l++) {
+						board[k][l] = ' ';
+					}
+				}
+			}
+			else
+				blanks(n / 3, x + i * (n / 3), y + j * (n / 3)); // 가운데가 아닌 경우 다시 n/3으로 다시 함수 부름
+		}
+	}
+}
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	cin >> N; 
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			board[i][j] = '*';
+		}
+	}
+	blanks(N, 0, 0);
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N; j++) {
+			cout << board[i][j];
+		}
+		cout << "\n";
+	}
+}
+```
+어찌어찌 짜서 맞긴 했는데 위 코드는 뭔가.. 부족한 것 같다.<br>
+미리 \*를 채워넣고 구멍을 뚫는 방식으로 했는데 심플하게 수렴할 수 있는 base condition을 찾는데에 실패하였다.<br>
+base condition에서 구현한 것을 함수에서 한 번 더 구현하였기 때문에 코드에 중복된 부분이 있다.<br>
+그래서 다른 고수분의 코드를 가져와보았다.<br><br>
+
+아래는 바킹독님 풀이<br>
+```c++
+// https://blog.encrypted.gg/137
+#include <stdio.h>
+char map[2300][2300];
+void solve(int N, int x, int y) {
+	if (N == 1) {
+		map[x][y] = '*';
+		return;
+	}
+	for (int i = 0; i < 3; i++) {
+		for (int j = 0; j < 3; j++) {
+			if (i == 1 && j == 1)
+				continue;
+			solve(N / 3, x + N / 3 * i, y + N / 3 * j);
+		}
+	}
+}
+int main(void) {
+	int N;
+	scanf("%d", &N);
+	for (int i = 0; i < N; i++)
+		for (int j = 0; j < N; j++)
+			map[i][j] = ' ';
+	solve(N, 0, 0);
+	for (int i = 0; i < N; i++)
+		printf("%s\n", map[i]);
+}
+```
+구멍을 뚫는게 아니라 \*를 직접 그리는 방식으로 구현.<br>
+9개 영역으로 나누어 가운데 영역만 스킵하고 나머지는 재귀함수를 불러 base condition에서 '\*'을 그린다.<br>
+너무 깔끔하다<br><br>
