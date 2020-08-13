@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "[백준 2448번] 별 찍기 - 11"
+date:   2020-08-13 21:22
+categories: ["baekjoon-algorithm"]
+author: "J-Shine"
+---
+# \[백준 2448번] 별 찍기 - 11 C++ 풀이
+# 시간 제한
+1초<br><br>
+
+# 메모리 제한
+256MB<br><br>
+
+# 문제  
+예제를 보고 규칙을 유추한 뒤에 별을 찍어 보세요.<br><br>
+
+# 입력  
+첫째 줄에 N이 주어진다. N은 항상 3×2k 수이다. (3, 6, 12, 24, 48, ...) (k ≤ 10)<br><br>
+
+# 출력  
+첫째 줄부터 N번째 줄까지 별을 출력한다.<br><br>
+
+# 내 맞은 풀이
+
+```c++
+#include<bits/stdc++.h>
+using namespace std;
+int N(0);
+char board[3100][6200] = {};
+
+// x가 행, y가 열
+void stars(int n, int x, int y) {
+	if (n == 3) {
+		board[x][y + 2] = '*';
+		board[x + 1][y + 1] = '*'; board[x + 1][y + 3] = '*';
+		for (int i = 0; i < 5; i++) board[x + 2][y + i] = '*';
+		return;
+	}
+	stars(n / 2, x, y + n / 2);
+	for (int i = 0; i < 3; i++) {
+		if (i == 1) continue;
+		stars(n / 2, x + n / 2, y + i * (n / 2));
+	}
+}
+
+
+int main() {
+	ios_base::sync_with_stdio(0);
+	cin.tie(0);
+	cin >> N; 
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N * 2; j++) {
+			board[i][j] = ' ';
+		}
+	}
+	stars(N, 0, 0);
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < N * 2; j++) {
+			cout << board[i][j];
+		}
+		cout << "\n";
+	}
+}
+```
+자세히 보면 3줄짜리 작은 삼각형이 반복되는 그림이다.<br>
+이 삼각형을 base condition으로 두고 이로 수렴하는 재귀함수를 짜면 된다.<br>
+이 때 편의상 삼각형들을 그 크기에 꼭 맞는 사각형이 둘러싸고 있다고 생각하면 좌표를 설정하기가 쉽다.<br><br>
