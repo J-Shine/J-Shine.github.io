@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "[백준 15650번] 백트래킹"
+title:  "[백준 15650번] N과 M(2)"
 date:   2020-08-28 19:48
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
