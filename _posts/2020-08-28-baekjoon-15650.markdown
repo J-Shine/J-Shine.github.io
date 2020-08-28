@@ -5,7 +5,7 @@ date:   2020-08-28 19:48
 categories: ["baekjoon-algorithm"]
 author: "J-Shine"
 ---
-# \[백준 2448번] N과 M(2) C++ 풀이
+# \[백준 15650번] N과 M(2) C++ 풀이
 # 시간 제한
 1초<br><br>
 
